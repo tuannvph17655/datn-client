@@ -1,0 +1,119 @@
+<header class="header-area header-padding-1 sticky-bar header-res-padding clearfix">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-2 col-lg-2 col-md-6 col-4">
+        <div class="logo">
+          <a href="index.html">
+            <img alt="" src="assets/img/logo/logo.png">
+          </a>
+        </div>
+      </div>
+      <div class="col-xl-8 col-lg-8 d-none d-lg-block">
+        <div class="main-menu">
+          <nav>
+            <ul>
+              <li><a routerLink="/home">TRANG CHỦ</a></li>
+              <li><a routerLink="/shop">SẢN PHẨM</a></li>
+              <!-- <li><a href="shop.html">Collection</a></li> -->
+              <li><a href="#">TRANG<i class="fa fa-angle-down"></i></a>
+                <ul class="submenu">
+                  <li><a href="about.html">about us</a></li>
+                  <li><a href="cart-page.html">cart page</a></li>
+                  <li><a href="checkout.html">checkout </a></li>
+                  <li><a href="wishlist.html">wishlist </a></li>
+                  <li><a href="my-account.html">my account</a></li>
+                  <li><a href="login-register.html">login / register </a></li>
+                  <li><a href="contact.html">contact us </a></li>
+                  <li><a href="404.html">404 page </a></li>
+                </ul>
+              </li>
+              <li><a href="#">TIN TỨC</a>
+
+              </li>
+              <li><a href="about.html">VỀ CHÚNG TÔI</a></li>
+              <li><a routerLink="/contact">LIÊN HỆ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="col-xl-2 col-lg-2 col-md-6 col-8">
+        <div class="header-right-wrap">
+          <div class="same-style header-search">
+            <a class="search-active" href="#"><i class="pe-7s-search"></i></a>
+            <div class="search-content">
+              <form action="#">
+                <input type="text" placeholder="Search" />
+                <button class="button-search"><i class="pe-7s-search"></i></button>
+              </form>
+            </div>
+          </div>
+          <div class="same-style account-satting header-tool user">
+            <a class="account-satting-active" href="#"><i class="pe-7s-user-female"></i></a>
+            <div *ngIf="!isLoggedIn">
+              <ul class="account_header">
+                <li>
+                  <a (click)="openSignUp()">Đăng ký</a>
+                </li>
+                <li>
+                  <a (click)="openSignIn()">Đăng nhập</a>
+                </li>
+              </ul>
+            </div>
+
+            <div *ngIf="isLoggedIn">
+              <ul class="account_header">
+                <li>
+                  <a routerLink="user/profile">Tài khoản</a>
+                </li>
+                <li>
+                  <a routerLink="user/change-password">Đổi mật khẩu</a>
+                </li>
+                <li>
+                  <a (click)="logout()">Đăng xuất</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <div class="same-style header-wishlist" *ngIf="isLoggedIn">
+            <a routerLink="/wishlist"><i class="pe-7s-like"></i></a>
+          </div>
+          <div class="same-style cart-wrap" *ngIf="isLoggedIn">
+            <button class="icon-cart" routerLink="/cart">
+              <i class="pe-7s-shopbag"></i>
+              <span class="count-style">{{cartItem?.countItem}}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu-area">
+      <div class="mobile-menu">
+        <nav id="mobile-menu-active">
+          <ul class="menu-overflow">
+            <li><a href="index.html">TRANG CHỦ</a>
+            </li>
+            <li><a href="shop.html">SẢN PHẨM</a>
+            </li>
+            <li><a href="shop.html">BỘ SƯU TẬP</a></li>
+            <li><a href="#">TRANG</a>
+              <ul>
+                <li><a href="about.html">VỀ CHÚNG TÔI</a></li>
+                <li><a href="cart-page.html">cart page</a></li>
+                <li><a href="checkout.html">checkout </a></li>
+                <li><a href="wishlist.html">wishlist </a></li>
+                <li><a href="my-account.html">my account</a></li>
+                <li><a href="login-register.html">login / register </a></li>
+                <li><a href="contact.html">contact us </a></li>
+                <li><a href="404.html">404 page </a></li>
+              </ul>
+            </li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>

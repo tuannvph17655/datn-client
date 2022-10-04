@@ -1,0 +1,163 @@
+
+<div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
+  <div class="container">
+      <div class="breadcrumb-content text-center">
+          <ul>
+              <li>
+                  <a routerLink="/home">TRANG CHỦ</a>
+              </li>
+              <li class="active">SẢN PHẨM</li>
+          </ul>
+      </div>
+  </div>
+</div>
+<div class="shop-area pt-95 pb-100">
+  <div class="container">
+      <div class="row flex-row-reverse">
+          <div class="col-lg-9">
+              <div class="shop-top-bar">
+                  <div class="select-shoing-wrap">
+
+                      <div class="shop-select">
+                          <select>
+                              <option value="">Mặc định</option>
+                              <option value="createDate">Mới nhất</option>
+                              <option value="name,asc">Từ A - Z</option>
+                              <option value="name,desc">Từ Z đến A</option>
+                              <option value="price,desc">Giá giảm dần</option>
+                              <option value="price,asc">Giá tăng dần</option>
+                          </select>
+                      </div>
+
+                      <!-- <p style="margin-left: 569px;">Có {{totalElements}} sản phẩm</p> -->
+
+                  </div>
+
+                </div>
+              <div class="shop-bottom-area mt-35">
+                <div class="tab-content jump">
+                    <div id="shop-1" class="tab-pane active">
+                        <div class="row">
+                            <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6" *ngFor="let product of products" >
+                                <div class="product-wrap mb-25 scroll-zoom" data-sr-id="1" style=" visibility: visible;  -webkit-transform: translateY(0) scale(1); opacity: 1;transform: translateY(0) scale(1); opacity: 1;-webkit-transition: -webkit-transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; transition: transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; ">
+                                    <div class="product-img">
+                                      <a [routerLink]="">
+                                        <img class="default-img" alt="" src="assets/img/product/pro-8.jpg">
+                                        <img class="hover-img"  alt="">
+                                      </a>
+                                        <!-- <span class="pink">-10%</span> -->
+                                        <div class="product-action">
+                                            <div class="pro-same-action pro-wishlist">
+                                                <a title="Wishlist"><i class="pe-7s-like"></i></a>
+                                            </div>
+                                            <div class="pro-same-action pro-cart">
+                                                <a title="Add To Cart" [routerLink]="['/product-detail/']"><i class="pe-7s-cart"></i> Add to cart</a>
+                                            </div>
+                                            <div class="pro-same-action pro-quickview">
+                                                <a title="Quick View" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-content text-center">
+                                        <h3><a [routerLink]="['/product-detail/']"> {{ product.name}} </a></h3>
+                                        <div class="product-price">
+                                          <span style="color: #ee4d2d;"> {{ product.discoundPrice }} </span>
+                                            <span class="old">{{product.price }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <pagination-controls
+                    class="text-center my-pagination"
+                    previousLabel="Trước"
+                    nextLabel="Sau"
+                >
+              </pagination-controls>
+            </div>
+
+          </div>
+          <div class="col-lg-3">
+            <div class="sidebar-style mr-30">
+                <div class="sidebar-widget">
+                    <h4 class="pro-sidebar-title">Tìm kiếm</h4>
+                    <div class="pro-sidebar-search mb-50 mt-25">
+                        <form class="pro-sidebar-search-form" action="#">
+                            <input type="text" value="" placeholder="Tìm sản phẩm...">
+                            <button>
+                                <i class="pe-7s-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="sidebar-widget mt-45">
+                    <h4 class="pro-sidebar-title">Khoảng giá (VNĐ)</h4>
+                     <div class="sidebar-widget-list mt-20">
+                      <label>Từ</label>
+                      <div class="price-filter">
+                          <div id="price-slider"></div>
+                          <div class="input-number price-min">
+                              <input id="price-min" [(ngModel)]="minPrice" type="number" placeholder="">
+
+                          </div>
+                          <span>đến</span>
+                          <div class="input-number price-max">
+                              <input id="price-max" [(ngModel)]="maxPrice" type="number"
+                                     placeholder="">
+                          </div>
+                      </div>
+
+                      <button href="#"
+                            style="width: 95%; margin-top: 5%;"
+                            class="primary-btn cta-btn"
+                            >Lọc theo giá
+                      </button>
+                    </div>
+                  </div>
+                 <div class="sidebar-widget mt-50">
+                    <h4 class="pro-sidebar-title">Màu sắc</h4>
+                    <div class="sidebar-widget-list mt-20">
+                        <ul>
+                            <li >
+                                <div class="sidebar-widget-list-left">
+                                    <input type="checkbox" ><a></a>
+                                    <span class="checkmark"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sidebar-widget mt-40">
+                    <h4 class="pro-sidebar-title">Danh mục</h4>
+                    <div class="sidebar-widget-list mt-20">
+                        <ul>
+                            <li *ngFor="let category of categories">
+                                <div class="sidebar-widget-list-left">
+                                    <input type="checkbox" [value]="category.id"><a>{{category.name}}</a>
+                                    <span class="checkmark"></span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="sidebar-widget mt-50">
+                    <h4 class="pro-sidebar-title">Tag </h4>
+                    <div class="sidebar-widget-tag mt-25">
+                        <ul>
+                            <li><a href="#">Clothing</a></li>
+                            <li><a href="#">Accessories</a></li>
+                            <li><a href="#">For Men</a></li>
+                            <li><a href="#">Women</a></li>
+                            <li><a href="#">Fashion</a></li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+

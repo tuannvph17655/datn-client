@@ -1,0 +1,36 @@
+<form [formGroup]="loginForm">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6"><img class="img-fluid"
+          srcset="https://s3.envato.com/files/319194696/Alika%201%20(73).jpg 2x" alt=""></div>
+      <div class="col-sm-6">
+        <br>
+        <h3 style="font-family: 'Segoe UI';"><b>Flone.</b></h3>
+        <p>Mời bạn đăng nhập để tiếp tục...</p>
+        <br>
+        <input class="form-control" type="text" placeholder="Email" formControlName="email">
+        <div *ngIf="f['email'].touched && f['email'].invalid">
+          <p class="red_text" *ngIf="f['email'].errors && f['email'].errors['required']">Email không được để trống.</p>
+          <p class="red_text" *ngIf="f['email'].errors && f['email'].errors['email']">Email không đúng định dạng.</p>
+        </div>
+
+        <input class="form-control mt-3" type="password" placeholder="Mật khẩu" formControlName="password">
+        <div *ngIf="f['password'].touched && f['password'].invalid">
+          <p class="red_text" *ngIf="f['password'].errors && f['password'].errors['required']"> Mật khẩu không được để
+            trống.</p>
+          <p class="red_text" *ngIf="f['password'].errors && f['password'].errors['minlength']">Mật khẩu không được nhỏ
+            hơn 6 ký tự.
+          </p>
+        </div>
+        <button type="button" (click)="login()" [disabled]="!loginForm.valid">Đăng nhập</button>
+        <P class="text-center mt-1">Bạn chưa có tài khoản? <a (click)="signUp()"><u>Đăng ký</u></a></P>
+
+        <hr>
+        <p class="text-center"><a (click)="forgotPassword()">Quên mật khẩu?</a></p>
+
+      </div>
+    </div>
+
+  </div>
+</form>
