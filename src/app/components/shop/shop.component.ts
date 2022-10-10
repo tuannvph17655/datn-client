@@ -47,34 +47,11 @@ export class ShopComponent implements OnInit {
   }
 
   constructor(
-    private productService : ProductService,
-    private categoryService : CategoryService
   ) {}
 
   ngOnInit(): void {
-    this.getListProduct();
-    this.getListCategory();
   }
 
-  private getListProduct() {
-    this.productService.getListProduct().subscribe({
-      next: (response : any) => {
-          this.products = response.content;
-          this.pageSize = response.pageSize;
-          this.totalPages = response.totalPages;
-          this.totalElements = response.totalElements;
-          console.log(this.products);
-      }
-    })
-  }
 
-  private getListCategory() {
-    this.categoryService.getListCategory().subscribe({
-      next: (response : any) => {
-        this.categories = response;
-        console.log(this.categories);
-      }
-    })
-  }
 
 }

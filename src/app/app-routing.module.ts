@@ -3,7 +3,6 @@ import { SizeComponent } from './components/shop/size/size.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ShopComponent } from './components/shop/shop.component';
 // import { AuthGuard } from './guards/auth.guard';
@@ -16,7 +15,6 @@ import { CheckoutSuccessComponent } from './components/checkout-success/checkout
 const routes: Routes = [
   { path: '', redirectTo: '/home',pathMatch: 'full'},
   { path:'home', component: HomeComponent },
-  { path:'product-detail/:id', component: ProductDetailComponent},
  { path:'cart', component: CartComponent},   //, canActivate: [AuthGuard] 
   { path:'checkout', component: CheckoutComponent },
   // { path:'checkout/thankyou/:id', component: CheckoutSuccessComponent },
