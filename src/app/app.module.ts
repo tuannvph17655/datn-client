@@ -4,11 +4,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
-import { RelatedProductsComponent } from './components/product-detail/related-products/related-products.component';
 import { CartComponent } from './components/cart/cart.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -34,8 +32,6 @@ import { CheckoutSuccessComponent } from './components/checkout-success/checkout
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    ProductDetailComponent,
-    RelatedProductsComponent,
     CartComponent,
     ShopComponent,
     SizeComponent,
