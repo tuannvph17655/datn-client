@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { MyAccountRoutingModule } from './my-account-routing.module';
 import { AccountComponent } from './account/account.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
-import { MyOrderComponent } from './my-order/my-order.component';
 import { MyAddressComponent } from './my-address/my-address.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,8 +14,6 @@ import { NgxPaginationModule } from 'ngx-pagination';
   declarations: [
     MyAccountComponent,
     AccountComponent,
-    OrderDetailComponent,
-    MyOrderComponent,
     MyAddressComponent,
     ChangePasswordComponent,
   ],
