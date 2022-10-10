@@ -134,12 +134,9 @@
                     <h4 class="pro-sidebar-title">Danh mục</h4>
                     <div class="sidebar-widget-list mt-20">
                         <ul>
-                            <li *ngFor="let category of categories">
-                                <div class="sidebar-widget-list-left">
-                                    <input type="checkbox" [value]="category.id"><a>{{category.name}}</a>
-                                    <span class="checkmark"></span>
-                                </div>
-                            </li>
+                            <select name="" id="">
+                                <option *ngFor="let category of categories" value="{{ category.id}}" >{{ category.name }}</option>
+                            </select>
                         </ul>
                     </div>
                 </div>

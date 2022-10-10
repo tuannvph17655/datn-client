@@ -455,4 +455,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/.angular/
+.angular/*
