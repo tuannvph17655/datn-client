@@ -396,3 +396,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+.angular/cache/13.3.7/angular-webpack/b1528dff1e36b2d7140b4b8a9286c4f0456f5f22/0.pack
+.angular/cache/13.3.7/angular-webpack/b1528dff1e36b2d7140b4b8a9286c4f0456f5f22/1.pack
+.angular/cache/13.3.7/angular-webpack/b1528dff1e36b2d7140b4b8a9286c4f0456f5f22/2.pack
+.angular/cache/13.3.7/angular-webpack/b1528dff1e36b2d7140b4b8a9286c4f0456f5f22/3.pack
+.angular/cache/13.3.7/angular-webpack/b1528dff1e36b2d7140b4b8a9286c4f0456f5f22/index.pack
+.angular/cache/13.3.7/angular-webpack/b1528dff1e36b2d7140b4b8a9286c4f0456f5f22/index.pack.old
+
+.angular/*

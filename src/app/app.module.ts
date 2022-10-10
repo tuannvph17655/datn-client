@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { HomeComponent } from './components/home/home.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from 'ngx-toastr';
@@ -21,7 +20,6 @@ import { SizeComponent } from './components/shop/size/size.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { PriceComponent } from './components/shop/price/price.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { WishListComponent } from './components/wish-list/wish-list.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { CurrencyPipe } from './pipes/currency.pipe';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -39,11 +37,9 @@ import { CheckoutSuccessComponent } from './components/checkout-success/checkout
     ProductDetailComponent,
     RelatedProductsComponent,
     CartComponent,
-    ContactComponent,
     ShopComponent,
     SizeComponent,
     PriceComponent,
-    WishListComponent,
     CheckoutComponent,
     CheckoutSuccessComponent
   ],
