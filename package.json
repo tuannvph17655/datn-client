@@ -1,7 +1,5 @@
 {
   "name": "ws-client",
-  "build:prod": "ng build --configuration production --base-href https://nguyenquocanDEV.github.io/angular-github-actions/",
-  "test:headless": "ng test --watch=false --browsers=ChromeHeadless"
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
