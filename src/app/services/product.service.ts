@@ -13,11 +13,11 @@ const httpOptions = {
 })
 export class ProductService {
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private http: HttpClient) {
   }
 
-  getListProduct():Observable<Product[]> {
-    return this.httpClient.get<Product[]>(API + 'product/find-product');
+  getListProduct(req: any): Observable<any> {
+    return this.http.post<any>(API + 'product/search/v2', { ...req });
   }
 
 }

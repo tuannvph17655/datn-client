@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ShopComponent } from './components/shop/shop.component';
-// import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { MyAccountModule } from './components/my-account/my-account.module';
 import { MyAccountComponent } from './components/my-account/my-account.component';
@@ -15,7 +15,7 @@ import { CheckoutSuccessComponent } from './components/checkout-success/checkout
 const routes: Routes = [
   { path: '', redirectTo: '/home',pathMatch: 'full'},
   { path:'home', component: HomeComponent },
- { path:'cart', component: CartComponent},   //, canActivate: [AuthGuard] 
+ { path:'cart', component: CartComponent , canActivate: [AuthGuard] },
   { path:'checkout', component: CheckoutComponent },
   // { path:'checkout/thankyou/:id', component: CheckoutSuccessComponent },
   { path:'checkout/success', component: CheckoutSuccessComponent },
@@ -30,7 +30,7 @@ const routes: Routes = [
   {
     path: 'user',
     component: MyAccountComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     children: [
       { path: '',
         loadChildren: () => import('./components/my-account/my-account.module').then(m => m.MyAccountModule)
