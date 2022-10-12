@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
     }, 2000);
-    this.getListProduct();
+    // this.getListProduct();
   }
 
   slides= [
@@ -65,17 +65,6 @@ export class HomeComponent implements OnInit {
     nav: true
   }
 
-  private getListProduct(){
-    this.product.getListProduct().subscribe({
-      next : (response : any)=> {
-        console.log('response',response);
-        this.products = response.content;
-        this.pageSize = response.pageSize;
-        this.totalPages = response.totalPages;
-        this.totalElements = response.totalElements;
-        console.log(this.products);
-      }
-    })
-  }
+
 
 }

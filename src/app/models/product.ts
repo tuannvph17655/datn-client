@@ -1,12 +1,14 @@
 export class Product {
-    id?:BigInt
-    name?:string
-    categoryId?:BigInt
-    description?:string
-    active?:boolean
-    quantity?:number
-    price?:number
-    discoundPrice?:number
-    weight?:number
-    height?:number
+    id? : string;
+  name? : string;
+  minPrice? : string;
+  maxPrice? : string;
+  sizes? : [];
+  colors?: [];
+  images?: [];
+  categoryName? : string;
+  materialName? : string;
+  des? : string;
+  typeName?: string;
+  createdDate? : Date;
 }
