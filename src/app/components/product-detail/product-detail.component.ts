@@ -89,7 +89,6 @@ export class ProductDetailComponent implements OnInit {
     this.id = this.activeRoute.snapshot.params['id'];
     this.getProductDetail();
     this.getListSize();
-    // this.getRelatedProduct();
     
   }
 
@@ -146,8 +145,15 @@ export class ProductDetailComponent implements OnInit {
     }
 
     if(this.sizeSelected == '' || this.colorSelected == ''){
-      alert('Bạn chưa chọn size và color');
+      this.toastr.warning('Bạn chưa chọn size và color');
       return;
+    }
+    if(this.quantity < 0 ) {
+      this.toastr.error('Số lượng sản phẩm phải là số nguyên dương !')
+      return ;
+    }
+    if(this.quantity > this.quantityProduct) {
+      this.toastr.error('Số lượng sản phẩm không đủ !');
     }
 
 
@@ -159,6 +165,7 @@ export class ProductDetailComponent implements OnInit {
         console.log('productOptionRes: ', this.productOptionRes);
         this.cart.addToCart(this.productOptionRes.productOptionId, this.quantity).subscribe({
           next: (response) => {
+
             if(this.quantityProduct < this.quantity || this.quantityProduct == 0){
               this.toastr.error('Số lượng sản phẩm không đủ');
               return ;
@@ -217,46 +224,6 @@ export class ProductDetailComponent implements OnInit {
       },
       error: (err) => {
         console.log('err findProductOption : ',err);
-      }
-    });
-  }
-
-  addToFavourite(){
-    if (!this.auth.isAuthenticated()) {
-      this.router.navigate(['sign-in']);
-      return;
-    }
-
-    this.favourite.createFavourite(this.id).subscribe({
-      next: (response:any) => {
-        console.log('response: ', response);
-        console.log('response.data: ', response.data);
-        this.isFavourite = response.data;
-      },error: (err) => {
-        console.log('err : ',err);
-      }
-    });
-  }
-
-  //call api get list favourite product , then check productId is favourite set isFavourite = true else set isFavourite = false
-  getListFavourite(){
-    this.favourite.getListFavourite().subscribe({
-      next: (response:any) => {
-        console.log('response: ', response);
-        console.log('response.data: ', response.data);
-        this.listFavourite = response.data;
-        this.checkFavourite();
-      },error: (err) => {
-        console.log('err : ',err);
-      }
-    });
-  }
-
-  //check productId is favourite set isFavourite = true else set isFavourite = false
-  checkFavourite(){
-    this.listFavourite.forEach(element => {
-      if(element.productId == this.id){
-        this.isFavourite = true;
       }
     });
   }
