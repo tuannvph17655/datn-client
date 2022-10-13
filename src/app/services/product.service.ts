@@ -19,5 +19,13 @@ export class ProductService {
   getListProduct(req: any): Observable<any> {
     return this.http.post<any>(API + 'product/search/v2', { ...req });
   }
+  getProductDetails(id:string){
+    return this.http.get(API + 'product/' + id);
+  }
+
+  
+  // getProductRelated(productId: string): Observable<any> {
+  //   return this.http.post<any>(API + 'product/relatedProduct',{ productId }, httpOptions);
+  // }
 
 }
