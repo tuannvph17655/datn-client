@@ -80,11 +80,13 @@ export class CartComponent implements OnInit {
     if(e.target.value > Number(cart.quantityAvailable)){
       this.toastr.error('Số lượng sản phẩm không được lớn hơn ' + cart.quantityAvailable);
       e.target.value = cart.quantity;
+      return;
     }
 
     if(e.target.value < 1){
       this.toastr.error('Số lượng phải lớn hơn 0');
-      e.target.value = 1;
+      this.getAllCart();
+      return ;
     }
 
     //check quantity
