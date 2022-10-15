@@ -12,7 +12,6 @@ import { ProductOptionIdRes } from '../../models/productOptionIdRes';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ProductImage } from 'src/app/models/productImage';
 import { ProductRelated } from '../../models/product-related';
-import { FavouriteService } from '../../services/favourite.service';
 import { Favourite } from 'src/app/models/favourite';
 import { SignInComponent } from '../authentication/sign-in/sign-in.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -80,7 +79,6 @@ export class ProductDetailComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private cart: CartService,
     private auth: AuthService,
-    private favourite:FavouriteService,
     private toastr: ToastrService,
     private dialog: MatDialog
   ) {}

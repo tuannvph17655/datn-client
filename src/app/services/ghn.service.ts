@@ -7,8 +7,8 @@ import { District } from '../models/district';
 import { Ward } from '../models/ward';
 
 const GHN_API = environment.ghnApi;
-const token_GHN = '1356329a-0133-11ed-8636-7617f3863de9';
-const shopId_GHN = '3094137';
+const token_GHN = 'd740eabe-369a-11ed-8636-7617f3863de9';
+const shopId_GHN = '3362018';
 const fromDistrictId = 1847;
 const options = {
   headers: {
