@@ -5,11 +5,13 @@ import { MyAccountRoutingModule } from './my-account-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyAccountComponent } from './my-account.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AccountComponent } from './account/account.component';
 
 
 @NgModule({
   declarations: [
     MyAccountComponent,
+    AccountComponent,
   ],
   imports: [
     CommonModule,
