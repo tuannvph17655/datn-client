@@ -25,7 +25,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { MyAccountModule } from './components/my-account/my-account.module';
 import { CheckoutSuccessComponent } from './components/checkout-success/checkout-success.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
-
+import { AccountComponent } from './components/my-account/account/account.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +39,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
     PriceComponent,
     CheckoutComponent,
     CheckoutSuccessComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
