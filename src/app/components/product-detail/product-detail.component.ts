@@ -12,7 +12,6 @@ import { ProductOptionIdRes } from '../../models/productOptionIdRes';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ProductImage } from 'src/app/models/productImage';
 import { ProductRelated } from '../../models/product-related';
-import { FavouriteService } from '../../services/favourite.service';
 import { Favourite } from 'src/app/models/favourite';
 import { SignInComponent } from '../authentication/sign-in/sign-in.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -80,7 +79,6 @@ export class ProductDetailComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private cart: CartService,
     private auth: AuthService,
-    private favourite:FavouriteService,
     private toastr: ToastrService,
     private dialog: MatDialog
   ) {}
@@ -217,46 +215,6 @@ export class ProductDetailComponent implements OnInit {
       },
       error: (err) => {
         console.log('err findProductOption : ',err);
-      }
-    });
-  }
-
-  addToFavourite(){
-    if (!this.auth.isAuthenticated()) {
-      this.router.navigate(['sign-in']);
-      return;
-    }
-
-    this.favourite.createFavourite(this.id).subscribe({
-      next: (response:any) => {
-        console.log('response: ', response);
-        console.log('response.data: ', response.data);
-        this.isFavourite = response.data;
-      },error: (err) => {
-        console.log('err : ',err);
-      }
-    });
-  }
-
-  //call api get list favourite product , then check productId is favourite set isFavourite = true else set isFavourite = false
-  getListFavourite(){
-    this.favourite.getListFavourite().subscribe({
-      next: (response:any) => {
-        console.log('response: ', response);
-        console.log('response.data: ', response.data);
-        this.listFavourite = response.data;
-        this.checkFavourite();
-      },error: (err) => {
-        console.log('err : ',err);
-      }
-    });
-  }
-
-  //check productId is favourite set isFavourite = true else set isFavourite = false
-  checkFavourite(){
-    this.listFavourite.forEach(element => {
-      if(element.productId == this.id){
-        this.isFavourite = true;
       }
     });
   }
