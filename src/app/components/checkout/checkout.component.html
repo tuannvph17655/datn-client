@@ -278,81 +278,6 @@
                       class="section__title layout-flex__item layout-flex__item--stretch"
                     >
                       <i
-                        class="fa fa-truck fa-lg section__title--icon hide-on-desktop"
-                      ></i>
-                      Vận chuyển
-                    </h2>
-                  </div>
-                </div>
-
-
-                  <!-- <div
-                  class="section__content"
-                  data-tg-refresh="refreshShipping"
-                  id="shippingMethodList"
-                  data-define="{isAddressSelecting: true, shippingMethods: []}"
-                >
-                  <div class="alert alert--loader spinner spinner--active hide">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="spinner-loader"
-                    >
-                      <use href="#spinner"></use>
-                    </svg>
-                  </div>
-
-
-
-                  <div class="alert alert-retry alert--danger hide">
-                    <span>Không thể load phí vận chuyển. Vui lòng thử lại</span>
-                    <i class="fa fa-refresh"></i>
-                  </div>
-                  <div class="alert alert--info">
-                    Vui lòng nhập thông tin giao hàng
-                  </div>
-                </div> -->
-              </section>
-
-
-              <div class="field field--show-floating-label">
-                <div
-                  class="field__input-wrapper field__input-wrapper--select2"
-                >
-                  <label for="shippingWard" class="field__label">
-                    Loại hình vận chuyển
-                  </label>
-                  <select
-                    name="shippingWard"
-                    id="shippingWard"
-                    size="1"
-                    type="text"
-                    class="field__input field__input--select"
-                    tabindex="-1"
-                    aria-hidden="true"
-                    formControlName="shippingMethod"
-                    (change)="serviceChange($event)"
-                  >
-                  <option value hidden>---</option>
-                  <option *ngFor="let s of services" [value]="s.service_id">
-                    {{s.short_name}}
-                  </option>
-                </select>
-                </div>
-
-                <div *ngIf="f['shippingMethod'].touched && f['shippingMethod'].invalid">
-                  <div *ngIf="f['shippingMethod'].errors && f['shippingMethod'].errors['required']">
-                    <p class="field__message">Vui lòng chọn phương thức vận chuyển</p>
-                  </div>
-                </div>
-              </div>
-
-              <section class="section">
-                <div class="section__header">
-                  <div class="layout-flex">
-                    <h2
-                      class="section__title layout-flex__item layout-flex__item--stretch"
-                    >
-                      <i
                         class="fa fa-credit-card fa-lg section__title--icon hide-on-desktop"
                       ></i>
                       Thanh toán
@@ -404,7 +329,7 @@
                       </div>
                     </div>
 
-                    <div class="content-box__row">
+                    <!-- <div class="content-box__row">
                       <div class="radio-wrapper">
                         <div class="radio__input">
                           <input
@@ -434,9 +359,9 @@
                         <p>Số tài khoản: 144405456757</p>
                         <p>Chi nhánh: Đà Nẵng</p>
                       </div>
-                    </div>
+                    </div> -->
 
-                    <div class="content-box__row">
+                    <!-- <div class="content-box__row">
                       <div class="radio-wrapper">
                         <div class="radio__input">
                           <input
@@ -459,9 +384,9 @@
                           </span>
                         </label>
                       </div>
-                    </div>
+                    </div> -->
 
-                    <div class="content-box__row">
+                    <!-- <div class="content-box__row">
                       <div class="radio-wrapper">
                         <div class="radio__input">
                           <input
@@ -484,7 +409,7 @@
                           </span>
                         </label>
                       </div>
-                    </div>
+                    </div> -->
 
                   </div>
                 </div>
@@ -647,8 +572,7 @@
                 </table>
               </div>
               <div
-                class="order-summary__nav field__input-btn-wrapper hide-on-mobile layout-flex--row-reverse"
-              >
+                class="order-summary__nav field__input-btn-wrapper hide-on-mobile layout-flex--row-reverse">
                 <button type="submit" class="btn btn-checkout spinner" [disabled]="checkoutForm.invalid">
                   <span class="spinner-label"></span>
                   <svg

@@ -8,8 +8,9 @@ import { Ward } from '../models/ward';
 
 const GHN_API = environment.ghnApi;
 const token_GHN = 'd740eabe-369a-11ed-8636-7617f3863de9';
-const shopId_GHN = '3362018';
-const fromDistrictId = 1847;
+const shopId_GHN = '3266977';
+const fromDistrictId = 3440;
+const serviceId = 53320 ; //phương thức vận chuyển bằng đường bộ
 const options = {
   headers: {
     'token': token_GHN
@@ -39,7 +40,7 @@ export class GhnService {
   getService(toDistrict: number): Observable<any>{
     const params = {
       shop_id : Number(shopId_GHN),
-      from_district: 1847,
+      from_district: 3440,
       to_district: Number(toDistrict),
     }
 
@@ -47,7 +48,7 @@ export class GhnService {
 
   }
 
-  getShipping(serviceId:number,toDistrict: number, toWardCode: string): Observable<any> {
+  getShipping(toDistrict: number, toWardCode: string): Observable<any> {
     const optionss = {
       headers: {
         token: token_GHN,
@@ -59,7 +60,7 @@ export class GhnService {
       service_id:Number(serviceId),
       insurance_value:500000,
       coupon: null,
-      from_district_id:1847,
+      from_district_id:3440,
       to_district_id:Number(toDistrict),
       to_ward_code:toWardCode,
       height:15,

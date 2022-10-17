@@ -15,6 +15,7 @@ import { Address } from 'src/app/models/address';
 import { OrderService } from 'src/app/services/order.service';
 import { CreateOrder } from 'src/app/models/create-order';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-checkout',
@@ -53,7 +54,7 @@ export class CheckoutComponent implements OnInit {
     province: new FormControl('',[Validators.required]),
     district: new FormControl('',[Validators.required]),
     ward: new FormControl('',[Validators.required]),
-    shippingMethod: new FormControl('',[Validators.required]),
+    // shippingMethod: new FormControl('',[Validators.required]),
     paymentMethod: new FormControl('',[Validators.required]),
     coupon: new FormControl(''),
   })
@@ -87,20 +88,18 @@ export class CheckoutComponent implements OnInit {
             district: address.data.districtId,
             ward: address.data.wardCode,
           })
-
           console.log('checkoutForm: ',this.checkoutForm.value);
-
           //path provinceId selected
           this.provinceSelected = address.data.provinceId;
           this.getDistricts(this.provinceSelected);
           this.districtSelected = address.data.districtId;
           this.getWards(this.districtSelected);
-          this.getService(this.districtSelected);
-
+          // this.getService(this.districtSelected);
+          this.getShipping(this.districtSelected, this.wardCodeSelected);
         }
-
       }
     )
+
   }
 
 
@@ -197,13 +196,13 @@ export class CheckoutComponent implements OnInit {
   onChangeWard(e:any) {
     this.wardCodeSelected = e.target.value;
     console.log('wardCodeSelected', this.wardCodeSelected);
-    this.getService(this.districtSelected);
+    // this.getService(this.districtSelected);
 
   }
 
   //getShipping
-  getShipping(serviceId:number,districtId: number, wardCode: string){
-    this.GhnService.getShipping(serviceId,districtId, wardCode).subscribe({
+  getShipping(districtId: number, wardCode: string){
+    this.GhnService.getShipping(districtId, wardCode).subscribe({
       next: (res: any) => {
         console.log('res shipping', res);
         this.shipping = {
@@ -224,31 +223,31 @@ export class CheckoutComponent implements OnInit {
     })
   }
 
-  getService(toDistrict: number){
-    this.GhnService.getService(toDistrict).subscribe({
-      next: (res: any) => {
-        console.log('res service', res);
-        this.services = res.data;
-        console.log('res data service', res.data);
-      }
-      ,error: (err) => {
-        console.log(err);
-      }
-    })
-  }
+  // getService(toDistrict: number){
+  //   this.GhnService.getService(toDistrict).subscribe({
+  //     next: (res: any) => {
+  //       console.log('res service', res);
+  //       this.services = res.data;
+  //       console.log('res data service', res.data);
+  //     }
+  //     ,error: (err) => {
+  //       console.log(err);
+  //     }
+  //   })
+  // }
 
-  serviceChange(e:any){
-    this.serviceSelected = e.target.value;
-    console.log('serviceSelected', this.serviceSelected);
-    this.getShipping(this.serviceSelected,this.districtSelected, this.wardCodeSelected);
-  }
+  // serviceChange(e:any){
+  //   this.serviceSelected = e.target.value;
+  //   console.log('serviceSelected', this.serviceSelected);
+  //   this.getShipping(this.serviceSelected,this.districtSelected, this.wardCodeSelected);
+  // }
 
 
-  serviceChanges(value:any){
-    this.serviceSelected = value;
-    console.log('serviceSelected', this.serviceSelected);
-    this.getShipping(this.serviceSelected,this.districtSelected, this.wardCodeSelected);
-  }
+  // serviceChanges(value:any){
+  //   this.serviceSelected = value;
+  //   console.log('serviceSelected', this.serviceSelected);
+  //   this.getShipping(this.serviceSelected,this.districtSelected, this.wardCodeSelected);
+  // }
 
   checkout(){
 
@@ -261,7 +260,7 @@ export class CheckoutComponent implements OnInit {
       paymentMethod: this.checkoutForm.value.paymentMethod,
       shipPrice: this.shipPrice,
       total: this.total,
-      shipMethod: this.checkoutForm.value.shippingMethod,
+      shipMethod: environment.shipMethod
       // coupon : this.checkoutForm.value.coupon
     }
 
