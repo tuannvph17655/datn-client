@@ -6,12 +6,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyAccountComponent } from './my-account.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AccountComponent } from './account/account.component';
+import { MyAddressComponent } from './my-address/my-address.component';
 
 
 @NgModule({
   declarations: [
     MyAccountComponent,
     AccountComponent,
+    MyAddressComponent,
   ],
   imports: [
     CommonModule,
