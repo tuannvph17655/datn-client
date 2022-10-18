@@ -40,9 +40,14 @@ export class CheckoutComponent implements OnInit {
   totalPrice!: any;
   shipPrice!: number;
   total!:number;
+  totalQuality !: number;
 
   order!: CreateOrder;
 
+  height !: number;
+  length !: number;
+  weight !: number;
+  width !: number
 
   checkoutForm = new FormGroup({
     addressId: new FormControl('',[Validators.required]),
@@ -114,7 +119,13 @@ export class CheckoutComponent implements OnInit {
         console.log('res :',response);
         this.cart = response.data.carts;
         this.totalPrice = response.data.totalPrice;
+        this.totalQuality = response.data.totalQuality;
+        this.weight = 150 * this.totalQuality;
+        this.height = this.totalQuality ;
+        this.length = 60 ;
+        this.width = 50;
         console.log('cart : ',this.cart);
+        console.log('totalqality : ',this.totalQuality)
 
       },error: (err) => {
         console.log('error: ',err);
@@ -202,7 +213,7 @@ export class CheckoutComponent implements OnInit {
 
   //getShipping
   getShipping(districtId: number, wardCode: string){
-    this.GhnService.getShipping(districtId, wardCode).subscribe({
+    this.GhnService.getShipping(districtId, wardCode, this.height,this.length, this.weight,this.width).subscribe({
       next: (res: any) => {
         console.log('res shipping', res);
         this.shipping = {
