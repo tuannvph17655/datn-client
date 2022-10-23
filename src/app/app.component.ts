@@ -7,7 +7,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ws-client';
+  title = 'Puddy shop';
 
   constructor(private spinner: NgxSpinnerService) {}
 

@@ -50,7 +50,7 @@ export class AddressService {
   }
 
   deleteAddress(id:string): Observable<any> {
-    return this.http.delete<any>(AUTH_API + 'address/delete/' + id, requestOption);
+    return this.http.put<any>(AUTH_API + 'address/delete/' + id, requestOption);
   }
 
   getDefaulAddress(): Observable<any> {
