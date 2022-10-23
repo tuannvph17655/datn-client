@@ -16,14 +16,14 @@ import { OrderService } from 'src/app/services/order.service';
 import { CreateOrder } from 'src/app/models/create-order';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-
+import { v4 as uuidv4 } from 'uuid';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
 export class CheckoutComponent implements OnInit {
-
+  showMe : boolean = true
   provinces!: Province[];
   districts!: District[];
   wards!: Ward[];
@@ -36,6 +36,10 @@ export class CheckoutComponent implements OnInit {
 
   public cart!: Cart[];
   public address: Address[] = [];
+
+  public addressDefault !: Address;
+
+  addressSelected !: string;
 
   totalPrice!: any;
   shipPrice!: number;
@@ -52,7 +56,7 @@ export class CheckoutComponent implements OnInit {
   checkoutForm = new FormGroup({
     addressId: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required,Validators.email]),
-    name: new FormControl('',[Validators.required]),
+    name: new FormControl('',[Validators.required],),
     phone: new FormControl('',[Validators.required, Validators.pattern(REGEX_CUSTOM.PHONE_NUMBER)],),
     address: new FormControl('',[Validators.required]),
     note: new FormControl(''),
@@ -78,6 +82,43 @@ export class CheckoutComponent implements OnInit {
     this.getProvinces();
     this.getAllCart();
     this.getListAddress();
+    this.togleTag();
+    this.getAddressDefault();
+  }
+
+  togleTag() {
+    if(this.showMe == false) {
+      this.showMe = !this.showMe;
+    } else  {
+      this.showMe = !this.showMe;
+    }
+  }
+
+  getAddressDefault() {
+     this.addressService.getDefaulAddress().subscribe(
+      {
+        next : (address:any)=> {
+          console.log('address get Id default: ',address);
+          this.addressDefault = address.data;
+          this.addressSelected === this.addressDefault.id;
+          this.checkoutForm.patchValue({
+            name: address.data.nameOfRecipient,
+            address: address.data.addressDetail,
+            province: address.data.provinceId,
+            district: address.data.districtId,
+            ward: address.data.wardCode,
+          })
+          console.log('checkoutForm by address default: ',this.checkoutForm.value);
+          //path provinceId selected
+          this.provinceSelected = address.data.provinceId;
+          this.getDistricts(this.provinceSelected);
+          this.districtSelected = address.data.districtId;
+          this.getWards(this.districtSelected);
+          // this.getService(this.districtSelected);
+          this.getShipping(this.districtSelected, this.wardCodeSelected);
+        }
+      }
+     )
   }
 
   //if class caddress select addvalue to address
@@ -104,8 +145,10 @@ export class CheckoutComponent implements OnInit {
         }
       }
     )
-
   }
+
+  
+
 
 
 
@@ -264,9 +307,11 @@ export class CheckoutComponent implements OnInit {
 
     console.log('checkoutForm', this.checkoutForm.value);
 
+    const myId = uuidv4();
     //set checkoutForm value to order object
     const orders = {
-      addressId: this.checkoutForm.value.addressId,
+      id :myId ,
+      addressId: this.checkoutForm.value.addressId ,
       note: this.checkoutForm.value.note,
       paymentMethod: this.checkoutForm.value.paymentMethod,
       shipPrice: this.shipPrice,
@@ -288,4 +333,6 @@ export class CheckoutComponent implements OnInit {
 
   }
 
+
 }
+

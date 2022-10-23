@@ -23,21 +23,21 @@ import { Color } from 'src/app/models/color';
 export class ShopComponent implements OnInit {
 
   public listProduct: Product[] = [];
-  public colors: Color[] = [];
+  public colors: Color[] = [];  
   public sizes: Size[] = [];
   public colorIds : string [] = [];
   public sizeIds : string [] = [];
 
   public minPrice !: number;
   public maxPrice !: number;
-
-
+  public images !: [];
   //page
   page : number = 0 ;
   pageSize !: number ;
   totalPages : number = 0 ;
   totalElements!: number;
 
+  
   //request
   req: any = {
     "textSearch": "",
@@ -104,7 +104,6 @@ export class ShopComponent implements OnInit {
       next: (response: any) => {
         console.log('response', response);
         this.listProduct = response.data;
-
         this.page = response.page;
         this.pageSize = response.pageSize;
         this.totalPages = response.totalPages;

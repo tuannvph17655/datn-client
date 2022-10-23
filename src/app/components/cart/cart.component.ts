@@ -83,10 +83,16 @@ export class CartComponent implements OnInit {
       return;
     }
 
-    if(e.target.value < 1){
+    if(e.target.value < 0){
       this.toastr.error('Số lượng phải lớn hơn 0');
       this.getAllCart();
       return ;
+    }
+
+    if(e.target.value == 0) {
+      this.deleteItem(cart.productId);
+      this.getAllCart();
+      return;
     }
 
     //check quantity
@@ -106,6 +112,17 @@ export class CartComponent implements OnInit {
         }
       });
     }
+  }
+
+  deletedAllCart() {
+    this.cartService.clearAllCart().subscribe({
+      next: (response:any) => {
+        console.log('res :',response);
+        this.getAllCart();
+      },error: (err) => {
+        console.log('error: ',err);
+    }
+  });
   }
 
 }

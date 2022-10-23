@@ -34,7 +34,7 @@ export class ProductDetailComponent implements OnInit {
   colorSelected: string = '';
   productOptionId :string = '';
   // images:any;
-  priceOption !:number;
+  priceOption !: number;
   productOptionRes !: ProductOptionIdRes;
   description:string [] = [];
   sizeColorSelected!:boolean;
@@ -102,7 +102,7 @@ export class ProductDetailComponent implements OnInit {
         console.log('product-detail:',this.productDetail);
         console.log('productOptions:',this.productOptions);
         this.priceOption = response.data.productOptions[0].price;
-
+        console.log("priceOptions : "  + this.priceOption);
         this.imageProduct = response.data.productOptions.map((item:any) => {
           return {
             id: item.id,
