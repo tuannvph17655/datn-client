@@ -48,7 +48,7 @@ export class GhnService {
 
   }
 
-  getShipping(toDistrict: number, toWardCode: string): Observable<any> {
+  getShipping(toDistrict: number, toWardCode: string, height : number, length : number, weight : number, width: number ): Observable<any> {
     const optionss = {
       headers: {
         token: token_GHN,
@@ -63,10 +63,10 @@ export class GhnService {
       from_district_id:3440,
       to_district_id:Number(toDistrict),
       to_ward_code:toWardCode,
-      height:15,
-      length:15,
-      weight:1000,
-      width:15
+      height:height,
+      length:length,
+      weight:weight,
+      width:width
     };
     return this.http.post<any>(GHN_API + '/v2/shipping-order/fee',params,optionss);
   }

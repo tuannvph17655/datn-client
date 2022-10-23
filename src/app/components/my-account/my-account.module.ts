@@ -7,6 +7,8 @@ import { MyAccountComponent } from './my-account.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AccountComponent } from './account/account.component';
 import { MyAddressComponent } from './my-address/my-address.component';
+import { MyOrderComponent } from './my-order/my-order.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 
 
 @NgModule({
@@ -14,6 +16,8 @@ import { MyAddressComponent } from './my-address/my-address.component';
     MyAccountComponent,
     AccountComponent,
     MyAddressComponent,
+    MyOrderComponent,
+    OrderDetailComponent,
   ],
   imports: [
     CommonModule,

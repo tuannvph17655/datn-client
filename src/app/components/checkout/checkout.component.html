@@ -9,7 +9,7 @@
               <img
                 class="logo__image logo__image--medium"
                 alt="SPORT SHOP"
-                src="../../../assets/logo.jpg"
+                src="../../../assets/img/logo/logo.png"
               />
             </a>
           </div>
@@ -306,7 +306,6 @@
                             class="input-radio"
                             formControlName="paymentMethod"
                             value="COD"
-
                           />
                         </div>
                         <label for="paymentMethod-482900" class="radio__label">
@@ -321,7 +320,7 @@
                         </label>
                       </div>
 
-                      <div class="content-box__row__desc hide">
+                      <div class="content-box__row__desc" id = "payment_cod">
                         <p>
                           Khách hàng được kiểm tra hàng trước khi thanh toán
                           tiền cho bưu tá.
@@ -329,7 +328,7 @@
                       </div>
                     </div>
 
-                    <!-- <div class="content-box__row">
+                    <div class="content-box__row">
                       <div class="radio-wrapper">
                         <div class="radio__input">
                           <input
@@ -339,6 +338,7 @@
                             class="input-radio"
                             formControlName="paymentMethod"
                             value="ATM"
+                            (click)="togleTag()"
                           />
                         </div>
                         <label for="paymentMethod-482899" class="radio__label">
@@ -353,15 +353,15 @@
                         </label>
                       </div>
 
-                      <div class="content-box__row hide">
+                      <div *ngIf="showMe == true " class="content-box__row">
                         <p>Ngân hàng: Sacombank</p>
                         <p>Tên tài khoản: Nguyễn Văn Mạnh</p>
                         <p>Số tài khoản: 144405456757</p>
                         <p>Chi nhánh: Đà Nẵng</p>
                       </div>
-                    </div> -->
+                    </div>
 
-                    <!-- <div class="content-box__row">
+                    <div class="content-box__row">
                       <div class="radio-wrapper">
                         <div class="radio__input">
                           <input
@@ -384,9 +384,9 @@
                           </span>
                         </label>
                       </div>
-                    </div> -->
+                    </div>
 
-                    <!-- <div class="content-box__row">
+                     <div class="content-box__row">
                       <div class="radio-wrapper">
                         <div class="radio__input">
                           <input
@@ -409,7 +409,7 @@
                           </span>
                         </label>
                       </div>
-                    </div> -->
+                    </div>
 
                   </div>
                 </div>

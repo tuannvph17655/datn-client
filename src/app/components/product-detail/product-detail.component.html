@@ -30,7 +30,7 @@
               <div class="product-details-content ml-70">
                   <h2>{{productDetail?.productName}}</h2>
                   <div class="product-details-price">
-                      <span>{{priceOption | vnd }}</span>
+                      <span >{{ priceProduct | vnd }}</span>
                       <!-- <span class="old">$20.00</span> -->
                   </div>
                   <h4>Đặc điểm sản phẩm</h4>
@@ -44,7 +44,7 @@
 
 
                   <div class="single-product product-size d-flex align-items-center mt-4">
-                    <span class="font-weight-bold text-capitalize product-meta-title">Size</span>
+                    <span class="font-weight-bold text-capitalize product-meta-title">Chọn Size</span>
 
                     <select class="form-control check-box-size" style="margin-left: 35px;" id="size" name="size"  (change)="changeSize($event)" formControlName="size">
                       <option value hidden>Chọn size</option>
@@ -53,7 +53,7 @@
                   </div>
 
                   <div class="single-product product-color d-flex align-items-center mt-4">
-                    <span class="font-weight-bold text-capitalize product-meta-title">Color</span>
+                    <span class="font-weight-bold text-capitalize product-meta-title">Chọn Color</span>
                     <select class="form-control check-box-size" style="margin-left: 24px;" (change)="changeColor($event)" formControlName="color">
                       <option value hidden>Chọn màu sắc</option>
                       <option *ngFor="let color of colors" [value]="color.colorId">

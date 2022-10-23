@@ -11,4 +11,5 @@ export class Product {
   des? : string;
   typeName?: string;
   createdDate? : Date;
+  showImage ?: string;
 }

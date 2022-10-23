@@ -26,3 +26,8 @@ a.buy-now{
   background: #fff;
   color: #7a7a9d;
 }
+
+.btn-css {
+  size: 50px;
+  cursor: pointer;
+}

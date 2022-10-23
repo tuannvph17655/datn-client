@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost:8080/api/v1/",
+  baseUrl: "http://localhost:8081/api/v1/",
   ghnApi: "https://online-gateway.ghn.vn/shiip/public-api",
   shipMethod : 53320
 

@@ -63,6 +63,10 @@ export class CartService {
     return this.http.get(AUTH_API + 'cart/countCartItem', requestOptions);
   }
 
+  clearAllCart() {
+    return this.http.delete(AUTH_API + 'cart/clearAllCart',requestOptions);
+  }
+
 
 
 }
