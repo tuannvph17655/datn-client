@@ -10,8 +10,7 @@
         <div class="col-8 text-start">
           <h3 class="fw-bold " style="padding-top: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
             Cảm ơn bạn đã đặt hàng</h3>
-          <p>Một email xác nhận đã được gửi đến <u>anhcoming@gmail.com</u> <br>
-            Xin vui lòng kiểm tra email của bạn.</p>
+          <p>Vui lòng kiểm tra lại thông tin đơn hàng</p>
 
         </div>
       </div>
@@ -21,26 +20,26 @@
             <div class="col-6 text-start" style="padding: 40px 0 0 100px">
               <h5 class=" fw-bold">Thông tin mua hàng</h5>
               <br>
-              <p>Đức Anh - 0355301887</p>
-              <p>anhcoming@gmai.com</p>
+              <p>{{orderDetail?.nameOfRecipient}} - {{orderDetail?.phoneNumber}}</p>
+              <!-- <p>anhcoming@gmai.com</p> -->
 
             </div>
             <div class="col-6 text-start" style="padding: 40px 0 0 80px">
               <h5 class=" fw-bold">Địa chỉ nhận hàng</h5>
               <br>
-              <p>Đức Anh - 0355301887</p>
-              <p>Số 10 Di Trạch, Di Ái, Hoài Đức, Hà Nội</p>
+              <p>{{orderDetail?.nameOfRecipient}} - {{orderDetail?.phoneNumber}}</p>
+              <p>{{orderDetail?.shipAddress}}</p>
             </div>
             <div class="col-6 text-start" style="padding: 40px 0 0 100px">
               <h5 class=" fw-bold">Phương thức thanh toán</h5>
               <br>
-              <p>Thanh toán khi nhận hàng (COD)</p>
+              <p>{{orderDetail?.paymentMethod}}</p>
 
             </div>
             <div class="col-6 text-start" style="padding: 40px 0 0 80px">
               <h5 class=" fw-bold">Phương thức vận chuyển</h5>
               <br>
-              <p>Miễn phí vận chuyển</p>
+              <p>Giao hàng nhanh (GHN)</p>
             </div>
           </div>
           <div class="mt-5">
@@ -55,44 +54,47 @@
 
 
     <div class="col-4" style="background-color:#e6e6e6;padding-top: 22px;padding-bottom: 20px;">
-      <h4 class="">ĐƠN HÀNG &nbsp;#165425(3)</h4>
+      <h4 class="">MÃ ĐƠN HÀNG {{orderDetail?.orderCode}}</h4>
       <hr>
 
       <div class="list" style="height:240px;overflow-y:visible;overflow-x: hidden;padding-top:12px">
 
         <!-- sản phẩm -->
-        <div class="item" style="position:relative ;" *ngFor="let item of [1,2,3]">
+        <div class="item" style="position:relative ;" *ngFor="let product of productOrder">
           <div class="product">
             <div class="count">
-              <p class="hi_text">1</p>
+              <p class="hi_text">{{product?.qty}}</p>
             </div>
-            <img class="product_image" src="https://cf.shopee.vn/file/634f8038a51c682e56ae72267800428a" alt="">
+            <a>
+              <img
+                [src]="product.image" class="product_image" alt="" />
+            </a>
           </div>
           <div class="row">
             <div class="col-9">
-              <span class="text_name">Áo thun nữ Pima Phối Cổ</span> <br>
-              <span class="text_name"> Đỏ/L</span>
+              <span class="text_name">{{product?.productName}}</span> <br>
+              <span class="text_name"> {{product?.colorName}} / {{product?.sizeName}}</span>
             </div>
             <div class="col-3">
-              200.000đ
+              {{product?.price | currency: "VND":"symbol"}}
             </div>
           </div>
           <br>
         </div>
         <!--  -->
+        <br>
+        <hr>
+        <div class="row">
+          <p class="col-6" >Tạm tính</p>
+          <p class="col-6 text-end" style="right: 0px"></p>
+          <p class="col-6">Phí vận chuyển</p>
+          <p class="col-6 text-end" style="right: 0px">{{orderDetail?.shipPrice}}đ</p>
+          <h4 class="col-6 fw-bold" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;">
+            Tổng cộng</h4>
+          <h4 class="col-6 text-end fw-bold" style="right: 0px;color:rgb(0, 0, 0);"> {{orderDetail?.totalPrice}}đ</h4>
+        </div>
       </div>
-      <br>
-      <hr>
-      <div class="row">
-
-        <p class="col-6" >Tạm tính</p>
-        <p class="col-6 text-end" style="right: 0px">200.000đ</p>
-        <p class="col-6">Phí vận chuyển</p>
-        <p class="col-6 text-end" style="right: 0px">35.000đ</p>
-        <h4 class="col-6 fw-bold" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;">
-          Tổng cộng</h4>
-        <h4 class="col-6 text-end fw-bold" style="right: 0px;color:rgb(0, 0, 0);">235.000đ</h4>
-      </div>
+      
     </div>
   </div>
   <br>

@@ -307,10 +307,10 @@ export class CheckoutComponent implements OnInit {
 
     console.log('checkoutForm', this.checkoutForm.value);
 
-    const myId = uuidv4();
+    const id = uuidv4();
     //set checkoutForm value to order object
     const orders = {
-      id :myId ,
+      id :id ,
       addressId: this.checkoutForm.value.addressId ,
       note: this.checkoutForm.value.note,
       paymentMethod: this.checkoutForm.value.paymentMethod,
@@ -322,11 +322,13 @@ export class CheckoutComponent implements OnInit {
 
 
     console.log('order', orders);
-
+    console.log("uuid" ,id);
      this.orderService.checkout(orders).subscribe({
       next: (res: any) => {
+        const commands = '/checkout/success/' + id ;
         console.log('res checkout', res);
-        this.router.navigate(['/checkout/success']);
+        // this.router.navigate([commands.repeat(id)], { relativeTo: this.route });
+        this.router.navigate([commands]);
       }
      })
 
