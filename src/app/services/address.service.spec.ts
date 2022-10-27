@@ -2,15 +2,24 @@
 
 import {inject, TestBed} from '@angular/core/testing';
 import {AddressService} from './address.service';
+import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 
 describe('Service: Address', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AddressService]
+      imports: [
+        HttpClientTestingModule,
+      ],
+      providers: [
+        AddressService,
+      ],
     });
   });
 
-  it('should ...', inject([AddressService], (service: AddressService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should get users', inject([HttpTestingController, AddressService],
+      (httpMock: HttpTestingController, apiService: AddressService) => {
+        expect(apiService).toBeTruthy();
+      }
+    )
+  );
 });

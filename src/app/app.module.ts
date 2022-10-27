@@ -6,7 +6,9 @@ import {HeaderComponent} from './layouts/header/header.component';
 import {FooterComponent} from './layouts/footer/footer.component';
 import {CartComponent} from './components/cart/cart.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
+import {TestBed } from '@angular/core/testing';
+import {HttpClientTestingModule } from '@angular/common/http/testing';
 import {HomeComponent} from './components/home/home.component';
 import {NgxSpinnerModule} from "ngx-spinner";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -66,7 +68,7 @@ import {ProductDetailComponent} from './components/product-detail/product-detail
     CarouselModule,
 
   ],
-  providers: [HttpClient],
+  providers: [],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

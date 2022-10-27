@@ -1,16 +1,24 @@
-import {TestBed} from '@angular/core/testing';
+import {inject, TestBed} from '@angular/core/testing';
 
 import {LocationService} from './location.service';
+import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 
 describe('LocationService', () => {
-  let service: LocationService;
-
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(LocationService);
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+      ],
+      providers: [
+        LocationService,
+      ],
+    });
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+  it('should get users', inject([HttpTestingController, LocationService],
+      (httpMock: HttpTestingController, apiService: LocationService) => {
+        expect(apiService).toBeTruthy();
+      }
+    )
+  );
 });

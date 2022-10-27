@@ -2,15 +2,24 @@
 
 import {inject, TestBed} from '@angular/core/testing';
 import {ColorService} from './color.service';
+import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 
 describe('Service: Color', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ColorService]
+      imports: [
+        HttpClientTestingModule,
+      ],
+      providers: [
+        ColorService,
+      ],
     });
   });
 
-  it('should ...', inject([ColorService], (service: ColorService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should get users', inject([HttpTestingController, ColorService],
+      (httpMock: HttpTestingController, apiService: ColorService) => {
+        expect(apiService).toBeTruthy();
+      }
+    )
+  );
 });

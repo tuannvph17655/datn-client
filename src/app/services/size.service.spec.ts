@@ -2,15 +2,24 @@
 
 import {inject, TestBed} from '@angular/core/testing';
 import {SizeService} from './size.service';
+import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 
 describe('Service: Size', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SizeService]
+      imports: [
+        HttpClientTestingModule,
+      ],
+      providers: [
+        SizeService,
+      ],
     });
   });
 
-  it('should ...', inject([SizeService], (service: SizeService) => {
-    expect(service).toBeTruthy();
-  }));
+  it('should get users', inject([HttpTestingController, SizeService],
+      (httpMock: HttpTestingController, apiService: SizeService) => {
+        expect(apiService).toBeTruthy();
+      }
+    )
+  );
 });
