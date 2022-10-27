@@ -1,7 +1,6 @@
-import { Location } from './../../../models/location';
-import { LocationService } from './../../../services/location.service';
-import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import {LocationService} from './../../../services/location.service';
+import {Component, OnInit} from '@angular/core';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 
 
 @Component({

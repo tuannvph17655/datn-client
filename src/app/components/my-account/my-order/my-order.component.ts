@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { Order } from 'src/app/models/order';
-import { OrderService } from 'src/app/services/order.service';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
+import {Order} from 'src/app/models/order';
+import {OrderService} from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-my-order',

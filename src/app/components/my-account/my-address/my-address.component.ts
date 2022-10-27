@@ -1,13 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Address } from 'src/app/models/address';
-import { AddressService } from 'src/app/services/address.service';
-import { GhnService } from 'src/app/services/ghn.service';
-import { Province } from 'src/app/models/province';
-import { District } from 'src/app/models/district';
-import { Ward } from 'src/app/models/ward';
-import { REGEX_CUSTOM } from 'src/app/models/constant';
-import { ToastrService } from 'ngx-toastr';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Address} from 'src/app/models/address';
+import {AddressService} from 'src/app/services/address.service';
+import {GhnService} from 'src/app/services/ghn.service';
+import {Province} from 'src/app/models/province';
+import {District} from 'src/app/models/district';
+import {Ward} from 'src/app/models/ward';
+import {REGEX_CUSTOM} from 'src/app/models/constant';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-my-address',

@@ -1,12 +1,12 @@
-import { SignUpComponent } from './../../components/authentication/sign-up/sign-up.component';
-import { SignInComponent } from './../../components/authentication/sign-in/sign-in.component';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
-import { CartItem } from 'src/app/models/CartItem';
-import { CartService } from 'src/app/services/cart.service';
-import { TokenStorageService } from '../../services/token-storage.service';
+import {SignUpComponent} from './../../components/authentication/sign-up/sign-up.component';
+import {SignInComponent} from './../../components/authentication/sign-in/sign-in.component';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {NavigationEnd, Router} from '@angular/router';
+import {filter} from 'rxjs';
+import {CartItem} from 'src/app/models/CartItem';
+import {CartService} from 'src/app/services/cart.service';
+import {TokenStorageService} from '../../services/token-storage.service';
 
 @Component({
   selector: 'app-header',

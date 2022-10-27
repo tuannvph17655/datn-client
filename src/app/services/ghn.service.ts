@@ -1,10 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Province } from '../models/province';
-import { environment } from '../../environments/environment';
-import { District } from '../models/district';
-import { Ward } from '../models/ward';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {Province} from '../models/province';
+import {environment} from '../../environments/environment';
+import {District} from '../models/district';
+import {Ward} from '../models/ward';
 
 const GHN_API = environment.ghnApi;
 const token_GHN = 'd740eabe-369a-11ed-8636-7617f3863de9';

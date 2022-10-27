@@ -1,10 +1,17 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { AuthService } from '../services/auth.service';
-import { TokenStorageService } from '../services/token-storage.service';
+import {
+  HTTP_INTERCEPTORS,
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest
+} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable, throwError} from 'rxjs';
+import {AuthService} from '../services/auth.service';
+import {TokenStorageService} from '../services/token-storage.service';
 
-import { catchError, filter, switchMap, take } from 'rxjs/operators';
+import {catchError, filter, switchMap, take} from 'rxjs/operators';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 

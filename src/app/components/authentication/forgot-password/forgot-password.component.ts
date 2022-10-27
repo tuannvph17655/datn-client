@@ -1,8 +1,8 @@
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { SignInComponent } from './../sign-in/sign-in.component';
-import { SignUpComponent } from './../sign-up/sign-up.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Component, OnInit } from '@angular/core';
+import {ResetPasswordComponent} from './reset-password/reset-password.component';
+import {SignInComponent} from './../sign-in/sign-in.component';
+import {SignUpComponent} from './../sign-up/sign-up.component';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-forgot-password',

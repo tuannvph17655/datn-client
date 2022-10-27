@@ -1,14 +1,14 @@
-import { ForgotPasswordComponent } from './../forgot-password/forgot-password.component';
-import { SignUpComponent } from './../sign-up/sign-up.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { ToastrService } from 'ngx-toastr';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
-import { environment } from 'src/environments/environment';
+import {ForgotPasswordComponent} from './../forgot-password/forgot-password.component';
+import {SignUpComponent} from './../sign-up/sign-up.component';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {ToastrService} from 'ngx-toastr';
+import {TokenStorageService} from 'src/app/services/token-storage.service';
+import {environment} from 'src/environments/environment';
 
 const AUTH_API = environment.baseUrl;
 @Component({

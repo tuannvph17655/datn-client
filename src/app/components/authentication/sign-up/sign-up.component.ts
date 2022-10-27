@@ -1,11 +1,10 @@
-import { ToastrService } from 'ngx-toastr';
-import { User } from './../../../models/user';
-import { Router } from '@angular/router';
-import { AccountService } from './../../../services/account.service';
-import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
+import {AccountService} from './../../../services/account.service';
+import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
 import * as moment from 'moment'
-import { HttpErrorResponse } from '@angular/common/http';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',

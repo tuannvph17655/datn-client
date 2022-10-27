@@ -1,19 +1,13 @@
-import { LocationService } from './../../services/location.service';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { Product } from 'src/app/models/product';
-import { AuthService } from 'src/app/services/auth.service';
-import { CustomMaterialPaginatorService } from 'src/app/services/custom-material-paginator.service';
-import { ProductService } from 'src/app/services/product.service';
-import { DialogComponent } from './dialog/dialog.component';
-import { PriceComponent } from './price/price.component';
-import { ColorService } from '../../services/color.service';
-import { SizeService } from 'src/app/services/size.service';
-import { Size } from 'src/app/models/size';
-import { Color } from 'src/app/models/color';
+import {LocationService} from './../../services/location.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Product} from 'src/app/models/product';
+import {AuthService} from 'src/app/services/auth.service';
+import {ProductService} from 'src/app/services/product.service';
+import {ColorService} from '../../services/color.service';
+import {SizeService} from 'src/app/services/size.service';
+import {Size} from 'src/app/models/size';
+import {Color} from 'src/app/models/color';
 
 @Component({
   selector: 'app-shop',
@@ -23,7 +17,7 @@ import { Color } from 'src/app/models/color';
 export class ShopComponent implements OnInit {
 
   public listProduct: Product[] = [];
-  public colors: Color[] = [];  
+  public colors: Color[] = [];
   public sizes: Size[] = [];
   public colorIds : string [] = [];
   public sizeIds : string [] = [];
@@ -37,7 +31,7 @@ export class ShopComponent implements OnInit {
   totalPages : number = 0 ;
   totalElements!: number;
 
-  
+
   //request
   req: any = {
     "textSearch": "",
