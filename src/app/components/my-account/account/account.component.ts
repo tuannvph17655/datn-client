@@ -1,10 +1,8 @@
-import { ToastrService } from 'ngx-toastr';
-import { AccountService } from './../../../services/account.service';
-import { Validators, FormBuilder, AbstractControl } from '@angular/forms';
-import { User } from './../../../models/user';
-import { Component, OnInit } from '@angular/core';
-import { Customer } from 'src/app/models/customer';
-import { UserService } from 'src/app/services/user.service';
+import {ToastrService} from 'ngx-toastr';
+import {AccountService} from './../../../services/account.service';
+import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import {User} from './../../../models/user';
+import {Component, OnInit} from '@angular/core';
 import * as moment from 'moment';
 
 @Component({

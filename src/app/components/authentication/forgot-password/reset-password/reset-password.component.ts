@@ -1,6 +1,6 @@
-import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Component, OnInit } from '@angular/core';
+import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-reset-password',

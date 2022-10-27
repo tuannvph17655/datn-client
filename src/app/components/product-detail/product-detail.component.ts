@@ -1,20 +1,20 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { ProductService } from '../../services/product.service';
-import { ProductDetail } from '../../models/product-detail';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Review } from 'src/app/models/review';
-import { Productoption } from 'src/app/models/productoption';
-import { CartService } from 'src/app/services/cart.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { ToastrService } from 'ngx-toastr';
-import { ProductOptionIdRes } from '../../models/productOptionIdRes';
-import { OwlOptions } from 'ngx-owl-carousel-o';
-import { ProductImage } from 'src/app/models/productImage';
-import { ProductRelated } from '../../models/product-related';
-import { Favourite } from 'src/app/models/favourite';
-import { SignInComponent } from '../authentication/sign-in/sign-in.component';
-import { MatDialog } from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {ProductService} from '../../services/product.service';
+import {ProductDetail} from '../../models/product-detail';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Review} from 'src/app/models/review';
+import {Productoption} from 'src/app/models/productoption';
+import {CartService} from 'src/app/services/cart.service';
+import {AuthService} from 'src/app/services/auth.service';
+import {ToastrService} from 'ngx-toastr';
+import {ProductOptionIdRes} from '../../models/productOptionIdRes';
+import {OwlOptions} from 'ngx-owl-carousel-o';
+import {ProductImage} from 'src/app/models/productImage';
+import {ProductRelated} from '../../models/product-related';
+import {Favourite} from 'src/app/models/favourite';
+import {SignInComponent} from '../authentication/sign-in/sign-in.component';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-product-detail',
@@ -87,7 +87,7 @@ export class ProductDetailComponent implements OnInit {
     this.id = this.activeRoute.snapshot.params['id'];
     this.getProductDetail();
     this.getListSize();
-    
+
   }
 
 

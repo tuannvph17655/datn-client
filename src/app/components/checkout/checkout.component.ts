@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Province } from 'src/app/models/province';
-import { GhnService } from 'src/app/services/ghn.service';
-import { District } from '../../models/district';
-import { Ward } from '../../models/ward';
-import { Shipping } from '../../models/shipping';
-import { Service } from 'src/app/models/service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { REGEX_CUSTOM } from 'src/app/models/constant';
-import { CartService } from 'src/app/services/cart.service';
-import { ToastrService } from 'ngx-toastr';
-import { Cart } from 'src/app/models/cart';
-import { AddressService } from 'src/app/services/address.service';
-import { Address } from 'src/app/models/address';
-import { OrderService } from 'src/app/services/order.service';
-import { CreateOrder } from 'src/app/models/create-order';
-import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
-import { v4 as uuidv4 } from 'uuid';
+import {Component, OnInit} from '@angular/core';
+import {Province} from 'src/app/models/province';
+import {GhnService} from 'src/app/services/ghn.service';
+import {District} from '../../models/district';
+import {Ward} from '../../models/ward';
+import {Shipping} from '../../models/shipping';
+import {Service} from 'src/app/models/service';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {REGEX_CUSTOM} from 'src/app/models/constant';
+import {CartService} from 'src/app/services/cart.service';
+import {ToastrService} from 'ngx-toastr';
+import {Cart} from 'src/app/models/cart';
+import {AddressService} from 'src/app/services/address.service';
+import {Address} from 'src/app/models/address';
+import {OrderService} from 'src/app/services/order.service';
+import {CreateOrder} from 'src/app/models/create-order';
+import {ActivatedRoute, Router} from '@angular/router';
+import {environment} from 'src/environments/environment';
+import {v4 as uuidv4} from 'uuid';
+
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -147,7 +148,7 @@ export class CheckoutComponent implements OnInit {
     )
   }
 
-  
+
 
 
 

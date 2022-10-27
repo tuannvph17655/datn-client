@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { ToastrService } from 'ngx-toastr';
-import { Cart } from 'src/app/models/cart';
-import { CartService } from '../../services/cart.service';
+import {Component, OnInit} from '@angular/core';
+import {NgxSpinnerService} from 'ngx-spinner';
+import {ToastrService} from 'ngx-toastr';
+import {Cart} from 'src/app/models/cart';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-cart',

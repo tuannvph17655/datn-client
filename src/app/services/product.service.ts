@@ -1,8 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
-import { Observable } from 'rxjs';
-import { Product } from '../models/product';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {environment} from '../../environments/environment';
+import {Observable} from 'rxjs';
 
 const API = environment.baseUrl;
 const httpOptions = {
@@ -23,7 +22,7 @@ export class ProductService {
     return this.http.get(API + 'product/' + id);
   }
 
-  
+
   // getProductRelated(productId: string): Observable<any> {
   //   return this.http.post<any>(API + 'product/relatedProduct',{ productId }, httpOptions);
   // }

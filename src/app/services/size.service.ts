@@ -1,8 +1,8 @@
-import { Product } from './../models/product';
-import { Observable } from 'rxjs';
-import { environment } from './../../environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {Product} from './../models/product';
+import {Observable} from 'rxjs';
+import {environment} from './../../environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 
 
 const AUTH_API = environment.baseUrl;

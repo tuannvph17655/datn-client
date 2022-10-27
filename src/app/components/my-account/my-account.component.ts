@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Customer } from 'src/app/models/customer';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
-import { UserService } from 'src/app/services/user.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Customer} from 'src/app/models/customer';
+import {TokenStorageService} from 'src/app/services/token-storage.service';
+import {UserService} from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-my-account',

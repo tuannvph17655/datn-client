@@ -1,7 +1,7 @@
-import { SizeService } from './../../../services/size.service';
-import { map, Observable, startWith } from 'rxjs';
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {SizeService} from './../../../services/size.service';
+import {Observable} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {FormControl} from '@angular/forms';
 
 interface Product {
   id: string;

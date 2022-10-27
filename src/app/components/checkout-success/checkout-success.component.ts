@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { OrderDetail } from 'src/app/models/order-detail';
-import { ProductOrder } from 'src/app/models/product-order';
-import { OrderService } from 'src/app/services/order.service';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {OrderDetail} from 'src/app/models/order-detail';
+import {ProductOrder} from 'src/app/models/product-order';
+import {OrderService} from 'src/app/services/order.service';
 
 @Component({
   selector: 'app-checkout-success',
