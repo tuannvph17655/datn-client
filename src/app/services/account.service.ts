@@ -2,7 +2,7 @@ import {Observable} from 'rxjs';
 import {environment} from 'src/environments/environment';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {FormBuilder} from '@angular/forms';
+import {UntypedFormBuilder} from '@angular/forms';
 
 const AUTH_API = environment.baseUrl;
 const httpOptions = {
@@ -21,7 +21,7 @@ const requestOptions = {headers: headers};
   providedIn: 'root'
 })
 export class AccountService {
-  constructor(private http: HttpClient, private fb: FormBuilder) {
+  constructor(private http: HttpClient, private fb: UntypedFormBuilder) {
   }
 
   register(body: any): Observable<Object> {

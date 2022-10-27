@@ -110,5 +110,7 @@
       }
     }
   },
-  "defaultProject": "datn-client"
+  "cli": {
+    "analytics": "a8c2e5a4-e139-499c-97c8-10fdc93f7f5e"
+  }
 }

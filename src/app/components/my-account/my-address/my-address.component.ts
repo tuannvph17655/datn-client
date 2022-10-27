@@ -1,5 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {Address} from 'src/app/models/address';
 import {AddressService} from 'src/app/services/address.service';
 import {GhnService} from 'src/app/services/ghn.service';
@@ -32,17 +32,17 @@ export class MyAddressComponent implements OnInit {
   wardNameSelected!: string;
 
 
-  addressForm = new FormGroup({
-    id: new FormControl(''),
-    nameOfRecipient: new FormControl('', [Validators.required]),
-    phoneNumber: new FormControl('', [Validators.required, Validators.pattern(REGEX_CUSTOM.PHONE_NUMBER)],),
-    addressDetail: new FormControl('', [Validators.required]),
-    provinceId: new FormControl('', [Validators.required]),
-    provinceName: new FormControl('', [Validators.required]),
-    districtId: new FormControl('', [Validators.required]),
-    districtName: new FormControl('', [Validators.required]),
-    wardCode: new FormControl('', [Validators.required]),
-    wardName: new FormControl('', [Validators.required]),
+  addressForm = new UntypedFormGroup({
+    id: new UntypedFormControl(''),
+    nameOfRecipient: new UntypedFormControl('', [Validators.required]),
+    phoneNumber: new UntypedFormControl('', [Validators.required, Validators.pattern(REGEX_CUSTOM.PHONE_NUMBER)],),
+    addressDetail: new UntypedFormControl('', [Validators.required]),
+    provinceId: new UntypedFormControl('', [Validators.required]),
+    provinceName: new UntypedFormControl('', [Validators.required]),
+    districtId: new UntypedFormControl('', [Validators.required]),
+    districtName: new UntypedFormControl('', [Validators.required]),
+    wardCode: new UntypedFormControl('', [Validators.required]),
+    wardName: new UntypedFormControl('', [Validators.required]),
   });
 
 

@@ -1,7 +1,7 @@
 import {SizeService} from './../../../services/size.service';
 import {Observable} from 'rxjs';
 import {Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 interface Product {
   id: string;
@@ -21,7 +21,7 @@ export class SizeComponent implements OnInit {
   }
 
   getSizeCate = "S";
-  nameControl = new FormControl('');
+  nameControl = new UntypedFormControl('');
   products: Product[] = [];
   image = [];
   filteredOptions: Observable<string[]> | undefined;
@@ -31,7 +31,7 @@ export class SizeComponent implements OnInit {
   }
 
   nameProduct = "Vui lòng chọn loại sản phẩm..."
-  check = new FormControl();
+  check = new UntypedFormControl();
 
 
   height: string = "149";

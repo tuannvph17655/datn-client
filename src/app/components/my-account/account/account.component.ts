@@ -1,6 +1,6 @@
 import {ToastrService} from 'ngx-toastr';
 import {AccountService} from './../../../services/account.service';
-import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormBuilder, Validators} from '@angular/forms';
 import {User} from './../../../models/user';
 import {Component, OnInit} from '@angular/core';
 import * as moment from 'moment';
@@ -24,7 +24,7 @@ export class AccountComponent implements OnInit {
 
   })
 
-  constructor(private account: AccountService, private fb: FormBuilder, private toastr: ToastrService) {
+  constructor(private account: AccountService, private fb: UntypedFormBuilder, private toastr: ToastrService) {
   }
 
 

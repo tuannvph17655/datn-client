@@ -5,7 +5,7 @@ import {District} from '../../models/district';
 import {Ward} from '../../models/ward';
 import {Shipping} from '../../models/shipping';
 import {Service} from 'src/app/models/service';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
 import {REGEX_CUSTOM} from 'src/app/models/constant';
 import {CartService} from 'src/app/services/cart.service';
 import {ToastrService} from 'ngx-toastr';
@@ -54,19 +54,19 @@ export class CheckoutComponent implements OnInit {
   weight !: number;
   width !: number
 
-  checkoutForm = new FormGroup({
-    addressId: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    name: new FormControl('', [Validators.required],),
-    phone: new FormControl('', [Validators.required, Validators.pattern(REGEX_CUSTOM.PHONE_NUMBER)],),
-    address: new FormControl('', [Validators.required]),
-    note: new FormControl(''),
-    province: new FormControl('', [Validators.required]),
-    district: new FormControl('', [Validators.required]),
-    ward: new FormControl('', [Validators.required]),
+  checkoutForm = new UntypedFormGroup({
+    addressId: new UntypedFormControl('', [Validators.required]),
+    email: new UntypedFormControl('', [Validators.required, Validators.email]),
+    name: new UntypedFormControl('', [Validators.required],),
+    phone: new UntypedFormControl('', [Validators.required, Validators.pattern(REGEX_CUSTOM.PHONE_NUMBER)],),
+    address: new UntypedFormControl('', [Validators.required]),
+    note: new UntypedFormControl(''),
+    province: new UntypedFormControl('', [Validators.required]),
+    district: new UntypedFormControl('', [Validators.required]),
+    ward: new UntypedFormControl('', [Validators.required]),
     // shippingMethod: new FormControl('',[Validators.required]),
-    paymentMethod: new FormControl('', [Validators.required]),
-    coupon: new FormControl(''),
+    paymentMethod: new UntypedFormControl('', [Validators.required]),
+    coupon: new UntypedFormControl(''),
   })
 
   constructor(
