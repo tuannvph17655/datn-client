@@ -13,19 +13,20 @@ import {ProductDetailComponent} from './components/product-detail/product-detail
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home',pathMatch: 'full'},
-  { path:'home', component: HomeComponent },
- { path:'cart', component: CartComponent , canActivate: [AuthGuard] },
- { path:'product-detail/:id', component: ProductDetailComponent},
-  { path:'checkout', component: CheckoutComponent },
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'cart', component: CartComponent, canActivate: [AuthGuard]},
+  {path: 'product-detail/:id', component: ProductDetailComponent},
+  {path: 'checkout', component: CheckoutComponent},
   // { path:'checkout/thankyou/:id', component: CheckoutSuccessComponent },
-  { path:'checkout/success/:id', component: CheckoutSuccessComponent },
-  { path:'shop', component: ShopComponent},
-  { path:'location', component: LocationComponent},
+  {path: 'checkout/success/:id', component: CheckoutSuccessComponent},
+  {path: 'shop', component: ShopComponent},
+  {path: 'location', component: LocationComponent},
 
-  { path:'size', component: SizeComponent},
+  {path: 'size', component: SizeComponent},
 
-  { path: '',
+  {
+    path: '',
     loadChildren: () => import('./components/authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   {
@@ -33,7 +34,8 @@ const routes: Routes = [
     component: MyAccountComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: '',
+      {
+        path: '',
         loadChildren: () => import('./components/my-account/my-account.module').then(m => m.MyAccountModule)
       }
     ],
@@ -46,4 +48,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

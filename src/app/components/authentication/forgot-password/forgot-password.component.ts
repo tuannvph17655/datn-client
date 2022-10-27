@@ -12,28 +12,27 @@ import {Component, OnInit} from '@angular/core';
 export class ForgotPasswordComponent implements OnInit {
 
   constructor(private dialog: MatDialog,
-    public dialogRefSignIn: MatDialogRef<SignInComponent>,
-    public dialogRefSignUp: MatDialogRef<SignUpComponent>,
-    public dialogRefForgot: MatDialogRef<ForgotPasswordComponent>
-
-
-  ) { }
+              public dialogRefSignIn: MatDialogRef<SignInComponent>,
+              public dialogRefSignUp: MatDialogRef<SignUpComponent>,
+              public dialogRefForgot: MatDialogRef<ForgotPasswordComponent>
+  ) {
+  }
 
   ngOnInit() {
   }
+
   signUp() {
-    this.dialog.open(SignUpComponent, {
-    })
+    this.dialog.open(SignUpComponent, {})
     this.dialogRefForgot.close()
   }
+
   signIn() {
-    this.dialog.open(SignInComponent, {
-    })
+    this.dialog.open(SignInComponent, {})
     this.dialogRefForgot.close()
   }
+
   submit() {
-    this.dialog.open(ResetPasswordComponent, {
-    })
+    this.dialog.open(ResetPasswordComponent, {})
     // this.dialogRefForgot.close()
   }
 

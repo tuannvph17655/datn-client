@@ -1,14 +1,14 @@
 export class User {
-  id?:string;
+  id?: string;
   firstName?: string;
   lastName?: string;
   email?: string;
   phone?: string;
   dob?: string;
   password?: string;
-  gender?:boolean;
-  oldPassword?:string;
-  newPassword?:string;
+  gender?: boolean;
+  oldPassword?: string;
+  newPassword?: string;
 
 
 }

@@ -5,7 +5,7 @@ import {environment} from 'src/environments/environment';
 import {CreateAddress} from '../models/create-address';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 let auth_token = window.localStorage.getItem('auth-token');
@@ -15,9 +15,9 @@ const headers = new HttpHeaders({
   'Authorization': `Bearer ${auth_token}`
 });
 
-const requestOptions = { headers: headers };
+const requestOptions = {headers: headers};
 
-const requestOption = { headers: headers,responseType: 'text' as 'json' };
+const requestOption = {headers: headers, responseType: 'text' as 'json'};
 
 const AUTH_API = environment.baseUrl;
 
@@ -26,13 +26,14 @@ const AUTH_API = environment.baseUrl;
 })
 export class AddressService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getListAddress(): Observable<any> {
     return this.http.get<any>(AUTH_API + 'address/list-address', requestOptions);
   }
 
-  getAddressById(id:string): Observable<any> {
+  getAddressById(id: string): Observable<any> {
     return this.http.get<any>(AUTH_API + 'address/' + id, requestOptions);
   }
 
@@ -40,15 +41,15 @@ export class AddressService {
     return this.http.get<any>(`${AUTH_API}address/default/${id}`, requestOption);
   }
 
-  updateAddress(address:CreateAddress): Observable<any> {
+  updateAddress(address: CreateAddress): Observable<any> {
     return this.http.post<any>(AUTH_API + 'address/update', address, requestOptions);
   }
 
-  createAddress(address:CreateAddress): Observable<any> {
+  createAddress(address: CreateAddress): Observable<any> {
     return this.http.post<any>(AUTH_API + 'address/create', address, requestOptions);
   }
 
-  deleteAddress(id:string): Observable<any> {
+  deleteAddress(id: string): Observable<any> {
     return this.http.put<any>(AUTH_API + 'address/delete/' + id, requestOption);
   }
 

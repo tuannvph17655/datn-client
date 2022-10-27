@@ -10,21 +10,21 @@ import {OrderService} from 'src/app/services/order.service';
 })
 export class MyOrderComponent implements OnInit {
 
-  public orders : Order[] = [];
-  reason : string = '';
-  orderId : string = '';
-  @ViewChild('exampleModal') modal:any;
+  public orders: Order[] = [];
+  reason: string = '';
+  orderId: string = '';
+  @ViewChild('exampleModal') modal: any;
 
   //page
-  page : number = 0 ;
-  pageSize !: number ;
-  totalPages : number = 0 ;
+  page: number = 0;
+  pageSize !: number;
+  totalPages: number = 0;
   totalElements!: number;
-  totalOrder : number = 0;
+  totalOrder: number = 0;
 
-  req :any = {
-    "textSearch":"",
-    "status":"",
+  req: any = {
+    "textSearch": "",
+    "status": "",
     "pageReq": {
       "page": 0,
       "pageSize": 5,
@@ -36,27 +36,28 @@ export class MyOrderComponent implements OnInit {
   constructor(
     private orderService: OrderService,
     private toastr: ToastrService,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     // this.getListOrder();
     this.searchListOrder(this.req);
   }
 
-  getListOrder(){
+  getListOrder() {
     this.orderService.getListOrder().subscribe({
       next: (res: any) => {
         this.orders = res.data.orderRes;
-      },error: (err) => {
-        console.log('error: ',err);
+      }, error: (err) => {
+        console.log('error: ', err);
       }
     })
   }
 
-  searchListOrder(req: any){
+  searchListOrder(req: any) {
     this.orderService.listOrder(req).subscribe({
       next: (res: any) => {
-        console.log('res list search order: ',res);
+        console.log('res list search order: ', res);
         this.orders = res.data;
         this.totalOrder = this.orders.length;
         this.page = res.page;
@@ -64,21 +65,21 @@ export class MyOrderComponent implements OnInit {
         this.totalPages = res.totalPages;
         this.totalElements = res.totalElements;
 
-      },error: (err) => {
-        console.log('error: ',err);
+      }, error: (err) => {
+        console.log('error: ', err);
       }
     })
   }
 
-  cancelOrder(id:string){
-    console.log('orderId: ',id);
+  cancelOrder(id: string) {
+    console.log('orderId: ', id);
     this.orderId = id;
-    console.log('reason CHECKED: ',this.reason);
+    console.log('reason CHECKED: ', this.reason);
   }
 
-  confirmReasonOrder(){
-    console.log('orderId value:',this.orderId);
-    console.log('reason: ',this.reason);
+  confirmReasonOrder() {
+    console.log('orderId value:', this.orderId);
+    console.log('reason: ', this.reason);
 
     const data = {
       orderId: this.orderId,
@@ -87,12 +88,12 @@ export class MyOrderComponent implements OnInit {
 
     this.orderService.cancelOrder(data).subscribe({
       next: (res: any) => {
-        console.log('res: ',res);
+        console.log('res: ', res);
         this.toastr.success('Hủy đơn hàng thành công !');
         //this.getListOrder();
         this.searchListOrder(this.req);
-      },error: (err) => {
-        console.log('error: ',err);
+      }, error: (err) => {
+        console.log('error: ', err);
       }
     })
 
@@ -101,9 +102,9 @@ export class MyOrderComponent implements OnInit {
 
   }
 
-  pageChange(page: any){
-    this.req.pageReq.page = page-1;
-    console.log('req page change',this.req);
+  pageChange(page: any) {
+    this.req.pageReq.page = page - 1;
+    console.log('req page change', this.req);
     this.searchListOrder(this.req);
   }
 
@@ -112,7 +113,7 @@ export class MyOrderComponent implements OnInit {
     this.modal.nativeElement.click();
   }
 
-  resetReason(){
+  resetReason() {
     this.reason = '';
   }
 

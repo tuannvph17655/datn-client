@@ -13,18 +13,21 @@ import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 export class LocationComponent implements OnInit {
 
   locations: any[] = [];
-  count:number=0;
+  count: number = 0;
+
   constructor(private locationService: LocationService, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
     this.getLocation();
   }
+
   trustedDashboardUrl: SafeUrl = "";
+
   getLocation() {
     this.locationService.getListLocation().subscribe((data: any) => {
       this.locations = data.data.data;
-      this.count =this.locations.length;
+      this.count = this.locations.length;
       console.log(this.locations);
 
     });

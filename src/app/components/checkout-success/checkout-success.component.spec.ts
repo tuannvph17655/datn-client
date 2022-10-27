@@ -9,9 +9,9 @@ describe('CheckoutSuccessComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CheckoutSuccessComponent ]
+      declarations: [CheckoutSuccessComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

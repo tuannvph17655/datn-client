@@ -11,6 +11,7 @@ import {TokenStorageService} from 'src/app/services/token-storage.service';
 import {environment} from 'src/environments/environment';
 
 const AUTH_API = environment.baseUrl;
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -34,7 +35,8 @@ export class SignInComponent implements OnInit {
     private http: HttpClient,
     private dialog: MatDialog,
     public dialogRefSignIn: MatDialogRef<SignInComponent>
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }
@@ -45,7 +47,7 @@ export class SignInComponent implements OnInit {
 
   login() {
     //decode jwt
-    const { email, password } = this.loginForm.value;
+    const {email, password} = this.loginForm.value;
 
     console.log(email, password);
 
@@ -54,7 +56,7 @@ export class SignInComponent implements OnInit {
     formData.append('password', password);
     this.http.post(AUTH_API + 'login', formData).subscribe(
       (res: any) => {
-        const { accessToken, refreshToken } = res;
+        const {accessToken, refreshToken} = res;
         this.tokenStorage.saveToken(accessToken);
         this.tokenStorage.saveRefreshToken(refreshToken);
         const decodedToken = this.helper.decodeToken(accessToken);
@@ -75,13 +77,13 @@ export class SignInComponent implements OnInit {
       }
     )
   }
+
   signUp() {
-    this.dialog.open(SignUpComponent, {
-    })
+    this.dialog.open(SignUpComponent, {})
   }
+
   forgotPassword() {
-    this.dialog.open(ForgotPasswordComponent, {
-    })
+    this.dialog.open(ForgotPasswordComponent, {})
     this.dialogRefSignIn.close()
   }
 }

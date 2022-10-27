@@ -6,7 +6,7 @@ import {environment} from '../../environments/environment';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 
 const AUTH_API = environment.baseUrl;
@@ -17,10 +17,11 @@ const AUTH_API = environment.baseUrl;
 })
 export class AuthService {
 
-  constructor(private helper: JwtHelperService,private http: HttpClient){ }
+  constructor(private helper: JwtHelperService, private http: HttpClient) {
+  }
 
   login(formData: any): Observable<any> {
-    return this.http.post(AUTH_API + 'login',formData, httpOptions);
+    return this.http.post(AUTH_API + 'login', formData, httpOptions);
 
   }
 

@@ -8,17 +8,18 @@ import {Observable} from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private jwthelper: JwtHelperService, private router: Router) { }
+  constructor(private jwthelper: JwtHelperService, private router: Router) {
+  }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      const token = localStorage.getItem('auth-token');
-      if(token && !this.jwthelper.isTokenExpired(token)) {
-        return true;
-      }
-      this.router.navigateByUrl('/sign-in');
-      return false;
+    const token = localStorage.getItem('auth-token');
+    if (token && !this.jwthelper.isTokenExpired(token)) {
+      return true;
+    }
+    this.router.navigateByUrl('/sign-in');
+    return false;
   }
 
 }

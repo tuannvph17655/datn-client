@@ -42,11 +42,12 @@ button {
   left: 7%;
   margin-right: 6px;
   background-color: black;
-  color:white;
+  color: white;
   border-color: black;
 }
-.his{
+
+.his {
   background-color: white;
-  color:black
+  color: black
   /* border-color: white */
 }

@@ -9,5 +9,5 @@ export class Cart {
   quantityAvailable?: number;
   price?: string;
   image?: string;
-  subtotal?:string;
+  subtotal?: string;
 }

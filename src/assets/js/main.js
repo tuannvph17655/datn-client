@@ -520,6 +520,7 @@
       }
     });
   }
+
   itemToggler();
 
 
@@ -533,6 +534,7 @@
       }
     });
   }
+
   itemToggler2();
 
   function itemToggler3() {
@@ -545,6 +547,7 @@
       }
     });
   }
+
   itemToggler3();
 
 
@@ -609,6 +612,7 @@
       }
     });
   }
+
   itemToggler4();
 
   function itemToggler5() {
@@ -621,6 +625,7 @@
       }
     });
   }
+
   itemToggler5();
 
   function itemToggler6() {
@@ -633,6 +638,7 @@
       }
     });
   }
+
   itemToggler6();
 
 
@@ -680,20 +686,20 @@
         slidesToScroll: 1
       }
     },
-    {
-      breakpoint: 767,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
+      {
+        breakpoint: 767,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 479,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
       }
-    },
-    {
-      breakpoint: 479,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1
-      }
-    }
     ]
   });
 
@@ -815,18 +821,6 @@
 
   /*------ Wow Active ----*/
   new WOW().init();
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 })(jQuery);

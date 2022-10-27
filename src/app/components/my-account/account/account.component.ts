@@ -23,6 +23,7 @@ export class AccountComponent implements OnInit {
     gender: ['']
 
   })
+
   constructor(private account: AccountService, private fb: FormBuilder, private toastr: ToastrService) {
   }
 
@@ -30,6 +31,7 @@ export class AccountComponent implements OnInit {
   ngOnInit(): void {
     this.getProfile();
   }
+
   value = true;
 
 
@@ -49,6 +51,7 @@ export class AccountComponent implements OnInit {
     })
 
   }
+
   updateProfile() {
     let body = {
       id: this.user.id,
@@ -60,31 +63,31 @@ export class AccountComponent implements OnInit {
       gender: this.userForm.get('gender')?.value == "true" ? true : false
     }
     this.account.updateProfile(body).subscribe((data: any) => {
-      this.toastr.success("Cập nhật tài khoản thành công")
-    }, error => this.toastr.error(error.error.message, "Cập nhật tài khoản thất bại"),
+        this.toastr.success("Cập nhật tài khoản thành công")
+      }, error => this.toastr.error(error.error.message, "Cập nhật tài khoản thất bại"),
     )
   }
 }
 
 
-  // public customer!: Customer;
+// public customer!: Customer;
 
-  // constructor(private userService: UserService) { }
+// constructor(private userService: UserService) { }
 
-  // ngOnInit() {
-    // this.getCurrentUserProfile();
-  // }
+// ngOnInit() {
+// this.getCurrentUserProfile();
+// }
 
-  // getCurrentUserProfile() {
-  //   this.userService.getCurrentUserProfile().subscribe({
-  //     next: (response) => {
-  //       console.log('response current user', response);
-  //       this.customer = response;
-  //       console.log('customer', this.customer);
-  //     },error: (err) => {
-  //       console.log('error get current user :', err);
-  //     }
-  //   })
-  // }
+// getCurrentUserProfile() {
+//   this.userService.getCurrentUserProfile().subscribe({
+//     next: (response) => {
+//       console.log('response current user', response);
+//       this.customer = response;
+//       console.log('customer', this.customer);
+//     },error: (err) => {
+//       console.log('error get current user :', err);
+//     }
+//   })
+// }
 
 // }

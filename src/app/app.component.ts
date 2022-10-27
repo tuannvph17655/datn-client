@@ -9,7 +9,8 @@ import {NgxSpinnerService} from 'ngx-spinner';
 export class AppComponent {
   title = 'Puddy shop';
 
-  constructor(private spinner: NgxSpinnerService) {}
+  constructor(private spinner: NgxSpinnerService) {
+  }
 
   ngOnInit() {
     /** spinner starts on init */

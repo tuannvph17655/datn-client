@@ -1,8 +1,8 @@
-.thumbnail{
+.thumbnail {
   border-radius: 50% 50%;
 }
 
-.cart--empty-message{
+.cart--empty-message {
   text-align: center;
   font-size: 1.5em;
   color: #999;
@@ -21,7 +21,7 @@
   font-family: svn-gilroy bold;
 }
 
-a.buy-now{
+a.buy-now {
   border-color: #7a7a9d;
   background: #fff;
   color: #7a7a9d;

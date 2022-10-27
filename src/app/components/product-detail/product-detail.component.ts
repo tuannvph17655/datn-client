@@ -27,27 +27,27 @@ export class ProductDetailComponent implements OnInit {
   id !: string;
   public reviews !: Review[];
   public productOptions !: Productoption[];
-  sizes:any;
-  colors:any;
+  sizes: any;
+  colors: any;
   quantity: number = 1;
   sizeSelected: string = '';
   colorSelected: string = '';
-  productOptionId :string = '';
+  productOptionId: string = '';
   // images:any;
   priceOption !: number;
   productOptionRes !: ProductOptionIdRes;
-  description:string [] = [];
-  sizeColorSelected!:boolean;
-  quantityProduct!:number;
-  priceProduct!:string;
+  description: string [] = [];
+  sizeColorSelected!: boolean;
+  quantityProduct!: number;
+  priceProduct!: string;
 
-  productRelated : ProductRelated[] = [];
+  productRelated: ProductRelated[] = [];
 
   isFavourite = false;
   starRating = 0;
   ratingForm = false;
 
-  listFavourite : Favourite[] = [];
+  listFavourite: Favourite[] = [];
 
 
   public imageProduct!: ProductImage[];
@@ -81,7 +81,8 @@ export class ProductDetailComponent implements OnInit {
     private auth: AuthService,
     private toastr: ToastrService,
     private dialog: MatDialog
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.id = this.activeRoute.snapshot.params['id'];
@@ -91,35 +92,35 @@ export class ProductDetailComponent implements OnInit {
   }
 
 
-  getProductDetail(){
+  getProductDetail() {
     this.product.getProductDetails(this.id).subscribe({
-      next: (response:any) => {
-        console.log('data : ',response.data)
+      next: (response: any) => {
+        console.log('data : ', response.data)
         this.productDetail = response.data;
         this.description = response.data.description.split('.');
         this.reviews = response.data.review;
         this.productOptions = response.data.productOptions;
-        console.log('product-detail:',this.productDetail);
-        console.log('productOptions:',this.productOptions);
+        console.log('product-detail:', this.productDetail);
+        console.log('productOptions:', this.productOptions);
         this.priceOption = response.data.productOptions[0].price;
-        console.log("priceOptions : "  + this.priceOption);
-        this.imageProduct = response.data.productOptions.map((item:any) => {
+        console.log("priceOptions : " + this.priceOption);
+        this.imageProduct = response.data.productOptions.map((item: any) => {
           return {
             id: item.id,
             url: item.image
           }
         });
-        console.log('imageProduct:',this.imageProduct);
+        console.log('imageProduct:', this.imageProduct);
       },
       error: (err) => {
-        console.log('err : ',err);
+        console.log('err : ', err);
       }
     });
   }
 
-  getListSize(){
-     this.cart.getListSizeByProductId(this.id).subscribe({
-      next:(response:any) => {
+  getListSize() {
+    this.cart.getListSizeByProductId(this.id).subscribe({
+      next: (response: any) => {
         this.sizes = response.data;
       }
     });
@@ -136,27 +137,27 @@ export class ProductDetailComponent implements OnInit {
   //   });
   // }
 
-  addToCart(){
+  addToCart() {
     if (!this.auth.isAuthenticated()) {
       this.openSignIn();
       return;
     }
 
-    if(this.sizeSelected == '' || this.colorSelected == ''){
+    if (this.sizeSelected == '' || this.colorSelected == '') {
       this.toastr.warning('Bạn chưa chọn size và color');
       return;
     }
-    if(this.quantity < 0 ) {
+    if (this.quantity < 0) {
       this.toastr.error('Số lượng sản phẩm phải là số nguyên dương !')
-      return ;
+      return;
     }
-    if(this.quantity > this.quantityProduct) {
+    if (this.quantity > this.quantityProduct) {
       this.toastr.error('Số lượng sản phẩm không đủ !');
     }
 
 
-    this.cart.findProductOptionId(this.colorSelected, this.sizeSelected,this.id).subscribe({
-      next: (response:any) => {
+    this.cart.findProductOptionId(this.colorSelected, this.sizeSelected, this.id).subscribe({
+      next: (response: any) => {
         console.log('findProductOptionRes: ', response);
         this.productOptionRes = response.data;
         this.quantityProduct = response.data.quantity;
@@ -164,56 +165,56 @@ export class ProductDetailComponent implements OnInit {
         this.cart.addToCart(this.productOptionRes.productOptionId, this.quantity).subscribe({
           next: (response) => {
 
-            if(this.quantityProduct < this.quantity || this.quantityProduct == 0){
+            if (this.quantityProduct < this.quantity || this.quantityProduct == 0) {
               this.toastr.error('Số lượng sản phẩm không đủ');
-              return ;
+              return;
             }
             console.log('response: ', response);
             this.toastr.success('Sản phẩm đã được thêm vào giỏ hàng !!');
             this.router.navigate(['/cart']);
-          },error: (err) => {
-            console.log('err add to cart : ',err);
+          }, error: (err) => {
+            console.log('err add to cart : ', err);
           }
         })
       },
       error: (err) => {
-        console.log('err findProductOption : ',err);
+        console.log('err findProductOption : ', err);
       }
     });
   }
 
   increase() {
-    this.quantity ++;
+    this.quantity++;
   }
 
   decrease() {
-    if(this.quantity <= 1){
+    if (this.quantity <= 1) {
       return;
     }
 
-    this.quantity --;
+    this.quantity--;
   }
 
-  changeSize(e:any){
+  changeSize(e: any) {
     this.sizeSelected = e.target.value;
-    this.cart.getListColorBySize(this.sizeSelected,this.id).subscribe({
-      next:(response:any) => {
+    this.cart.getListColorBySize(this.sizeSelected, this.id).subscribe({
+      next: (response: any) => {
         this.colors = response.data;
       },
       error: (err) => {
-        console.log('err : ',err)
+        console.log('err : ', err)
       }
     });
   }
 
-  changeColor(e: any){
+  changeColor(e: any) {
     this.colorSelected = e.target.value;
     console.log('colorSelected: ', this.colorSelected);
 
     this.sizeColorSelected = true;
 
-    this.cart.findProductOptionId(this.colorSelected, this.sizeSelected,this.id).subscribe({
-      next: (response:any) => {
+    this.cart.findProductOptionId(this.colorSelected, this.sizeSelected, this.id).subscribe({
+      next: (response: any) => {
         console.log('findProductOptionRes: ', response);
         this.quantityProduct = response.data.quantity;
         this.priceProduct = response.data.price;
@@ -221,7 +222,7 @@ export class ProductDetailComponent implements OnInit {
         console.log('quantityProduct: ', this.quantityProduct);
       },
       error: (err) => {
-        console.log('err findProductOption : ',err);
+        console.log('err findProductOption : ', err);
       }
     });
   }

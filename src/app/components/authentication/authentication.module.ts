@@ -25,4 +25,5 @@ import {ResetPasswordComponent} from './forgot-password/reset-password/reset-pas
     MaterialModule
   ]
 })
-export class AuthenticationModule { }
+export class AuthenticationModule {
+}

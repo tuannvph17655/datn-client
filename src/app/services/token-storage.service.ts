@@ -12,19 +12,20 @@ const USER_KEY = 'auth-user';
 })
 export class TokenStorageService {
 
-  constructor(private jwtHelper: JwtHelperService) { }
+  constructor(private jwtHelper: JwtHelperService) {
+  }
 
   signOut(): void {
     window.localStorage.clear();
   }
 
-    public saveToken(token: any): void {
+  public saveToken(token: any): void {
     window.localStorage.removeItem(TOKEN_KEY);
     window.localStorage.setItem(TOKEN_KEY, token);
 
     const user = this.getUser();
     if (user.id) {
-      this.saveUser({ ...user, accessToken: token });
+      this.saveUser({...user, accessToken: token});
     }
   }
 
@@ -32,7 +33,7 @@ export class TokenStorageService {
     return window.localStorage.getItem(TOKEN_KEY);
   }
 
-    public saveRefreshToken(token: any): void {
+  public saveRefreshToken(token: any): void {
     window.localStorage.removeItem(REFRESHTOKEN_KEY);
     window.localStorage.setItem(REFRESHTOKEN_KEY, token);
   }
@@ -55,9 +56,9 @@ export class TokenStorageService {
     return {};
   }
 
-  public loggedIn() : boolean{
+  public loggedIn(): boolean {
     const token = this.getToken();
-    if(!token){
+    if (!token) {
       return false;
     }
     return !this.jwtHelper.isTokenExpired(token);

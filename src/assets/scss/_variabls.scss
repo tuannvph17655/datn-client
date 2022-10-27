@@ -7,8 +7,6 @@ $lobster: 'Lobster', cursive;
 $josefin: 'Josefin Sans', sans-serif;
 
 
-
-
 // text Colors ---------------
 
 $white: #ffffff;
@@ -32,11 +30,10 @@ $heading-color: #000000;
 $theme-color: #a749ff;
 
 
-
-// Responsive Variables 
-$xx-layout : 'only screen and (min-width: 1366px) and (max-width: 1600px)';
-$xl-layout : 'only screen and (min-width: 1200px) and (max-width: 1365px)';
-$lg-layout : 'only screen and (min-width: 992px) and (max-width: 1199px)';
-$md-layout:'only screen and (min-width: 768px) and (max-width: 991px)';
-$xs-layout:'only screen and (max-width: 767px)';
+// Responsive Variables
+$xx-layout: 'only screen and (min-width: 1366px) and (max-width: 1600px)';
+$xl-layout: 'only screen and (min-width: 1200px) and (max-width: 1365px)';
+$lg-layout: 'only screen and (min-width: 992px) and (max-width: 1199px)';
+$md-layout: 'only screen and (min-width: 768px) and (max-width: 991px)';
+$xs-layout: 'only screen and (max-width: 767px)';
 $sm-layout: 'only screen and (min-width: 576px) and (max-width: 767px)';

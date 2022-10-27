@@ -12,16 +12,15 @@ import {OrderService} from 'src/app/services/order.service';
 export class CheckoutSuccessComponent implements OnInit {
   id !: string;
   public orderDetail!: OrderDetail;
-  public productOrder : ProductOrder[] = [];
+  public productOrder: ProductOrder[] = [];
 
   constructor(
     private router: Router,
     private activeRoute: ActivatedRoute,
     private order: OrderService
-
   ) {
 
-   }
+  }
 
   ngOnInit() {
     this.id = this.activeRoute.snapshot.params['id'];
@@ -29,13 +28,13 @@ export class CheckoutSuccessComponent implements OnInit {
   }
 
 
-  getOrderDetail(id:string){
+  getOrderDetail(id: string) {
     this.order.getOrderDetail(id).subscribe({
-      next: (res:any) => {
-        console.log('res order detail',res);
+      next: (res: any) => {
+        console.log('res order detail', res);
         this.orderDetail = res.data;
         this.productOrder = res.data.product;
-      },error: (err) => {
+      }, error: (err) => {
         console.log('err', err);
       }
     })

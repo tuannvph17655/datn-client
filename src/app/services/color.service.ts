@@ -9,9 +9,10 @@ const AUTH_API = environment.baseUrl;
 })
 export class ColorService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getListColor(){
+  getListColor() {
     return this.http.get(AUTH_API + 'color');
   }
 

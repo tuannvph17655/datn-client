@@ -27,4 +27,5 @@ import {OrderDetailComponent} from './order-detail/order-detail.component';
     NgxPaginationModule
   ]
 })
-export class MyAccountModule { }
+export class MyAccountModule {
+}

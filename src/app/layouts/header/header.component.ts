@@ -61,6 +61,7 @@ export class HeaderComponent implements OnInit {
     window.location.reload();
 
   }
+
   info() {
     // window.location.reload();
     this.router.navigateByUrl('/account');
@@ -75,7 +76,7 @@ export class HeaderComponent implements OnInit {
 
   openSignUp() {
     this.dialog.open(SignUpComponent, {
-      width:'400px',
+      width: '400px',
       // height:'500px'
     })
   }

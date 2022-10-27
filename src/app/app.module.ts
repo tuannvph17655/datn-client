@@ -70,4 +70,5 @@ import {ProductDetailComponent} from './components/product-detail/product-detail
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -18,7 +18,7 @@ export class LocationService {
     return this.http.get<Location[]>("http://localhost:8080/api/v1/location/find-location");
   }
 
-  getListLocations(){
+  getListLocations() {
     return this.http.get(AUTH_API + 'location');
   }
 }

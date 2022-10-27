@@ -8,7 +8,8 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 })
 export class DialogComponent implements OnInit {
 
-  constructor(private modalService:NgbModal) { }
+  constructor(private modalService: NgbModal) {
+  }
 
   ngOnInit() {
   }

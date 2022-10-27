@@ -130,4 +130,5 @@ import {MatTableModule} from '@angular/material/table';
     MatFormFieldModule
   ]
 })
-export class MaterialModule { }
+export class MaterialModule {
+}

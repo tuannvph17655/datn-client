@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {environment} from 'src/environments/environment';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 let auth_token = window.localStorage.getItem('auth-token');
 
@@ -13,7 +13,7 @@ const headers = new HttpHeaders({
   'Authorization': `Bearer ${auth_token}`
 });
 
-const requestOptions = { headers: headers };
+const requestOptions = {headers: headers};
 
 const AUTH_API = environment.baseUrl;
 
@@ -22,9 +22,10 @@ const AUTH_API = environment.baseUrl;
 })
 export class UserService {
 
- constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getCurrentUserProfile(): Observable<any>{
+  getCurrentUserProfile(): Observable<any> {
     return this.http.get<any>(AUTH_API + 'user/my-profile', requestOptions);
   }
 

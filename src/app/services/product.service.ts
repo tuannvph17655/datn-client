@@ -5,8 +5,9 @@ import {Observable} from 'rxjs';
 
 const API = environment.baseUrl;
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,9 +17,10 @@ export class ProductService {
   }
 
   getListProduct(req: any): Observable<any> {
-    return this.http.post<any>(API + 'product/search/v2', { ...req });
+    return this.http.post<any>(API + 'product/search/v2', {...req});
   }
-  getProductDetails(id:string){
+
+  getProductDetails(id: string) {
     return this.http.get(API + 'product/' + id);
   }
 

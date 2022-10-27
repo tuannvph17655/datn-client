@@ -11,18 +11,19 @@ import {ProductService} from 'src/app/services/product.service';
 })
 export class HomeComponent implements OnInit {
 
-  public products : Product[] = [];
+  public products: Product[] = [];
 
-    //page
-    page : number = 0 ;
-    pageSize !: number ;
-    totalPages : number = 0 ;
-    totalElements!: number;
+  //page
+  page: number = 0;
+  pageSize !: number;
+  totalPages: number = 0;
+  totalElements!: number;
 
   constructor(
     private spinner: NgxSpinnerService,
     private product: ProductService
-    ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.spinner.show();
@@ -32,7 +33,7 @@ export class HomeComponent implements OnInit {
     // this.getListProduct();
   }
 
-  slides= [
+  slides = [
     {id: 1, img: "../../assets/img/slider/single-slide-1.png"},
     {id: 2, img: "../../assets/img/slider/single-slide-hm1-2.png"},
 
@@ -44,7 +45,7 @@ export class HomeComponent implements OnInit {
     touchDrag: true,
     pullDrag: true,
     autoplay: true,
-    autoplayHoverPause:true,
+    autoplayHoverPause: true,
     dots: false,
     navSpeed: 700,
     navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
@@ -64,7 +65,6 @@ export class HomeComponent implements OnInit {
     },
     nav: true
   }
-
 
 
 }

@@ -11,8 +11,8 @@ export class ResetPasswordComponent implements OnInit {
 
   resetForm = this.fb.group({
     otp: ['', Validators.required],
-    newPassword: ['', Validators.required,Validators.minLength(6)],
-    dupPassword: ['', Validators.required,Validators.minLength(6)],
+    newPassword: ['', Validators.required, Validators.minLength(6)],
+    dupPassword: ['', Validators.required, Validators.minLength(6)],
   })
 
   get f(): { [key: string]: AbstractControl; } {
@@ -20,11 +20,12 @@ export class ResetPasswordComponent implements OnInit {
   }
 
   constructor(public dialog: MatDialog, public dialogRefReset: MatDialogRef<ResetPasswordComponent>, private fb: FormBuilder
-
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
   }
+
   back() {
     this.dialogRefReset.close()
   }

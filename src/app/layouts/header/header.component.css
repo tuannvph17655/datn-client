@@ -43,9 +43,6 @@ ul.account_header li a {
 }
 
 
-
-
-
 /*  */
 
 .menu {
@@ -66,7 +63,7 @@ ul.account_header li a {
   text-decoration: none;
 }
 
-div>ul>li {
+div > ul > li {
   text-decoration: none !important;
 }
 

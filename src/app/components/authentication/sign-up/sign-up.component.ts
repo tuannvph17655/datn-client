@@ -23,7 +23,9 @@ export class SignUpComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(6)]]
   })
   error = []
-  constructor(private router: Router, private toastr: ToastrService, private account: AccountService, private fb: FormBuilder,) { }
+
+  constructor(private router: Router, private toastr: ToastrService, private account: AccountService, private fb: FormBuilder,) {
+  }
 
   ngOnInit(): void {
 
