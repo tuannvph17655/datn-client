@@ -1,609 +1,154 @@
+
 <div class="breadcrumb-area pt-35 pb-35 bg-gray-3">
-  <div class="container">
-    <div class="breadcrumb-content text-center">
-      <ul>
-        <li>
-          <a href="index.html">Trang chủ</a>
-        </li>
-        <li class="active">Chi tiết sản phẩm</li>
-      </ul>
+    <div class="container">
+        <div class="breadcrumb-content text-center">
+            <ul>
+                <li>
+                    <a href="index.html">Trang chủ</a>
+                </li>
+                <li class="active">Chi tiết sản phẩm</li>
+            </ul>
+        </div>
     </div>
-  </div>
 </div>
 <div class="shop-area pt-100 pb-100">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-6">
-        <div class="product-details dec-img-wrap">
-          <owl-carousel-o [options]="customOptions">
-            <ng-container *ngFor="let slide of imageProduct">
-              <ng-template class="slide" carouselSlide [id]="slide.id">
-                <img [src]="slide.url" [alt]="slide.id" [title]="slide.id"/>
-              </ng-template>
-            </ng-container>
-          </owl-carousel-o>
-          <!-- <span>-29%</span> -->
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6">
-        <div class="product-details-content ml-70">
-          <h2>{{productDetail?.productName}}</h2>
-          <div class="product-details-price">
-            <span>{{ priceProduct | vnd }}</span>
-            <!-- <span class="old">$20.00</span> -->
-          </div>
-          <h4>Đặc điểm sản phẩm</h4>
-          <div *ngFor="let des of description" class="tick-line">
-            <p>{{des}}</p>
-          </div>
-
-          <p>Chất liệu : {{productDetail?.material}}</p>
-          <br/>
-          <p>Loại sản phẩm : {{productDetail?.categoryName}}</p>
-
-
-          <div class="single-product product-size d-flex align-items-center mt-4">
-            <span class="font-weight-bold text-capitalize product-meta-title">Chọn Size</span>
-
-            <select class="form-control check-box-size" style="margin-left: 35px;" id="size" name="size"
-                    (change)="changeSize($event)" formControlName="size">
-              <option value hidden>Chọn size</option>
-              <option *ngFor="let size of sizes" [value]="size.sizeId">{{size.sizeName}}</option>
-            </select>
-          </div>
-
-          <div class="single-product product-color d-flex align-items-center mt-4">
-            <span class="font-weight-bold text-capitalize product-meta-title">Chọn Color</span>
-            <select class="form-control check-box-size" style="margin-left: 24px;" (change)="changeColor($event)"
-                    formControlName="color">
-              <option value hidden>Chọn màu sắc</option>
-              <option *ngFor="let color of colors" [value]="color.colorId">
-                {{color.colorName}}
-              </option>
-            </select>
-          </div>
-
-          <div *ngIf="sizeColorSelected">
-            <p style="margin-top: 30px;color: red;">{{quantityProduct}} sản phẩm có sẵn</p>
-          </div>
-
-
-          <!--  -->
-
-          <div class="pro-details-quality">
-            <div class="cart-plus-minus">
-              <div (click)="decrease()" class="dec qtybutton">-</div>
-              <input type="number" name="quantity" [(ngModel)]="quantity" [value]="quantity"
-                     class="cart-plus-minus-box">
-              <div (click)="increase()" class="inc qtybutton">+</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="product-details dec-img-wrap">
+                    <owl-carousel-o [options]="customOptions">
+                        <ng-container *ngFor="let slide of imageProduct">
+                            <ng-template class="slide" carouselSlide [id]="slide.id">
+                                <img [src]="slide.url" [alt]="slide.id" [title]="slide.id" />
+                            </ng-template>
+                        </ng-container>
+                    </owl-carousel-o>
+                    <!-- <span>-29%</span> -->
+                </div>
             </div>
-            <div class="pro-details-cart btn-hover">
-              <a (click)="addToCart()">Thêm vào giỏ hàng</a>
+            <div class="col-lg-6 col-md-6">
+                <div class="product-details-content ml-70">
+                    <h2>{{productDetail?.productName}}</h2>
+                    <div class="product-details-price">
+                        <span>{{ priceProduct | vnd }}</span>
+                        <!-- <span class="old">$20.00</span> -->
+                    </div>
+                    <h4>Đặc điểm sản phẩm</h4>
+                    <div *ngFor="let des of description" class="tick-line">
+                        <p>{{des}}</p>
+                    </div>
+
+                    <p>Chất liệu : {{productDetail?.material}}</p>
+                    <br />
+                    <p>Loại sản phẩm : {{productDetail?.categoryName}}</p>
+
+
+                    <div class="single-product product-size d-flex align-items-center mt-4">
+                        <span class="font-weight-bold text-capitalize product-meta-title">Chọn Size</span>
+                        <select class="form-control check-box-size" style="margin-left: 35px;" id="size" name="size"
+                             formControlName="size" (change)="changeSize($event)" >
+                            <option value hidden>Chọn size</option>
+                            <option *ngFor="let size of sizes" [value]="size.sizeId" >{{size.sizeName}}</option>
+                        </select>
+
+
+                    </div>
+
+                    <div class="single-product product-color d-flex align-items-center mt-4">
+                        <span class="font-weight-bold text-capitalize product-meta-title">Chọn Color</span>
+                        <select class="form-control check-box-size" style="margin-left: 24px;"
+                            (change)="changeColor($event)" formControlName="color">
+                            <option value hidden>Chọn màu sắc</option>
+                            <option *ngFor="let color of colors" [value]="color.colorId">
+                                {{color.colorName}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div *ngIf="sizeColorSelected">
+                        <p style="margin-top: 30px;color: red;">{{quantityProduct}} sản phẩm có sẵn</p>
+                    </div>
+
+
+                    <!--  -->
+
+                    <div class="pro-details-quality">
+                        <div class="cart-plus-minus">
+                            <div (click)="decrease()" class="dec qtybutton">-</div>
+                            <input type="number" name="quantity" [(ngModel)]="quantity" [value]="quantity"
+                                class="cart-plus-minus-box">
+                            <div (click)="increase()" class="inc qtybutton">+</div>
+                        </div>
+                        <div class="pro-details-cart btn-hover">
+                            <a (click)="addToCart()">Thêm vào giỏ hàng</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <div class="description-review-area pb-90">
-  <div class="container">
-    <div class="description-review-wrapper">
-      <div class="description-review-topbar nav">
-        <a data-bs-toggle="tab" href="#des-details1">Thông tin sản phẩm</a>
-        <a data-bs-toggle="tab" href="#des-details3">Đánh giá</a>
-      </div>
-      <div class="tab-content description-review-bottom">
-        <div id="des-details1" class="tab-pane ">
-          <div class="product-anotherinfo-wrapper">
-            <h4>Đặc điểm sản phẩm</h4>
-            <div *ngFor="let des of description" class="tick-line">
-              <p>{{des}}</p>
+    <div class="container">
+        <div class="description-review-wrapper">
+            <div class="description-review-topbar nav">
+                <a data-bs-toggle="tab" href="#des-details1">Thông tin sản phẩm</a>
             </div>
-          </div>
-        </div>
+            <div class="tab-content description-review-bottom">
+                <div id="des-details1" class="tab-pane active">
+                    <div class="product-anotherinfo-wrapper">
+                        <h4>Đặc điểm sản phẩm</h4>
+                        <div *ngFor="let des of description" class="tick-line">
+                            <p>{{des}}</p>
+                        </div>
+                    </div>
+                </div>
 
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 
-<div class="related-product-area pb-95">
-  <div class="container">
-    <div class="section-title text-center mb-50">
-      <h2>Sản phẩm liên quan</h2>
-    </div>
-    <div class="related-product-active owl-carousel owl-dot-none owl-loaded owl-drag">
-      <div class="owl-stage-outer">
-        <div class="owl-stage"
-             style="transform: translate3d(-2100px, 0px, 0px); transition: all 0.25s ease 0s; width: 3900px;">
-          <div class="owl-item cloned" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-2.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-2-1.jpg" alt="">
-                </a>
-                <span class="purple">New</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-3.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-3-1.jpg" alt="">
-                </a>
-                <span class="pink">-10%</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                  <span class="old">$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-4.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-4-1.jpg" alt="">
-                </a>
-                <span class="purple">New</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-5.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-5-1.jpg" alt="">
-                </a>
-                <span class="pink">-10%</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                  <span class="old">$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-1.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-1-1.jpg" alt="">
-                </a>
-                <span class="pink">-10%</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                  <span class="old">$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-2.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-2-1.jpg" alt="">
-                </a>
-                <span class="purple">New</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-3.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-3-1.jpg" alt="">
-                </a>
-                <span class="pink">-10%</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                  <span class="old">$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item active" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-4.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-4-1.jpg" alt="">
-                </a>
-                <span class="purple">New</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item active" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-5.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-5-1.jpg" alt="">
-                </a>
-                <span class="pink">-10%</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                  <span class="old">$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned active" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-1.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-1-1.jpg" alt="">
-                </a>
-                <span class="pink">-10%</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                  <span class="old">$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned active" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-2.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-2-1.jpg" alt="">
-                </a>
-                <span class="purple">New</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-3.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-3-1.jpg" alt="">
-                </a>
-                <span class="pink">-10%</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                  <span class="old">$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="owl-item cloned" style="width: 270px; margin-right: 30px;">
-            <div class="product-wrap">
-              <div class="product-img">
-                <a href="product-details.html">
-                  <img class="default-img" src="assets/img/product/pro-4.jpg" alt="">
-                  <img class="hover-img" src="assets/img/product/pro-4-1.jpg" alt="">
-                </a>
-                <span class="purple">New</span>
-                <div class="product-action">
-                  <div class="pro-same-action pro-wishlist">
-                    <a title="Wishlist" href="#"><i class="pe-7s-like"></i></a>
-                  </div>
-                  <div class="pro-same-action pro-cart">
-                    <a title="Add To Cart" href="#"><i class="pe-7s-cart"></i> Add to cart</a>
-                  </div>
-                  <div class="pro-same-action pro-quickview">
-                    <a title="Quick View" href="#" data-toggle="modal" data-target="#exampleModal"><i
-                      class="pe-7s-look"></i></a>
-                  </div>
-                </div>
-              </div>
-              <div class="product-content text-center">
-                <h3><a href="product-details.html">T- Shirt And Jeans</a></h3>
-                <div class="product-rating">
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o yellow"></i>
-                  <i class="fa fa-star-o"></i>
-                  <i class="fa fa-star-o"></i>
-                </div>
-                <div class="product-price">
-                  <span>$ 60.00</span>
-                </div>
-              </div>
-            </div>
-          </div>
+<div class="tab-content jump">>
+    <div class="container">
+        <div class="section-title text-center mb-50">
+            <h2>Sản phẩm liên quan</h2>
         </div>
-      </div>
-      <div class="owl-nav disabled">
-        <button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button>
-        <button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button>
-      </div>
-      <div class="owl-dots">
-        <button role="button" class="owl-dot active"><span></span></button>
-        <button role="button" class="owl-dot"><span></span></button>
-      </div>
-    </div>
-  </div>
-</div>
+        <div>
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col-lg-4 col-sm-6" *ngFor="let productRelated of productRelateds" >
+                    <div (click)="reloadWithProductRelated(productRelated.productId)" class="product-wrap mb-25">
+                        <div class="product-img">
+                            <a  [routerLink]="'/product-detail/' + productRelated.productId" >
+                                <img class="default-img" src="{{productRelated.image}}" alt="" />
+                                <img class="hover-img" src="{{productRelated.image}}" alt="" />
+                            </a>
+                            <div class="product-action">
+                                <div class="pro-same-action pro-wishlist">
+                                    <a title="Wishlist" href=""><i class="pe-7s-like"></i></a>
+                                </div>
+                                <div class="pro-same-action pro-cart">
+                                    <a title="Add To Cart" [routerLink]="'/product-detail/' + productRelated.productId" ><i class="pe-7s-cart"></i>Xem chi tiết</a>
+                                </div>
+                                <div class="pro-same-action pro-quickview">
+                                    <a title="Quick View" href="" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal"><i class="pe-7s-look"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content text-center">
+                            <h3><a [routerLink]="'/product-detail/' + productRelated.productId" >{{productRelated.productName}}</a></h3>
 
+                            <div class="product-price">
+                                <span style="color: #ee4d2d;">{{productRelated.minPrice}}</span>
+                                <span style="color: #ee4d2d;">{{productRelated.maxPrice}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

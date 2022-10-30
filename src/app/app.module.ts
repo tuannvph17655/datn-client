@@ -59,7 +59,6 @@ import {ProductDetailComponent} from './components/product-detail/product-detail
         },
         allowedDomains: ['localhost:8888'],
       }
-
     }),
     //NgxSliderModule,
     MaterialModule,

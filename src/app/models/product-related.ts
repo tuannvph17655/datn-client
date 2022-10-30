@@ -1,6 +1,7 @@
 export class ProductRelated {
   productId !: string;
   productName !: string;
-  price !: number;
+  minPrice !: string;
+  maxPrice !: string;
   image !: string;
 }

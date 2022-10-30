@@ -1,13 +1,13 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
-import {Address} from 'src/app/models/address';
-import {AddressService} from 'src/app/services/address.service';
-import {GhnService} from 'src/app/services/ghn.service';
-import {Province} from 'src/app/models/province';
-import {District} from 'src/app/models/district';
-import {Ward} from 'src/app/models/ward';
-import {REGEX_CUSTOM} from 'src/app/models/constant';
-import {ToastrService} from 'ngx-toastr';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Address } from 'src/app/models/address';
+import { AddressService } from 'src/app/services/address.service';
+import { GhnService } from 'src/app/services/ghn.service';
+import { Province } from 'src/app/models/province';
+import { District } from 'src/app/models/district';
+import { Ward } from 'src/app/models/ward';
+import { REGEX_CUSTOM } from 'src/app/models/constant';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-my-address',
@@ -17,41 +17,42 @@ import {ToastrService} from 'ngx-toastr';
 export class MyAddressComponent implements OnInit {
 
   provinces: Province[] = [];
-  districts: District[] = [];
+  districts : District[] = [];
   wards: Ward[] = [];
   provinceSelected !: any;
   districtSelected !: any;
   wardCodeSelected !: string;
 
-  @ViewChild('exampleModal') modal: any;
+  @ViewChild('exampleModal') modal:any;
 
   public address: Address[] = [];
 
-  provinceNameSelected!: string;
-  districtNameSelected!: string;
-  wardNameSelected!: string;
+  provinceNameSelected!:string;
+  districtNameSelected!:string;
+  wardNameSelected!:string;
 
 
-  addressForm = new UntypedFormGroup({
-    id: new UntypedFormControl(''),
-    nameOfRecipient: new UntypedFormControl('', [Validators.required]),
-    phoneNumber: new UntypedFormControl('', [Validators.required, Validators.pattern(REGEX_CUSTOM.PHONE_NUMBER)],),
-    addressDetail: new UntypedFormControl('', [Validators.required]),
-    provinceId: new UntypedFormControl('', [Validators.required]),
-    provinceName: new UntypedFormControl('', [Validators.required]),
-    districtId: new UntypedFormControl('', [Validators.required]),
-    districtName: new UntypedFormControl('', [Validators.required]),
-    wardCode: new UntypedFormControl('', [Validators.required]),
-    wardName: new UntypedFormControl('', [Validators.required]),
+  addressForm = new FormGroup({
+    id:  new FormControl(''),
+    nameOfRecipient: new FormControl('',[Validators.required]),
+    phoneNumber: new FormControl('',[Validators.required, Validators.pattern(REGEX_CUSTOM.PHONE_NUMBER)],),
+    addressDetail: new FormControl('',[Validators.required]),
+    provinceId: new FormControl('',[Validators.required]),
+    provinceName: new FormControl('',[Validators.required]),
+    districtId: new FormControl('',[Validators.required]),
+    districtName: new FormControl('',[Validators.required]),
+    wardCode: new FormControl('',[Validators.required]),
+    wardName: new FormControl('',[Validators.required]),
   });
 
 
+
   constructor(
-    private addressService: AddressService,
+    private addressService:AddressService,
     private toastr: ToastrService,
-    private GhnService: GhnService
-  ) {
-  }
+    private GhnService: GhnService,
+    private fb : FormBuilder
+  ) { }
 
   ngOnInit() {
     this.getListAddress();
@@ -70,38 +71,38 @@ export class MyAddressComponent implements OnInit {
     })
   }
 
-  setDefaultAddress(id: string) {
+  setDefaultAddress(id:string){
     this.addressService.setDefaultAddress(id).subscribe({
       next: (res: any) => {
-        console.log('data : ', res);
+        console.log('data : ',res);
         this.getListAddress();
 
-      }, error: (err) => {
-        console.log('error setting default address : ', err);
+      },error: (err) => {
+        console.log('error setting default address : ',err);
       }
     })
 
 
   }
 
-  deleteAddress(id: string) {
+  deleteAddress(id:string){
     this.addressService.deleteAddress(id).subscribe({
       next: (res: any) => {
-        console.log('data : ', res);
+        console.log('data : ',res);
         this.toastr.success('Xóa địa chỉ thành công !');
         this.getListAddress();
-      }, error: (err) => {
-        console.log('error deleting address : ', err);
+      },error: (err) => {
+        console.log('error deleting address : ',err);
       }
     })
 
   }
 
-  get f() {
+  get f(){
     return this.addressForm.controls;
   }
 
-  getProvinces() {
+  getProvinces(){
     this.GhnService.getProvinces().subscribe({
       next: (res: any) => {
         console.log('res province', res);
@@ -109,22 +110,22 @@ export class MyAddressComponent implements OnInit {
         this.provinces = res.data;
         console.log('provinces', this.provinces);
       }
-      , error: (err) => {
+      ,error: (err) => {
         console.log(err);
       }
     })
   }
 
-  onChangeProvince(e: any) {
+  onChangeProvince(e:any){
     this.provinceSelected = e.target.value;
     this.provinceNameSelected = e.target.options[e.target.selectedIndex].text;
     console.log('provinceNameSelected', this.provinceNameSelected);
     this.getDistricts(this.provinceSelected);
   }
 
-  getDistricts(provinceId: number) {
-    if (this.provinceSelected === null) {
-      return;
+  getDistricts(provinceId:number){
+    if(this.provinceSelected === null){
+      return ;
     }
     this.GhnService.getDistricts(provinceId).subscribe({
       next: (res: any) => {
@@ -133,22 +134,22 @@ export class MyAddressComponent implements OnInit {
         this.districts = res.data;
         console.log('districts', this.districts);
       }
-      , error: (err) => {
+      ,error: (err) => {
         console.log(err);
       }
     })
   }
 
-  onChangeDistrict(e: any) {
+  onChangeDistrict(e:any){
     this.districtSelected = e.target.value;
     this.districtNameSelected = e.target.options[e.target.selectedIndex].text;
     console.log('districtNameSelected', this.districtNameSelected);
     this.getWards(this.districtSelected);
   }
 
-  getWards(districtId: number) {
-    if (this.districtSelected === null) {
-      return;
+  getWards(districtId: number){
+    if(this.districtSelected === null){
+      return ;
     }
     this.GhnService.getWards(districtId).subscribe({
       next: (res: any) => {
@@ -156,19 +157,19 @@ export class MyAddressComponent implements OnInit {
         this.wards = res.data;
         console.log('res data ward', res.data);
       }
-      , error: (err) => {
+      ,error: (err) => {
         console.log(err);
       }
     })
   }
 
-  onChangeWard(e: any) {
+  onChangeWard(e:any) {
     this.wardCodeSelected = e.target.value;
     this.wardNameSelected = e.target.options[e.target.selectedIndex].text;
     console.log('wardNameSelected : ', this.wardNameSelected);
   }
 
-  saveAddress() {
+  saveAddress(){
 
     this.addressForm.value.provinceName = this.provinceNameSelected;
     this.addressForm.value.districtName = this.districtNameSelected;
@@ -178,8 +179,8 @@ export class MyAddressComponent implements OnInit {
       next: (res: any) => {
         this.toastr.success('Thêm địa chỉ thành công !');
         this.getListAddress();
-      }, error: (err) => {
-        console.log('error create address : ', err);
+      },error: (err) => {
+        console.log('error create address : ',err);
       }
     })
 
@@ -219,7 +220,7 @@ export class MyAddressComponent implements OnInit {
 
   }
 
-  updateAddress() {
+  updateAddress(){
 
     //pathValue addressForm to updateAddress when click editAddress
     this.addressForm.value.provinceName = this.provinceNameSelected;
@@ -236,8 +237,8 @@ export class MyAddressComponent implements OnInit {
         this.toastr.success('Cập nhật địa chỉ thành công !');
         this.getListAddress();
       }
-      , error: (err) => {
-        console.log('error update address : ', err);
+      ,error: (err) => {
+        console.log('error update address : ',err);
       }
     })
 
@@ -254,14 +255,14 @@ export class MyAddressComponent implements OnInit {
   }
 
 
-  resetForm() {
+  resetForm(){
     this.addressForm.reset();
   }
 
-  saveOrUpdateAddress() {
-    if (this.addressForm.value.id === null) {
+  saveOrUpdateAddress(){
+    if(this.addressForm.value.id === null){
       this.saveAddress();
-    } else {
+    }else{
       this.updateAddress();
     }
   }
