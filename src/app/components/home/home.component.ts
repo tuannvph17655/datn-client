@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Color } from 'src/app/models/color';
 import { Product } from 'src/app/models/product';
+import { Size } from 'src/app/models/size';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -10,18 +12,41 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  public listProduct: Product[] = [];
+  public colors: Color[] = [];  
+  public sizes: Size[] = [];
+  public colorIds : string [] = [];
+  public sizeIds : string [] = [];
 
-  public products : Product[] = [];
+  public minPrice !: number;
+  public maxPrice !: number;
+  public images !: [];
+  //page
+  page : number = 0 ;
+  pageSize !: number ;
+  totalPages : number = 0 ;
+  totalElements!: number;
 
-    //page
-    page : number = 0 ;
-    pageSize !: number ;
-    totalPages : number = 0 ;
-    totalElements!: number;
+  
+  //request
+  req: any = {
+    "textSearch": "",
+    "minPrice": "",
+    "maxPrice": "",
+    "sizeIds":[],
+    "colorIds": [],
+    "pageReq": {
+      "page": 0,
+      "pageSize": 9,
+      "sortField": "",
+      "sortDirection": ""
+    }
+  }
 
   constructor(
     private spinner: NgxSpinnerService,
-    private product: ProductService
+    private productService: ProductService,
+    
     ) {}
 
   ngOnInit(): void {
@@ -29,7 +54,7 @@ export class HomeComponent implements OnInit {
     setTimeout(() => {
       this.spinner.hide();
     }, 2000);
-    // this.getListProduct();
+    this.getListProduct4CreatedDate(this.req);
   }
 
   slides= [
@@ -65,6 +90,26 @@ export class HomeComponent implements OnInit {
     nav: true
   }
 
+  getListProduct4CreatedDate(req: any) {
+    this.req.pageReq.sortField = 'createDate';
+    this.productService.getListProduct(req).subscribe({
+      next : ( response : any) => {
+        console.log('response :', response);
+        this.listProduct = response.data;
+        this.page = response.page;
+        this.pageSize = response.pageSize;
+        this.totalPages = response.totalPages;
+        this.totalElements = response.totalElements;
+      }
+    })
+  }
 
+  
+
+  pageChange(page: any){
+    this.req.pageReq.page = page-1;
+    console.log('req page change',this.req);
+    this.getListProduct4CreatedDate(this.req);
+  }
 
 }

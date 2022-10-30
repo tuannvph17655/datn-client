@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Address } from 'src/app/models/address';
 import { AddressService } from 'src/app/services/address.service';
 import { GhnService } from 'src/app/services/ghn.service';
@@ -50,7 +50,8 @@ export class MyAddressComponent implements OnInit {
   constructor(
     private addressService:AddressService,
     private toastr: ToastrService,
-    private GhnService: GhnService
+    private GhnService: GhnService,
+    private fb : FormBuilder
   ) { }
 
   ngOnInit() {
@@ -173,7 +174,6 @@ export class MyAddressComponent implements OnInit {
     this.addressForm.value.provinceName = this.provinceNameSelected;
     this.addressForm.value.districtName = this.districtNameSelected;
     this.addressForm.value.wardName = this.wardNameSelected;
-
     this.addressService.createAddress(this.addressForm.value).subscribe({
       next: (res: any) => {
         this.toastr.success('Thêm địa chỉ thành công !');

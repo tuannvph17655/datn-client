@@ -82,16 +82,7 @@ export class CheckoutComponent implements OnInit {
     this.getProvinces();
     this.getAllCart();
     this.getListAddress();
-    this.togleTag();
     this.getAddressDefault();
-  }
-
-  togleTag() {
-    if(this.showMe == false) {
-      this.showMe = !this.showMe;
-    } else  {
-      this.showMe = !this.showMe;
-    }
   }
 
   getAddressDefault() {
@@ -129,9 +120,12 @@ export class CheckoutComponent implements OnInit {
           console.log('address get Id: ',address);
           this.checkoutForm.patchValue({
             name: address.data.nameOfRecipient,
+            phone : address.data.phoneNumber,
+
             address: address.data.addressDetail,
             province: address.data.provinceId,
             district: address.data.districtId,
+
             ward: address.data.wardCode,
           })
           console.log('checkoutForm: ',this.checkoutForm.value);
@@ -316,7 +310,8 @@ export class CheckoutComponent implements OnInit {
       paymentMethod: this.checkoutForm.value.paymentMethod,
       shipPrice: this.shipPrice,
       total: this.total,
-      shipMethod: environment.shipMethod
+      shipMethod: environment.shipMethod,
+      shopTotal : this.totalPrice,
       // coupon : this.checkoutForm.value.coupon
     }
 

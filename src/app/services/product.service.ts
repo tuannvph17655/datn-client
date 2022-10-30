@@ -23,9 +23,8 @@ export class ProductService {
     return this.http.get(API + 'product/' + id);
   }
 
-  
-  // getProductRelated(productId: string): Observable<any> {
-  //   return this.http.post<any>(API + 'product/relatedProduct',{ productId }, httpOptions);
-  // }
+  getProductRelated(productId: string): Observable<any> {
+    return this.http.post<any>(API + 'product/relatedProduct',{ productId }, httpOptions);
+  }
 
 }

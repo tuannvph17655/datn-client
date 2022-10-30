@@ -15,6 +15,8 @@ import { ProductRelated } from '../../models/product-related';
 import { Favourite } from 'src/app/models/favourite';
 import { SignInComponent } from '../authentication/sign-in/sign-in.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Size } from 'src/app/models/size';
+import { Color } from 'src/app/models/color';
 
 @Component({
   selector: 'app-product-detail',
@@ -27,8 +29,8 @@ export class ProductDetailComponent implements OnInit {
   id !: string;
   public reviews !: Review[];
   public productOptions !: Productoption[];
-  sizes:any;
-  colors:any;
+  sizes!:Size[];
+  colors!:Color[];
   quantity: number = 1;
   sizeSelected: string = '';
   colorSelected: string = '';
@@ -41,14 +43,14 @@ export class ProductDetailComponent implements OnInit {
   quantityProduct!:number;
   priceProduct!:string;
 
-  productRelated : ProductRelated[] = [];
+  productRelateds : ProductRelated[] = [];
 
   isFavourite = false;
   starRating = 0;
   ratingForm = false;
 
   listFavourite : Favourite[] = [];
-
+  nrSelect !: string;
 
   public imageProduct!: ProductImage[];
 
@@ -72,6 +74,7 @@ export class ProductDetailComponent implements OnInit {
     }
   }
 
+
   constructor(
     private product: ProductService,
     private spinner: NgxSpinnerService,
@@ -87,6 +90,7 @@ export class ProductDetailComponent implements OnInit {
     this.id = this.activeRoute.snapshot.params['id'];
     this.getProductDetail();
     this.getListSize();
+    this.getRelatedProduct();
     
   }
 
@@ -121,20 +125,22 @@ export class ProductDetailComponent implements OnInit {
      this.cart.getListSizeByProductId(this.id).subscribe({
       next:(response:any) => {
         this.sizes = response.data;
+        this.sizeSelected = this.sizes[0].sizeName as string;
+        console.log("sizes :" , this.sizes);
       }
     });
   }
 
-  // getRelatedProduct(){
-  //   this.product.getProductRelated(this.id).subscribe({
-  //     next: (response:any) => {
-  //       this.productRelated = response.data;
-  //       console.log('productRelated: ', this.productRelated);
-  //     },error: (err) => {
-  //       console.log('err getRelatedProduct : ',err);
-  //     }
-  //   });
-  // }
+  getRelatedProduct(){
+    this.product.getProductRelated(this.id).subscribe({
+      next: (response:any) => {
+        this.productRelateds = response.data;
+        console.log('productRelated: ', this.productRelateds);
+      },error: (err) => {
+        console.log('err getRelatedProduct : ',err);
+      }
+    });
+  }
 
   addToCart(){
     if (!this.auth.isAuthenticated()) {
@@ -231,4 +237,10 @@ export class ProductDetailComponent implements OnInit {
       panelClass: 'custom-dialog-container'
     })
   }
+
+  reloadWithProductRelated(id : any) {
+    this.router.navigate(['/product-detail', id]);
+    window.location.reload();
+  }
+
 }

@@ -65,7 +65,7 @@ export class SignInComponent implements OnInit {
         console.log(res);
         this.toastr.success('Đăng nhập thành công !!');
         this.dialogRefSignIn.close()
-        // window.location.reload();
+        window.location.reload();
         // this.router.navigate([this.]);
         // this.
       },

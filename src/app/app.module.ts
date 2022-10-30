@@ -58,7 +58,6 @@ import { AccountComponent } from './components/my-account/account/account.compon
         },
         allowedDomains: ['localhost:8888'],
       }
-
     }),
     //NgxSliderModule,
     MaterialModule,

@@ -4,17 +4,6 @@
     margin-bottom: 5px;
   }
   
-  
-  ngb-rating {
-    color: #FFC107;
-    font-size: 32px;
-  }
-  
-  .pro-details-rating ngb-rating {
-    color: #FFC107;
-    font-size: 20px;
-  }
-  
   .product-ratings-comments-view__no-data {
     height: 25rem;
     display: flex;
@@ -23,22 +12,9 @@
     flex-direction: column;
   }
   
-  .rating-review {
-    margin-top: -6px;
-    margin-left: -22px;
-    margin-right: 84px;
-  
-    /* position: absolute;
-    margin: 16px 0px 0px 0px; */
-  }
-  
   .rating-review ngb-rating {
     color: #FFC107;
     font-size: 17px;
-  }
-  
-  .review-content {
-    margin-left: -45px;
   }
   
   .rating-time {

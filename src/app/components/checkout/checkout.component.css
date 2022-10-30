@@ -2799,11 +2799,3 @@ td.printable-only {
 .select2-container--classic.select2-container--open .select2-dropdown {
   border-color: #5897fb;
 }
-
-#payment_cod {
-  display: none;
-}
-
-#payment_bank {
-  display: none;
-}

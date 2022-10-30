@@ -10,6 +10,6 @@ export interface OrderDetail {
   paymentMethod?:string;
   payed?:boolean;
   statusOrder?:string;
-
+  shopPrice ?: string;
 
 }
