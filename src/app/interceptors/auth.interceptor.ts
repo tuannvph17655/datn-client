@@ -1,10 +1,17 @@
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { AuthService } from '../services/auth.service';
-import { TokenStorageService } from '../services/token-storage.service';
+import {
+  HTTP_INTERCEPTORS,
+  HttpErrorResponse,
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest
+} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable, throwError} from 'rxjs';
+import {AuthService} from '../services/auth.service';
+import {TokenStorageService} from '../services/token-storage.service';
 
-import { catchError, filter, switchMap, take } from 'rxjs/operators';
+import {catchError, filter, switchMap, take} from 'rxjs/operators';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
@@ -14,7 +21,8 @@ export class AuthInterceptor implements HttpInterceptor {
   private isRefreshing = false;
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(private tokenService: TokenStorageService, private authService: AuthService) { }
+  constructor(private tokenService: TokenStorageService, private authService: AuthService) {
+  }
 
   public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -73,11 +81,11 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private addTokenHeader(request: HttpRequest<any>, token: string) {
-    return request.clone({ headers: request.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
+    return request.clone({headers: request.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token)});
   }
 
 }
 
 export const authInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
 ];

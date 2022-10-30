@@ -26,17 +26,19 @@
   </div>
 
   <br><br>
-  <hr  style="color:white">
-  <div class="mb-4 form-group" >
+  <hr style="color:white">
+  <div class="mb-4 form-group">
 
     <div class="form-check">
-      <input class="form-check-input"formControlName="gender" value="true" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <input class="form-check-input" formControlName="gender" value="true" type="radio" name="flexRadioDefault"
+             id="flexRadioDefault1">
       <label class="form-check-label" for="flexRadioDefault1">
         Nam
       </label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" formControlName="gender" value="false" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+      <input class="form-check-input" formControlName="gender" value="false" type="radio" name="flexRadioDefault"
+             id="flexRadioDefault2" checked>
       <label class="form-check-label" for="flexRadioDefault2">
         Nữ
       </label>
@@ -89,16 +91,17 @@
     </div>
     <div>
       <input class="hide" id="check" type="checkbox" (click)="x.type=x.type=='password'?'text':'password'"
-        style="width:15px;">
+             style="width:15px;">
       <label for="check" style="padding-top:11px;padding-left: 5px;position: absolute;">Hiện mật
         khẩu</label></div>
   </div>
 
   <div *ngIf="userForm.valid">
     <button type="submit" (click)="signUp()">Xác
-      nhận </button>
+      nhận
+    </button>
   </div>
   <div *ngIf="!userForm.valid">
-    <button type="submit" disabled (click)="signUp()">Đăng ký </button>
+    <button type="submit" disabled (click)="signUp()">Đăng ký</button>
   </div>
 </form>

@@ -1,14 +1,16 @@
-button{
- width: 100%;
+button {
+  width: 100%;
   height: 40px;
   text-align: center;
   background-color: rgb(0, 0, 0);
   color: white;
-  MARGIN-top:20px;
+  MARGIN-top: 20px;
 }
-.red_text{
+
+.red_text {
   color: red;
 }
-button:disabled{
+
+button:disabled {
   background-color: rgb(144, 144, 144);
 }

@@ -669,6 +669,7 @@ body,
     width: auto;
   }
 }
+
 @media (min-width: 1000px) {
   .col--two2 {
     padding-left: 1em;
@@ -676,6 +677,7 @@ body,
     padding-top: 8px !important;
   }
 }
+
 .field__input-wrapper {
   position: relative;
 }
@@ -1076,23 +1078,23 @@ textarea.field__input {
 
 .total-line-table__tbody + .total-line-table__footer .total-line:first-child th,
 .total-line-table__tbody
-  + .total-line-table__footer
-  .total-line:first-child
-  td {
++ .total-line-table__footer
+.total-line:first-child
+td {
   padding-top: 2em;
   position: relative;
 }
 
 .sidebar
-  .total-line-table__tbody
-  + .total-line-table__footer
-  .total-line:first-child
-  th:before,
+.total-line-table__tbody
++ .total-line-table__footer
+.total-line:first-child
+th:before,
 .sidebar
-  .total-line-table__tbody
-  + .total-line-table__footer
-  .total-line:first-child
-  td:before {
+.total-line-table__tbody
++ .total-line-table__footer
+.total-line:first-child
+td:before {
   background-color: rgba(175, 175, 175, 0.34);
   content: '';
   position: absolute;
@@ -1143,15 +1145,15 @@ textarea.field__input {
 }
 
 .order-summary--bordered
-  .order-summary__section--product-list
-  tbody
-  tr:last-child
-  td,
+.order-summary__section--product-list
+tbody
+tr:last-child
+td,
 .order-summary--bordered
-  .order-summary__section--product-list
-  tbody
-  tr:last-child
-  th {
+.order-summary__section--product-list
+tbody
+tr:last-child
+th {
   border-bottom: none;
 }
 
@@ -1542,70 +1544,57 @@ ul {
 
 .payment-icon--1,
 .payment-icon--2 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_onepay.png)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_onepay.png) no-repeat center center;
 }
 
 .payment-icon--6 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_ngan_luong.png)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_ngan_luong.png) no-repeat center center;
 }
 
 .payment-icon--7 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_bao_kim.png?18)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_bao_kim.png?18) no-repeat center center;
 }
 
 .payment-icon--10 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_paypal.png)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_paypal.png) no-repeat center center;
 }
 
 .payment-icon--11 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_moca.png)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_moca.png) no-repeat center center;
 }
 
 .payment-icon--12 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_webmoney.png?18)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_webmoney.png?18) no-repeat center center;
 }
 
 .payment-icon--13,
 .payment-icon--14 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_napas.png)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_napas.png) no-repeat center center;
 }
 
 .payment-icon--15 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_vtc_pay.png)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_vtc_pay.png) no-repeat center center;
 }
 
 .payment-icon--16 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_vnpay.png)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/payment_icon_vnpay.png) no-repeat center center;
 }
 
 .payment-icon--17 {
-  background: url(//bizweb.dktcdn.net/assets/images/payment_icon_zalopay_alt.png)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/images/payment_icon_zalopay_alt.png) no-repeat center center;
 }
 
 .payment-icon--18 {
-  background: url(//bizweb.dktcdn.net/assets/admin/images/logomm1.png?v=1)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/admin/images/logomm1.png?v=1) no-repeat center center;
   background-size: 28px 28px;
 }
 
 .payment-icon--19 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/vnpayqr-icon.png)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/vnpayqr-icon.png) no-repeat center center;
 }
 
 .payment-icon--20 {
-  background: url(//bizweb.dktcdn.net/assets/themes_support/alepay-icon.png)
-    no-repeat center center;
+  background: url(//bizweb.dktcdn.net/assets/themes_support/alepay-icon.png) no-repeat center center;
   background-size: contain;
 }
 
@@ -1868,25 +1857,25 @@ ul {
 }
 
 .field__input-wrapper--select2
-  .select2-container
-  .select2-selection--single
-  .select2-selection__rendered {
+.select2-container
+.select2-selection--single
+.select2-selection__rendered {
   padding-left: 0.8em;
 }
 
 .field__input-wrapper--select2
-  .select2-container--default
-  .select2-selection--single
-  .select2-selection__arrow {
+.select2-container--default
+.select2-selection--single
+.select2-selection__arrow {
   border-left: 1px rgba(179, 179, 179, 0.5) solid;
   width: 2em;
   top: 0.5em;
 }
 
 .field--error
-  .field__input-wrapper--select2
-  .select2-container--default
-  .select2-selection--single {
+.field__input-wrapper--select2
+.select2-container--default
+.select2-selection--single {
   border-color: #c23527;
   box-shadow: 0 0 0 1px #c23527;
 }
@@ -2012,6 +2001,7 @@ td.printable-only {
 .thankyou-page .order-summary {
   background-color: #fafafa;
 }
+
 .select2-container {
   box-sizing: border-box;
   display: inline-block;
@@ -2045,8 +2035,8 @@ td.printable-only {
 }
 
 .select2-container[dir='rtl']
-  .select2-selection--single
-  .select2-selection__rendered {
+.select2-selection--single
+.select2-selection__rendered {
   padding-right: 8px;
   padding-left: 20px;
 }
@@ -2082,8 +2072,8 @@ td.printable-only {
 }
 
 .select2-container
-  .select2-search--inline
-  .select2-search__field::-webkit-search-cancel-button {
+.select2-search--inline
+.select2-search__field::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
@@ -2192,15 +2182,15 @@ td.printable-only {
 }
 
 .select2-container--default
-  .select2-selection--single
-  .select2-selection__rendered {
+.select2-selection--single
+.select2-selection__rendered {
   color: #444;
   line-height: 28px;
 }
 
 .select2-container--default
-  .select2-selection--single
-  .select2-selection__clear {
+.select2-selection--single
+.select2-selection__clear {
   cursor: pointer;
   float: right;
   font-weight: bold;
@@ -2210,14 +2200,14 @@ td.printable-only {
 }
 
 .select2-container--default
-  .select2-selection--single
-  .select2-selection__placeholder {
+.select2-selection--single
+.select2-selection__placeholder {
   color: #999;
 }
 
 .select2-container--default
-  .select2-selection--single
-  .select2-selection__arrow {
+.select2-selection--single
+.select2-selection__arrow {
   height: 26px;
   position: absolute;
   top: 1px;
@@ -2226,9 +2216,9 @@ td.printable-only {
 }
 
 .select2-container--default
-  .select2-selection--single
-  .select2-selection__arrow
-  b {
+.select2-selection--single
+.select2-selection__arrow
+b {
   border-color: #888 transparent transparent transparent;
   border-style: solid;
   border-width: 5px 4px 0 4px;
@@ -2242,34 +2232,34 @@ td.printable-only {
 }
 
 .select2-container--default[dir='rtl']
-  .select2-selection--single
-  .select2-selection__clear {
+.select2-selection--single
+.select2-selection__clear {
   float: left;
 }
 
 .select2-container--default[dir='rtl']
-  .select2-selection--single
-  .select2-selection__arrow {
+.select2-selection--single
+.select2-selection__arrow {
   left: 1px;
   right: auto;
 }
 
 .select2-container--default.select2-container--disabled
-  .select2-selection--single {
+.select2-selection--single {
   background-color: #eee;
   cursor: default;
 }
 
 .select2-container--default.select2-container--disabled
-  .select2-selection--single
-  .select2-selection__clear {
+.select2-selection--single
+.select2-selection__clear {
   display: none;
 }
 
 .select2-container--default.select2-container--open
-  .select2-selection--single
-  .select2-selection__arrow
-  b {
+.select2-selection--single
+.select2-selection__arrow
+b {
   border-color: transparent transparent #888 transparent;
   border-width: 0 4px 5px 4px;
 }
@@ -2284,8 +2274,8 @@ td.printable-only {
 }
 
 .select2-container--default
-  .select2-selection--multiple
-  .select2-selection__clear {
+.select2-selection--multiple
+.select2-selection__clear {
   cursor: pointer;
   float: right;
   font-weight: bold;
@@ -2296,8 +2286,8 @@ td.printable-only {
 }
 
 .select2-container--default
-  .select2-selection--multiple
-  .select2-selection__choice {
+.select2-selection--multiple
+.select2-selection__choice {
   background-color: #e4e4e4;
   border: 1px solid #aaa;
   border-radius: 4px;
@@ -2308,16 +2298,16 @@ td.printable-only {
 }
 
 .select2-container--default
-  .select2-selection--multiple
-  .select2-selection__choice__display {
+.select2-selection--multiple
+.select2-selection__choice__display {
   cursor: default;
   padding-left: 2px;
   padding-right: 5px;
 }
 
 .select2-container--default
-  .select2-selection--multiple
-  .select2-selection__choice__remove {
+.select2-selection--multiple
+.select2-selection__choice__remove {
   background-color: transparent;
   border: none;
   border-right: 1px solid #aaa;
@@ -2331,33 +2321,33 @@ td.printable-only {
 }
 
 .select2-container--default
-  .select2-selection--multiple
-  .select2-selection__choice__remove:hover,
+.select2-selection--multiple
+.select2-selection__choice__remove:hover,
 .select2-container--default
-  .select2-selection--multiple
-  .select2-selection__choice__remove:focus {
+.select2-selection--multiple
+.select2-selection__choice__remove:focus {
   background-color: #f1f1f1;
   color: #333;
   outline: none;
 }
 
 .select2-container--default[dir='rtl']
-  .select2-selection--multiple
-  .select2-selection__choice {
+.select2-selection--multiple
+.select2-selection__choice {
   margin-left: 5px;
   margin-right: auto;
 }
 
 .select2-container--default[dir='rtl']
-  .select2-selection--multiple
-  .select2-selection__choice__display {
+.select2-selection--multiple
+.select2-selection__choice__display {
   padding-left: 5px;
   padding-right: 2px;
 }
 
 .select2-container--default[dir='rtl']
-  .select2-selection--multiple
-  .select2-selection__choice__remove {
+.select2-selection--multiple
+.select2-selection__choice__remove {
   border-left: 1px solid #aaa;
   border-right: none;
   border-top-left-radius: 0;
@@ -2367,42 +2357,42 @@ td.printable-only {
 }
 
 .select2-container--default[dir='rtl']
-  .select2-selection--multiple
-  .select2-selection__clear {
+.select2-selection--multiple
+.select2-selection__clear {
   float: left;
   margin-left: 10px;
   margin-right: auto;
 }
 
 .select2-container--default.select2-container--focus
-  .select2-selection--multiple {
+.select2-selection--multiple {
   border: solid black 1px;
   outline: 0;
 }
 
 .select2-container--default.select2-container--disabled
-  .select2-selection--multiple {
+.select2-selection--multiple {
   background-color: #eee;
   cursor: default;
 }
 
 .select2-container--default.select2-container--disabled
-  .select2-selection__choice__remove {
+.select2-selection__choice__remove {
   display: none;
 }
 
 .select2-container--default.select2-container--open.select2-container--above
-  .select2-selection--single,
+.select2-selection--single,
 .select2-container--default.select2-container--open.select2-container--above
-  .select2-selection--multiple {
+.select2-selection--multiple {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
 .select2-container--default.select2-container--open.select2-container--below
-  .select2-selection--single,
+.select2-selection--single,
 .select2-container--default.select2-container--open.select2-container--below
-  .select2-selection--multiple {
+.select2-selection--multiple {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }

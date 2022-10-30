@@ -1,15 +1,15 @@
 <h3 class="">Thông tin cá nhân</h3>
 <hr>
-<form class="row pt-3"  [formGroup]="userForm">
+<form class="row pt-3" [formGroup]="userForm">
   <div class="col-6 form-group">
     <label for="lastName" class="form-label">Họ</label>
     <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="Họ"
-      value="{{user.firstName}}">
+           value="{{user.firstName}}">
   </div>
   <div class="col-6 form-group">
     <label for="lastName" class="form-label">Tên</label>
     <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="Tên"
-      value="{{user.lastName}}">
+           value="{{user.lastName}}">
   </div>
   <br>
   <hr style="background-color: white">
@@ -19,14 +19,14 @@
     <div class="col-6 form-group">
       <div class="form-check form-check-inline">
         <input class="form-check-input" formControlName="gender" type="radio" name="inlineRadioOptions"
-          id="inlineRadio1" checked="{{user.gender==true?true:false}}" value="true" >
+               id="inlineRadio1" checked="{{user.gender==true?true:false}}" value="true">
         <label class="form-check-label" for="inlineRadio1">
           <h4>Nam</h4>
         </label>
       </div>
       <div class="form-check form-check-inline">
         <input class="form-check-input" formControlName="gender" type="radio" name="inlineRadioOptions"
-          id="inlineRadio2" checked="{{user.gender==false?true:false}}" value="false">
+               id="inlineRadio2" checked="{{user.gender==false?true:false}}" value="false">
         <label class="form-check-label" for="inlineRadio2">
           <h4>Nữ</h4>
         </label>
@@ -41,17 +41,17 @@
 
   <br>
 
-    <div class="col-6 form-group">
-      <label for="lastName" class="form-label">Email</label>
-      <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email"
-        value="{{user.email}}"  >
-        <input disabled="false" placeholder="i can NOT be changed"/>
-    </div>
-    <div class="col-6 form-group">
-      <label for="lastName" class="form-label">Số điện thoại</label>
-      <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Số điện thoại"
-        value="{{user.phone}}">
-    </div>
+  <div class="col-6 form-group">
+    <label for="lastName" class="form-label">Email</label>
+    <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email"
+           value="{{user.email}}">
+    <!-- <input disabled="true" placeholder="i can NOT be changed"/> -->
+  </div>
+  <div class="col-6 form-group">
+    <label for="lastName" class="form-label">Số điện thoại</label>
+    <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Số điện thoại"
+           value="{{user.phone}}">
+  </div>
 </form>
 <br>
 <!-- <div class="d-grid gap-2 col-6 mx-auto" style="width:100%;background-color: blue;">

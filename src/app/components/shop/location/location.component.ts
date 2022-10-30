@@ -1,7 +1,6 @@
-import { Location } from './../../../models/location';
-import { LocationService } from './../../../services/location.service';
-import { Component, OnInit } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import {LocationService} from './../../../services/location.service';
+import {Component, OnInit} from '@angular/core';
+import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 
 
 @Component({
@@ -14,18 +13,21 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 export class LocationComponent implements OnInit {
 
   locations: any[] = [];
-  count:number=0;
+  count: number = 0;
+
   constructor(private locationService: LocationService, private sanitizer: DomSanitizer) {
   }
 
   ngOnInit(): void {
     this.getLocation();
   }
+
   trustedDashboardUrl: SafeUrl = "";
+
   getLocation() {
     this.locationService.getListLocation().subscribe((data: any) => {
       this.locations = data.data.data;
-      this.count =this.locations.length;
+      this.count = this.locations.length;
       console.log(this.locations);
 
     });

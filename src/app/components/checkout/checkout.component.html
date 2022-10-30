@@ -1,6 +1,6 @@
 <div class="content">
-  <form data-tg-refresh="checkout" id="checkoutForm" [formGroup]="checkoutForm" (ngSubmit)="checkout()" >
-    <input type="hidden" name="_method" value="patch" />
+  <form data-tg-refresh="checkout" id="checkoutForm" [formGroup]="checkoutForm" (ngSubmit)="checkout()">
+    <input type="hidden" name="_method" value="patch"/>
     <div class="wrap">
       <main class="main">
         <header class="main__header">
@@ -38,7 +38,7 @@
                         class="field__input-wrapper field__input-wrapper--select2"
                       >
                         <label for="shippingProvince" class="field__label"
-                          >Sổ địa chỉ</label
+                        >Sổ địa chỉ</label
                         >
                         <select
                           name="saddress"
@@ -151,7 +151,7 @@
                         class="field__input-wrapper field__input-wrapper--select2"
                       >
                         <label for="shippingProvince" class="field__label"
-                          >Tỉnh thành</label
+                        >Tỉnh thành</label
                         >
                         <select
                           name="shippingProvince"
@@ -234,11 +234,11 @@
 
                           [attr.disabled]="true"
                         >
-                        <option value>---</option>
-                        <option *ngFor="let w of wards" [value]="w.WardCode">
-                          {{w.WardName}}
-                        </option>
-                      </select>
+                          <option value>---</option>
+                          <option *ngFor="let w of wards" [value]="w.WardCode">
+                            {{w.WardName}}
+                          </option>
+                        </select>
 
                       </div>
 
@@ -310,7 +310,7 @@
                         </div>
                         <label for="paymentMethod-482900" class="radio__label">
                           <span class="radio__label__primary"
-                            >Thanh toán khi giao hàng (COD)</span
+                          >Thanh toán khi giao hàng (COD)</span
                           >
                           <span class="radio__label__accessory">
                             <span class="radio__label__icon">
@@ -320,7 +320,7 @@
                         </label>
                       </div>
 
-                      <div class="content-box__row__desc" id = "payment_cod">
+                      <div class="content-box__row__desc" id="payment_cod">
                         <p>
                           Khách hàng được kiểm tra hàng trước khi thanh toán
                           tiền cho bưu tá.
@@ -342,7 +342,7 @@
                         </div>
                         <label for="paymentMethod-482899" class="radio__label">
                           <span class="radio__label__primary"
-                            >Chuyển khoản qua ngân hàng</span
+                          >Chuyển khoản qua ngân hàng</span
                           >
                           <span class="radio__label__accessory">
                             <span class="radio__label__icon">
@@ -374,7 +374,7 @@
                         </div>
                         <label for="paymentMethod-4828999" class="radio__label">
                           <span class="radio__label__primary"
-                            >Thanh toán qua VNPAY</span
+                          >Thanh toán qua VNPAY</span
                           >
                           <span class="radio__label__accessory">
                             <span class="radio__label__icon">
@@ -385,7 +385,7 @@
                       </div>
                     </div>
 
-                     <div class="content-box__row">
+                    <div class="content-box__row">
                       <div class="radio-wrapper">
                         <div class="radio__input">
                           <input
@@ -399,7 +399,7 @@
                         </div>
                         <label for="paymentMethod-4828999" class="radio__label">
                           <span class="radio__label__primary"
-                            >Thanh toán qua ZALOPAY</span
+                          >Thanh toán qua ZALOPAY</span
                           >
                           <span class="radio__label__accessory">
                             <span class="radio__label__icon">
@@ -456,78 +456,78 @@
                     Chi tiết đơn hàng
                   </caption>
                   <thead class="product-table__header">
-                    <tr>
-                      <th>
-                        <span class="visually-hidden">Ảnh sản phẩm</span>
-                      </th>
-                      <th>
-                        <span class="visually-hidden">Mô tả</span>
-                      </th>
-                      <th>
-                        <span class="visually-hidden">Sổ lượng</span>
-                      </th>
-                      <th>
-                        <span class="visually-hidden">Đơn giá</span>
-                      </th>
-                    </tr>
+                  <tr>
+                    <th>
+                      <span class="visually-hidden">Ảnh sản phẩm</span>
+                    </th>
+                    <th>
+                      <span class="visually-hidden">Mô tả</span>
+                    </th>
+                    <th>
+                      <span class="visually-hidden">Sổ lượng</span>
+                    </th>
+                    <th>
+                      <span class="visually-hidden">Đơn giá</span>
+                    </th>
+                  </tr>
                   </thead>
                   <tbody *ngFor="let c of cart;let i = index">
-                    <tr class="product" >
-                      <td class="product__image">
-                        <div class="product-thumbnail">
-                          <div
-                            class="product-thumbnail__wrapper"
-                            data-tg-static=""
-                          >
-                            <img
-                              [src]="c.image"
-                              alt=""
-                              class="product-thumbnail__image"
-                            />
-                          </div>
-                          <span class="product-thumbnail__quantity">{{c?.quantity}}</span>
+                  <tr class="product">
+                    <td class="product__image">
+                      <div class="product-thumbnail">
+                        <div
+                          class="product-thumbnail__wrapper"
+                          data-tg-static=""
+                        >
+                          <img
+                            [src]="c.image"
+                            alt=""
+                            class="product-thumbnail__image"
+                          />
                         </div>
-                      </td>
-                      <th class="product__description">
-                        <span class="product__description__name">{{c?.productName}}</span>
+                        <span class="product-thumbnail__quantity">{{c?.quantity}}</span>
+                      </div>
+                    </td>
+                    <th class="product__description">
+                      <span class="product__description__name">{{c?.productName}}</span>
 
-                        <span class="product__description__property">{{c.colorName}} / {{c.sizeName}}</span>
-                      </th>
-                      <td class="product__price">{{c?.subtotal | vnd}}</td>
-                    </tr>
+                      <span class="product__description__property">{{c.colorName}} / {{c.sizeName}}</span>
+                    </th>
+                    <td class="product__price">{{c?.subtotal | vnd}}</td>
+                  </tr>
                   </tbody>
                 </table>
               </div>
               <div class="order-summary__section order-summary__section--discount-code"
-                              data-tg-refresh="refreshDiscount" id="discountCode">
-                              <h3 class="visually-hidden">Mã khuyến mại</h3>
-                              <div class="edit_checkout animate-floating-labels">
-                                  <div class="fieldset">
-                                      <div class="field">
-                                          <div class="field__input-btn-wrapper">
-                                              <div class="field__input-wrapper">
-                                                  <label for="reductionCode" class="field__label">Nhập mã giảm
-                                                      giá</label>
-                                                  <input name="reductionCode" id="reductionCode" formControlName="coupon" type="text"
-                                                      class="field__input" autocomplete="off">
-                                              </div>
-                                              <button class="field__input-btn btn spinner btn--disabled"
-                                                  type="button">
-                                                  <span class="spinner-label">Áp dụng</span>
-                                                  <svg xmlns="http://www.w3.org/2000/svg" class="spinner-loader">
-                                                      <use href="#spinner"></use>
-                                                  </svg>
-                                              </button>
-                                          </div>
+                   data-tg-refresh="refreshDiscount" id="discountCode">
+                <h3 class="visually-hidden">Mã khuyến mại</h3>
+                <div class="edit_checkout animate-floating-labels">
+                  <div class="fieldset">
+                    <div class="field">
+                      <div class="field__input-btn-wrapper">
+                        <div class="field__input-wrapper">
+                          <label for="reductionCode" class="field__label">Nhập mã giảm
+                            giá</label>
+                          <input name="reductionCode" id="reductionCode" formControlName="coupon" type="text"
+                                 class="field__input" autocomplete="off">
+                        </div>
+                        <button class="field__input-btn btn spinner btn--disabled"
+                                type="button">
+                          <span class="spinner-label">Áp dụng</span>
+                          <svg xmlns="http://www.w3.org/2000/svg" class="spinner-loader">
+                            <use href="#spinner"></use>
+                          </svg>
+                        </button>
+                      </div>
 
-                                          <p
-                                              class="field__message field__message--error field__message--error-always-show hide">
-                                              Có lỗi xảy ra khi áp dụng khuyến mãi. Vui lòng thử lại</p>
-                                      </div>
+                      <p
+                        class="field__message field__message--error field__message--error-always-show hide">
+                        Có lỗi xảy ra khi áp dụng khuyến mãi. Vui lòng thử lại</p>
+                    </div>
 
-                                  </div>
-                              </div>
-                          </div>
+                  </div>
+                </div>
+              </div>
               <div
                 class="order-summary__section order-summary__section--total-lines order-summary--collapse-element"
                 data-tg-refresh="refreshOrderTotalPrice"
@@ -538,35 +538,35 @@
                     Tổng giá trị
                   </caption>
                   <thead>
-                    <tr>
-                      <td><span class="visually-hidden">Mô tả</span></td>
-                      <td><span class="visually-hidden">Giá tiền</span></td>
-                    </tr>
+                  <tr>
+                    <td><span class="visually-hidden">Mô tả</span></td>
+                    <td><span class="visually-hidden">Giá tiền</span></td>
+                  </tr>
                   </thead>
                   <tbody class="total-line-table__tbody">
-                    <tr class="total-line total-line--subtotal">
-                      <th class="total-line__name">Tạm tính</th>
-                      <td class="total-line__price">{{totalPrice | vnd}}</td>
-                    </tr>
+                  <tr class="total-line total-line--subtotal">
+                    <th class="total-line__name">Tạm tính</th>
+                    <td class="total-line__price">{{totalPrice | vnd}}</td>
+                  </tr>
 
-                    <tr class="total-line total-line--shipping-fee">
-                      <th class="total-line__name">
-                        Phí vận chuyển
-                      </th>
-                      <td class="total-line__price">{{shipping?.totalShip | vnd}}</td>
-                    </tr>
+                  <tr class="total-line total-line--shipping-fee">
+                    <th class="total-line__name">
+                      Phí vận chuyển
+                    </th>
+                    <td class="total-line__price">{{shipping?.totalShip | vnd}}</td>
+                  </tr>
                   </tbody>
                   <tfoot class="total-line-table__footer">
-                    <tr class="total-line payment-due">
-                      <th class="total-line__name">
+                  <tr class="total-line payment-due">
+                    <th class="total-line__name">
                         <span class="payment-due__label-total">
                           Tổng cộng
                         </span>
-                      </th>
-                      <td class="total-line__price">
-                        <span class="payment-due__price">{{total | vnd}}</span>
-                      </td>
-                    </tr>
+                    </th>
+                    <td class="total-line__price">
+                      <span class="payment-due__price">{{total | vnd}}</span>
+                    </td>
+                  </tr>
                   </tfoot>
                 </table>
               </div>
@@ -603,12 +603,12 @@
   <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
     <symbol id="spinner">
       <svg viewBox="0 0 30 30">
-              <circle stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="85%"
-                  cx="50%" cy="50%" r="40%">
-                  <animateTransform attributeName="transform" type="rotate" from="0 15 15" to="360 15 15" dur="0.7s"
-                      repeatCount="indefinite"></animateTransform>
-              </circle>
-          </svg>
+        <circle stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="85%"
+                cx="50%" cy="50%" r="40%">
+          <animateTransform attributeName="transform" type="rotate" from="0 15 15" to="360 15 15" dur="0.7s"
+                            repeatCount="indefinite"></animateTransform>
+        </circle>
+      </svg>
     </symbol>
   </svg>
 </div>

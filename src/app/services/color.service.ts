@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {environment} from 'src/environments/environment';
 
 const AUTH_API = environment.baseUrl;
 
@@ -9,9 +9,10 @@ const AUTH_API = environment.baseUrl;
 })
 export class ColorService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getListColor(){
+  getListColor() {
     return this.http.get(AUTH_API + 'color');
   }
 

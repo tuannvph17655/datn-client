@@ -3,7 +3,7 @@
     background: url(https://bizweb.sapocdn.net/100/438/408/themes/863105/assets/tick-line.svg) 0 4px no-repeat;
     margin-bottom: 5px;
   }
-  
+
   .product-ratings-comments-view__no-data {
     height: 25rem;
     display: flex;
@@ -11,18 +11,18 @@
     align-items: center;
     flex-direction: column;
   }
-  
+
   .rating-review ngb-rating {
     color: #FFC107;
     font-size: 17px;
   }
-  
+
   .rating-time {
     position: absolute;
     padding: 13px;
     margin: 12px 0px 0px -13px
   }
-  
+
   .single-review .review-bottom p {
     margin-top: 35px;
   }
@@ -30,4 +30,3 @@
   .check-box-size {
     width: 253px;
   }
-  

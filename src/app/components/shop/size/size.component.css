@@ -41,7 +41,8 @@ main.site-cleanVn .product-grid__image:after,
   height: 100%;
 }
 
-body {}
+body {
+}
 
 
 .product-grid__content {
@@ -213,11 +214,11 @@ span.product-grid__tags.product-grid__tags--cleandye {
     height: auto;
   }
 
-  .nav__item--has-child>a {
+  .nav__item--has-child > a {
     position: relative;
   }
 
-  .nav__item--has-child>a:before {
+  .nav__item--has-child > a:before {
     content: "";
     position: absolute;
     top: 50%;
@@ -231,7 +232,7 @@ span.product-grid__tags.product-grid__tags--cleandye {
     transition: all .3s;
   }
 
-  .nav__item--has-child>a.toggle-menu:before {
+  .nav__item--has-child > a.toggle-menu:before {
     transform: rotate(-135deg);
   }
 
@@ -242,7 +243,8 @@ span.product-grid__tags.product-grid__tags--cleandye {
     width: 100%;
   }
 
-  .nav-child-menu li {}
+  .nav-child-menu li {
+  }
 
   .nav-child-menu li a {
     display: flex;
@@ -252,7 +254,7 @@ span.product-grid__tags.product-grid__tags--cleandye {
     width: 100%;
   }
 
-  .nav-tab__menu li>a {
+  .nav-tab__menu li > a {
     display: block;
     width: 100%;
   }
@@ -323,7 +325,7 @@ span.product-grid__tags.product-grid__tags--cleandye {
   z-index: 4;
 }
 
-.select-selected.select-arrow-active+.select-items {
+.select-selected.select-arrow-active + .select-items {
   z-index: 3;
 }
 

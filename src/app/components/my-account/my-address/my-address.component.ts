@@ -59,14 +59,14 @@ export class MyAddressComponent implements OnInit {
     this.getProvinces();
   }
 
-  getListAddress(){
+  getListAddress() {
     this.addressService.getListAddress().subscribe({
       next: (res: any) => {
-        console.log('data : ',res);
+        console.log('data : ', res);
         this.address = res.data;
-        console.log('address:',this.address);
-      },error: (err) => {
-        console.log('error: ',err);
+        console.log('address:', this.address);
+      }, error: (err) => {
+        console.log('error: ', err);
       }
     })
   }
@@ -174,6 +174,7 @@ export class MyAddressComponent implements OnInit {
     this.addressForm.value.provinceName = this.provinceNameSelected;
     this.addressForm.value.districtName = this.districtNameSelected;
     this.addressForm.value.wardName = this.wardNameSelected;
+
     this.addressService.createAddress(this.addressForm.value).subscribe({
       next: (res: any) => {
         this.toastr.success('Thêm địa chỉ thành công !');

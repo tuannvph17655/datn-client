@@ -1,13 +1,12 @@
-import { User } from './../models/user';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import {Observable} from 'rxjs';
+import {environment} from 'src/environments/environment';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {UntypedFormBuilder} from '@angular/forms';
 
 const AUTH_API = environment.baseUrl;
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 let auth_token = window.localStorage.getItem('auth-token');
 
@@ -16,12 +15,14 @@ const headers = new HttpHeaders({
   'Authorization': `Bearer ${auth_token}`
 });
 
-const requestOptions = { headers: headers };
+const requestOptions = {headers: headers};
+
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  constructor(private http: HttpClient, private fb: FormBuilder) { }
+  constructor(private http: HttpClient, private fb: UntypedFormBuilder) {
+  }
 
   register(body: any): Observable<Object> {
     return this.http.post(AUTH_API + 'no-auth/customer/register', body, httpOptions);
@@ -31,7 +32,7 @@ export class AccountService {
     return this.http.get(AUTH_API + 'user/personal', requestOptions);
   }
 
-  updateProfile(body:any):Observable<Object>{
-    return this.http.post(AUTH_API+'user/update-profile',body,requestOptions);
+  updateProfile(body: any): Observable<Object> {
+    return this.http.post(AUTH_API + 'user/update-profile', body, requestOptions);
   }
 }

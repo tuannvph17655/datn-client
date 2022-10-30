@@ -1,6 +1,6 @@
-import { LabelType, Options } from '@angular-slider/ngx-slider';
-import { Component, Input, OnInit } from '@angular/core';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import {LabelType, Options} from '@angular-slider/ngx-slider';
+import {Component, Input, OnInit} from '@angular/core';
+import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -14,7 +14,8 @@ export class PriceComponent implements OnInit {
   minValue: number = 0;
   maxValue: number = 10000000;
 
-  constructor(public activeModal: NgbActiveModal) { }
+  constructor(public activeModal: NgbActiveModal) {
+  }
 
   ngOnInit(): void {
     this.minValue = this.fromParent.min;
@@ -32,22 +33,26 @@ export class PriceComponent implements OnInit {
   }
 
 
-
   optionss: Options = {
     floor: 0,
     ceil: 10000000,
     translate: (value: number, label: LabelType): string => {
       switch (label) {
-        case LabelType.Low:
-          {
-            this.priceOption.min = value;
-            return "<b>Giá thấp nhất: </b>" + new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
-          }
+        case LabelType.Low: {
+          this.priceOption.min = value;
+          return "<b>Giá thấp nhất: </b>" + new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+          }).format(value);
+        }
         case LabelType.High:
           this.priceOption.max = value;
-          return "<b>Giá cao nhất: </b>" + new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
+          return "<b>Giá cao nhất: </b>" + new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND'
+          }).format(value);
         default:
-          return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(value);
+          return new Intl.NumberFormat('vi-VN', {style: 'currency', currency: 'VND'}).format(value);
       }
     }
   };

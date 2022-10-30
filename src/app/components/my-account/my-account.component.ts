@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Customer } from 'src/app/models/customer';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
-import { UserService } from 'src/app/services/user.service';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Customer} from 'src/app/models/customer';
+import {TokenStorageService} from 'src/app/services/token-storage.service';
+import {UserService} from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-my-account',
@@ -17,7 +17,8 @@ export class MyAccountComponent implements OnInit {
     private router: Router,
     private tokenService: TokenStorageService,
     private userService: UserService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.getCurrentUserProfile();
@@ -29,13 +30,13 @@ export class MyAccountComponent implements OnInit {
         console.log('response current user', response);
         this.customer = response;
         console.log('customer', this.customer);
-      },error: (err) => {
+      }, error: (err) => {
         console.log('error get current user :', err);
       }
     })
   }
 
-  logout(){
+  logout() {
     this.tokenService.signOut();
     window.location.reload();
     this.router.navigate(['/home']);

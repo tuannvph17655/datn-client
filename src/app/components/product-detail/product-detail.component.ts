@@ -91,7 +91,7 @@ export class ProductDetailComponent implements OnInit {
     this.getProductDetail();
     this.getListSize();
     this.getRelatedProduct();
-    
+
   }
 
 

@@ -1,16 +1,17 @@
-import { ForgotPasswordComponent } from './../forgot-password/forgot-password.component';
-import { SignUpComponent } from './../sign-up/sign-up.component';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { ToastrService } from 'ngx-toastr';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
-import { environment } from 'src/environments/environment';
+import {ForgotPasswordComponent} from './../forgot-password/forgot-password.component';
+import {SignUpComponent} from './../sign-up/sign-up.component';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {ToastrService} from 'ngx-toastr';
+import {TokenStorageService} from 'src/app/services/token-storage.service';
+import {environment} from 'src/environments/environment';
 
 const AUTH_API = environment.baseUrl;
+
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
@@ -18,9 +19,9 @@ const AUTH_API = environment.baseUrl;
 })
 export class SignInComponent implements OnInit {
 
-  loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)])
+  loginForm = new UntypedFormGroup({
+    email: new UntypedFormControl('', [Validators.required, Validators.email]),
+    password: new UntypedFormControl('', [Validators.required, Validators.minLength(6)])
   })
 
   roles!: string;
@@ -34,7 +35,8 @@ export class SignInComponent implements OnInit {
     private http: HttpClient,
     private dialog: MatDialog,
     public dialogRefSignIn: MatDialogRef<SignInComponent>
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
   }
@@ -45,7 +47,7 @@ export class SignInComponent implements OnInit {
 
   login() {
     //decode jwt
-    const { email, password } = this.loginForm.value;
+    const {email, password} = this.loginForm.value;
 
     console.log(email, password);
 
@@ -54,7 +56,7 @@ export class SignInComponent implements OnInit {
     formData.append('password', password);
     this.http.post(AUTH_API + 'login', formData).subscribe(
       (res: any) => {
-        const { accessToken, refreshToken } = res;
+        const {accessToken, refreshToken} = res;
         this.tokenStorage.saveToken(accessToken);
         this.tokenStorage.saveRefreshToken(refreshToken);
         const decodedToken = this.helper.decodeToken(accessToken);
@@ -75,13 +77,13 @@ export class SignInComponent implements OnInit {
       }
     )
   }
+
   signUp() {
-    this.dialog.open(SignUpComponent, {
-    })
+    this.dialog.open(SignUpComponent, {})
   }
+
   forgotPassword() {
-    this.dialog.open(ForgotPasswordComponent, {
-    })
+    this.dialog.open(ForgotPasswordComponent, {})
     this.dialogRefSignIn.close()
   }
 }

@@ -1,5 +1,5 @@
 export class ProductOptionIdRes {
   productOptionId!: string;
-  quantity !:string;
-  price !:string;
+  quantity !: string;
+  price !: string;
 }

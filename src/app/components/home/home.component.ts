@@ -13,7 +13,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class HomeComponent implements OnInit {
   public listProduct: Product[] = [];
-  public colors: Color[] = [];  
+  public colors: Color[] = [];
   public sizes: Size[] = [];
   public colorIds : string [] = [];
   public sizeIds : string [] = [];
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   totalPages : number = 0 ;
   totalElements!: number;
 
-  
+
   //request
   req: any = {
     "textSearch": "",
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private spinner: NgxSpinnerService,
     private productService: ProductService,
-    
+
     ) {}
 
   ngOnInit(): void {
@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  
+
 
   pageChange(page: any){
     this.req.pageReq.page = page-1;

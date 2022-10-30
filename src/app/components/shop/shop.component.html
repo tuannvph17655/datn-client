@@ -17,7 +17,7 @@
             <div class="col-lg-9">
                 <div class="shop-top-bar">
                     <div class="select-shoing-wrap">
-  
+
                         <div class="shop-select">
                             <select (change)="sortSelect($event)">
                                 <option value="createDate">Mới nhất</option>
@@ -27,11 +27,11 @@
                               <option value="price,asc">Giá tăng dần</option>
                             </select>
                         </div>
-  
+
                         <p style="margin-left: 569px;">Có {{totalElements}} sản phẩm</p>
-  
+
                     </div>
-  
+
                   </div>
                 <div class="shop-bottom-area mt-35">
                   <div class="tab-content jump">
@@ -77,7 +77,7 @@
                           </div>
                       </div>
                   </div>
-  
+
                   <pagination-controls
                       class="text-center my-pagination"
                       previousLabel="Trước"
@@ -86,7 +86,7 @@
                   >
                 </pagination-controls>
               </div>
-  
+
             </div>
             <div class="col-lg-3">
               <div class="sidebar-style mr-30">
@@ -134,7 +134,7 @@
                             <div id="price-slider"></div>
                             <div class="input-number price-min">
                                 <input id="price-min" [(ngModel)]="minPrice" type="number" placeholder="">
-  
+
                             </div>
                             <span>đến</span>
                             <div class="input-number price-max">
@@ -142,14 +142,14 @@
                                        placeholder="">
                             </div>
                         </div>
-  
+
                         <button href="#"
                               style="width: 95%; margin-top: 5%;"
                               class="primary-btn cta-btn"
                               (click)="priceFilter()">Lọc theo giá
                         </button>
-  
-  
+
+
                       </div>
                     </div>
                   <div class="sidebar-widget mt-50">
@@ -195,5 +195,4 @@
         </div>
     </div>
   </div>
-  
-  
+

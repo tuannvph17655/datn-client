@@ -1,13 +1,14 @@
-import { SizeService } from './../../../services/size.service';
-import { map, Observable, startWith } from 'rxjs';
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import {SizeService} from './../../../services/size.service';
+import {Observable} from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {UntypedFormControl} from '@angular/forms';
 
 interface Product {
   id: string;
   name: string;
   image: string;
 }
+
 @Component({
   selector: 'app-size',
   templateUrl: './size.component.html',
@@ -18,8 +19,9 @@ export class SizeComponent implements OnInit {
   constructor(private size: SizeService,) {
 
   }
+
   getSizeCate = "S";
-  nameControl = new FormControl('');
+  nameControl = new UntypedFormControl('');
   products: Product[] = [];
   image = [];
   filteredOptions: Observable<string[]> | undefined;
@@ -29,10 +31,11 @@ export class SizeComponent implements OnInit {
   }
 
   nameProduct = "Vui lòng chọn loại sản phẩm..."
-  check = new FormControl();
+  check = new UntypedFormControl();
 
 
   height: string = "149";
+
   updateHeight($event: any) {
     this.height = $event.value;
     console.log(this.height);
@@ -40,6 +43,7 @@ export class SizeComponent implements OnInit {
   }
 
   weight: string = "41";
+
   updateWeight($event: any) {
     this.weight = $event.value;
     console.log(this.weight);
@@ -48,6 +52,7 @@ export class SizeComponent implements OnInit {
   }
 
   id = "";
+
   uploadImage(item: any) {
     console.log(item);
     this.image = item.image;
@@ -55,6 +60,7 @@ export class SizeComponent implements OnInit {
     this.id = item.id;
     // console.log(this.id);
   }
+
   getCategoryProduct() {
     this.size.getCategoryProduct().subscribe((data: any) => {
       this.products = data.data;
