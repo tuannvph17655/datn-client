@@ -1,7 +1,7 @@
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
 import {AccountService} from './../../../services/account.service';
-import {AbstractControl, UntypedFormBuilder, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {Component, OnInit} from '@angular/core';
 import * as moment from 'moment'
 
@@ -24,7 +24,7 @@ export class SignUpComponent implements OnInit {
   })
   error = []
 
-  constructor(private router: Router, private toastr: ToastrService, private account: AccountService, private fb: UntypedFormBuilder,) {
+  constructor(private router: Router, private toastr: ToastrService, private account: AccountService, private fb: FormBuilder,) {
   }
 
   ngOnInit(): void {
