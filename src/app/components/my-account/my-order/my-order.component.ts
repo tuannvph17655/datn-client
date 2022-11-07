@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {ToastrService} from 'ngx-toastr';
 import {Order} from 'src/app/models/order';
 import {OrderService} from 'src/app/services/order.service';
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-my-order',
@@ -33,6 +34,12 @@ export class MyOrderComponent implements OnInit {
     }
   }
 
+  filterOrderForm = new FormGroup({
+    textSearch : new FormControl(''),
+    status : new FormControl('')
+
+  })
+
   constructor(
     private orderService: OrderService,
     private toastr: ToastrService,
@@ -44,15 +51,6 @@ export class MyOrderComponent implements OnInit {
     this.searchListOrder(this.req);
   }
 
-  getListOrder() {
-    this.orderService.getListOrder().subscribe({
-      next: (res: any) => {
-        this.orders = res.data.orderRes;
-      }, error: (err) => {
-        console.log('error: ', err);
-      }
-    })
-  }
 
   searchListOrder(req: any) {
     this.orderService.listOrder(req).subscribe({

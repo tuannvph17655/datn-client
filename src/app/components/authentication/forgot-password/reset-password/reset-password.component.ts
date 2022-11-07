@@ -1,4 +1,4 @@
-import {AbstractControl, UntypedFormBuilder, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {Component, OnInit} from '@angular/core';
 
@@ -19,7 +19,7 @@ export class ResetPasswordComponent implements OnInit {
     return this.resetForm.controls;
   }
 
-  constructor(public dialog: MatDialog, public dialogRefReset: MatDialogRef<ResetPasswordComponent>, private fb: UntypedFormBuilder
+  constructor(public dialog: MatDialog, public dialogRefReset: MatDialogRef<ResetPasswordComponent>, private fb: FormBuilder
   ) {
   }
 

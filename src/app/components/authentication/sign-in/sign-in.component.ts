@@ -3,7 +3,7 @@ import {SignUpComponent} from './../sign-up/sign-up.component';
 import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {HttpClient} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
-import {UntypedFormControl, UntypedFormGroup, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {ToastrService} from 'ngx-toastr';
@@ -19,9 +19,9 @@ const AUTH_API = environment.baseUrl;
 })
 export class SignInComponent implements OnInit {
 
-  loginForm = new UntypedFormGroup({
-    email: new UntypedFormControl('', [Validators.required, Validators.email]),
-    password: new UntypedFormControl('', [Validators.required, Validators.minLength(6)])
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)])
   })
 
   roles!: string;
