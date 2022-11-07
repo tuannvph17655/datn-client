@@ -2789,3 +2789,10 @@ b {
 .select2-container--classic.select2-container--open .select2-dropdown {
   border-color: #5897fb;
 }
+
+.btn-add_address {
+  margin-left: 2em;
+  background-color: #6759ff;
+  border-radius: 5px;
+  padding: 5px;
+}

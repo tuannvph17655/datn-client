@@ -4,25 +4,47 @@
   <div class="my-account">
     <div class="dashboard">
       <div class="recent-orders">
-        <div
-          class="table-responsive-block tab-all"
-          style="-ms-overflow-x: auto"
-        >
-          <table class="table table-cart table-order" id="my-orders-table">
-            <thead class="thead-default">
-            <tr>
-              <th>Mã đơn hàng</th>
-              <th>Ngày mua</th>
-              <th>Địa chỉ</th>
-              <th>Giá trị<br/>đơn hàng</th>
-              <th>Trạng thái thanh toán</th>
-              <th>Trạng thái đơn hàng</th>
-              <th>Thao tác</th>
-            </tr>
-            </thead>
+        <div class="table-responsive-block tab-all" style="-ms-overflow-x: auto">
+          <div class="product-tab-list nav  text-center">
+            <div id="search-container" style="display: block" class="col-xs-12  col-sm-12 col-lg-12 no-padding">
+              <form action="" [formGroup]="filterForm">
+                <input type="search" [ngModel]="req.textSearch" formControlName="textSearch" placeholder="Tìm đơn hàng theo mã">
+                <button id="search" (click)="searchListOrder(req)">Tìm kiếm</button>
+              </form>
+            </div>
+            <a class="active status-value" href="#order-pending" data-bs-toggle="tab" (click)="fillStatusOrder('PENDING')">
+              <h4>Chờ xác nhận</h4>
+            </a>
+            <a href="#order-accept" data-bs-toggle="tab" class="status-value" (click)="fillStatusOrder('ACCEPT')">
+              <h4>Chờ giao hàng</h4>
+            </a>
+            <a href="#order-shipping" data-bs-toggle="tab" class="status-value" (click)="fillStatusOrder('SHIPPING')">
+              <h4>Đang giao hàng</h4>
+            </a>
+            <a href="#order-recevied" data-bs-toggle="tab" class="status-value" (click)="fillStatusOrder('RECEIVED')">
+              <h4>Giao hàng thành công</h4>
+            </a>
+            <a href="#order-refund" data-bs-toggle="tab" class="status-value" (click)="fillStatusOrder('EXCHANGE')">
+              <h4>Đổi hàng</h4>
+            </a>
+            <a href="#order-exchange" data-bs-toggle="tab" class="status-value" (click)="fillStatusOrder('REFUND')">
+              <h4>Trả hàng</h4>
+            </a>
+            <table class="table table-cart table-order mt-30" id="my-orders-table">
+              <thead class="thead-default">
+              <tr>
+                <th>Mã đơn hàng</th>
+                <th>Ngày mua</th>
+                <th>Địa chỉ</th>
+                <th>Giá trị<br/>đơn hàng</th>
+                <th>Trạng thái thanh toán</th>
+                <th>Trạng thái đơn hàng</th>
+                <th>Thao tác</th>
+              </tr>
+              </thead>
 
-            <tbody>
-            <tr *ngFor="let order of orders
+              <tbody>
+              <tr *ngFor="let order of orders
                 | paginate
                 : {
                     itemsPerPage: pageSize,
@@ -30,24 +52,24 @@
                     totalItems: totalElements
                   }
               ">
-              <td>
-                <a style="text-decoration: none;"
-                   [routerLink]="['/user/order-detail/' + order.orderId]">{{order?.orderCode}}</a>
-              </td>
-              <td>{{order?.createDate}}</td>
-              <td>
-                {{order?.address}}
-              </td>
-              <td>
-                <span class="price" style="color:#fcaf17;">{{order?.totalPrice}}₫</span>
-              </td>
-              <td>
-                <span class="span_pending">{{order?.payed ? 'Đã thanh toán' : 'Chưa thanh toán' }}</span>
-              </td>
-              <td>
-                <span class="span_">{{order?.statusValue}}</span>
-              </td>
-              <td *ngIf="order.status == 'PENDING'" style="border: initial;">
+                <td>
+                  <a style="text-decoration: none;"
+                     [routerLink]="['/user/order-detail/' + order.orderId]">{{order?.orderCode}}</a>
+                </td>
+                <td>{{order?.createDate}}</td>
+                <td>
+                  {{order?.address}}
+                </td>
+                <td>
+                  <span class="price" style="color:#fcaf17;">{{order?.totalPrice}}₫</span>
+                </td>
+                <td>
+                  <span class="span_pending">{{order?.payed ? 'Đã thanh toán' : 'Chưa thanh toán' }}</span>
+                </td>
+                <td>
+                  <span class="span_">{{order?.statusValue}}</span>
+                </td>
+                <td *ngIf="order.status == 'PENDING'" style="border: initial;">
                   <span class="span_">
                     <button
                       data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -56,163 +78,162 @@
                     >Hủy đơn hàng
                   </button>
                   </span>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-          <pagination-controls
-            class="text-center my-pagination"
-            previousLabel="Trước"
-            nextLabel="Sau"
-            (pageChange)="pageChange((page = $event))"
-          >
-          </pagination-controls>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <pagination-controls
+              class="text-center my-pagination"
+              previousLabel="Trước"
+              nextLabel="Sau"
+              (pageChange)="pageChange((page = $event))"
+            >
+            </pagination-controls>
+          </div>
+          <div
+            class="paginate-pages pull-right page-account text-right col-xs-12 col-sm-12 col-md-12 col-lg-12"
+          ></div>
         </div>
-
-        <div
-          class="paginate-pages pull-right page-account text-right col-xs-12 col-sm-12 col-md-12 col-lg-12"
-        ></div>
       </div>
     </div>
   </div>
-</div>
 
 
-<!-- Modal -->
+  <!-- Modal -->
 
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  data-bs-backdrop="static"
-  data-bs-keyboard="false"
-  aria-hidden="true"
-  #exampleModal
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel" style="font-size:25px;">Chọn Lý Do Hủy</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                (click)="resetReason()"></button>
-      </div>
-      <div class="modal-body">
-        <form class="row g-3" style="margin-left: 20px;">
-
-
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault1"
-              value="Muốn thay đổi địa chỉ giao hàng"
-              [(ngModel)]="reason"
-            >
-            <label class="form-check-label" for="flexRadioDefault1">
-              Muốn thay đổi địa chỉ giao hàng
-            </label>
-          </div>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    aria-hidden="true"
+    #exampleModal
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel" style="font-size:25px;">Chọn Lý Do Hủy</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                  (click)="resetReason()"></button>
+        </div>
+        <div class="modal-body">
+          <form class="row g-3" style="margin-left: 20px;">
 
 
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault1"
-              value="Muốn nhập/thay đổi mã Voucher"
-              [(ngModel)]="reason"
-            >
-            <label class="form-check-label" for="flexRadioDefault1">
-              Muốn nhập/thay đổi mã Voucher
-            </label>
-          </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                value="Muốn thay đổi địa chỉ giao hàng"
+                [(ngModel)]="reason"
+              >
+              <label class="form-check-label" for="flexRadioDefault1">
+                Muốn thay đổi địa chỉ giao hàng
+              </label>
+            </div>
 
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault1"
-              value="Muốn thay đổi sản phẩm trong đơn hàng (size, màu sắc, số lượng,...)"
-              [(ngModel)]="reason"
-            >
-            <label class="form-check-label" for="flexRadioDefault1">
-              Muốn thay đổi sản phẩm trong đơn hàng (size, màu sắc, số lượng,...)
-            </label>
-          </div>
 
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault1"
-              value="Thủ tục thanh toán quá rắc rối"
-              [(ngModel)]="reason"
-            >
-            <label class="form-check-label" for="flexRadioDefault1">
-              Thủ tục thanh toán quá rắc rối
-            </label>
-          </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                value="Muốn nhập/thay đổi mã Voucher"
+                [(ngModel)]="reason"
+              >
+              <label class="form-check-label" for="flexRadioDefault1">
+                Muốn nhập/thay đổi mã Voucher
+              </label>
+            </div>
 
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault1"
-              value="Tìm thấy giá rẻ hơn ở chỗ khác"
-              [(ngModel)]="reason"
-            >
-            <label class="form-check-label" for="flexRadioDefault1">
-              Tìm thấy giá rẻ hơn ở chỗ khác
-            </label>
-          </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                value="Muốn thay đổi sản phẩm trong đơn hàng (size, màu sắc, số lượng,...)"
+                [(ngModel)]="reason"
+              >
+              <label class="form-check-label" for="flexRadioDefault1">
+                Muốn thay đổi sản phẩm trong đơn hàng (size, màu sắc, số lượng,...)
+              </label>
+            </div>
 
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault1"
-              value="Đổi ý, không muốn mua nữa"
-              [(ngModel)]="reason"
-            >
-            <label class="form-check-label" for="flexRadioDefault1">
-              Đổi ý, không muốn mua nữa
-            </label>
-          </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                value="Thủ tục thanh toán quá rắc rối"
+                [(ngModel)]="reason"
+              >
+              <label class="form-check-label" for="flexRadioDefault1">
+                Thủ tục thanh toán quá rắc rối
+              </label>
+            </div>
 
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadioDefault"
-              id="flexRadioDefault2"
-              value="Khác"
-              [(ngModel)]="reason"
-            >
-            <label class="form-check-label" for="flexRadioDefault2">
-              Khác
-            </label>
-          </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                value="Tìm thấy giá rẻ hơn ở chỗ khác"
+                [(ngModel)]="reason"
+              >
+              <label class="form-check-label" for="flexRadioDefault1">
+                Tìm thấy giá rẻ hơn ở chỗ khác
+              </label>
+            </div>
 
-          <div class="" style="text-align: center;">
-            <button
-              type="submit"
-              class="btn btn-success"
-              style="width: inherit;margin-left: -25px;"
-              (click)="confirmReasonOrder()"
-              [attr.disabled]="!reason ? '' : null"
-            >
-              XÁC NHẬN
-            </button>
-          </div>
-        </form>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault1"
+                value="Đổi ý, không muốn mua nữa"
+                [(ngModel)]="reason"
+              >
+              <label class="form-check-label" for="flexRadioDefault1">
+                Đổi ý, không muốn mua nữa
+              </label>
+            </div>
+
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="flexRadioDefault2"
+                value="Khác"
+                [(ngModel)]="reason"
+              >
+              <label class="form-check-label" for="flexRadioDefault2">
+                Khác
+              </label>
+            </div>
+
+            <div class="" style="text-align: center;">
+              <button
+                type="submit"
+                class="btn btn-success"
+                style="width: inherit;margin-left: -25px;"
+                (click)="confirmReasonOrder()"
+                [attr.disabled]="!reason ? '' : null"
+              >
+                XÁC NHẬN
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-</div>

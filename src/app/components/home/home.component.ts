@@ -104,8 +104,6 @@ export class HomeComponent implements OnInit {
     })
   }
 
-
-
   pageChange(page: any){
     this.req.pageReq.page = page-1;
     console.log('req page change',this.req);

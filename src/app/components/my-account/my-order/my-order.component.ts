@@ -3,6 +3,7 @@ import {ToastrService} from 'ngx-toastr';
 import {Order} from 'src/app/models/order';
 import {OrderService} from 'src/app/services/order.service';
 import {FormControl, FormGroup} from "@angular/forms";
+import {FilterOrderForm, PageReq} from "../../../models/filter-order-form";
 
 @Component({
   selector: 'app-my-order',
@@ -22,10 +23,9 @@ export class MyOrderComponent implements OnInit {
   totalPages: number = 0;
   totalElements!: number;
   totalOrder: number = 0;
-
   req: any = {
     "textSearch": "",
-    "status": "",
+    "status": "PENDING",
     "pageReq": {
       "page": 0,
       "pageSize": 5,
@@ -33,11 +33,8 @@ export class MyOrderComponent implements OnInit {
       "sortDirection": ""
     }
   }
-
-  filterOrderForm = new FormGroup({
-    textSearch : new FormControl(''),
-    status : new FormControl('')
-
+  filterForm = new FormGroup({
+    textSearch : new FormControl('')
   })
 
   constructor(
@@ -47,12 +44,13 @@ export class MyOrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.getListOrder();
     this.searchListOrder(this.req);
   }
 
 
   searchListOrder(req: any) {
+    this.req.textSearch = this.filterForm.value.textSearch;
+    console.log('textSearch = ', this.req.textSearch);
     this.orderService.listOrder(req).subscribe({
       next: (res: any) => {
         console.log('res list search order: ', res);
@@ -114,6 +112,13 @@ export class MyOrderComponent implements OnInit {
   resetReason() {
     this.reason = '';
   }
+
+  fillStatusOrder(status : String) {
+    this.req.status = status;
+    this.searchListOrder(this.req);
+    console.log("status " , this.req.status )
+  }
+
 
 
 }
