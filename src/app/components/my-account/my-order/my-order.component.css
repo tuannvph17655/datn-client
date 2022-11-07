@@ -266,3 +266,58 @@ th, td {
 .col-right-ac .title-head span {
   right: 30px;
 }
+
+
+
+.btn-checkout,.btn-cancel {
+  border: none;
+}
+.btn-checkout:hover {
+  background-color: blue ; /* Green */
+  border: none;
+  color: white;
+}
+.btn-cancel:hover {
+  background-color: #0c4128 ; /* Green */
+  border: none;
+  color: white;
+}
+#search-container {
+  margin: 0 0 2em 0 ;
+}
+#search-container input {
+  background-color: transparent;
+  width: 230px;
+  border: none;
+  border-bottom: 2px solid #110f29;
+  padding : 0.5em 0.3em;
+}
+#search-container input :focus {
+  border: none;
+  border-bottom-color: #6759ff;
+}
+
+#search-container button {
+  padding : 0.5em 0.5em;
+  margin-left: 1em;
+  background-color: #6759ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  margin-top : 0.5em
+}
+
+.status-value {
+  border: 2px solid #6759ff;
+  padding: 1em 1em;
+  border-radius: 3em;
+  background-color: transparent;
+  color: #6759ff;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #6759ff;
+  color: #ffffff;
+}
+

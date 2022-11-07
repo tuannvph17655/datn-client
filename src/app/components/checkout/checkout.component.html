@@ -37,9 +37,7 @@
                       <div
                         class="field__input-wrapper field__input-wrapper--select2"
                       >
-                        <label for="shippingProvince" class="field__label"
-                        >Sổ địa chỉ</label
-                        >
+                        <label for="shippingProvince" class="field__label">Sổ địa chỉ<button class="btn-add_address" routerLink="/user/address">Thêm mới</button></label>
                         <select
                           name="saddress"
                           id="saddress"
@@ -555,18 +553,18 @@
                     </th>
                     <td class="total-line__price">{{shipping?.totalShip | vnd}}</td>
                   </tr>
-                    <tr class="total-line payment-due">
-                      <th class="total-line__name">
+                  <tr class="total-line payment-due">
+                    <th class="total-line__name">
                           <span class="payment-due__label-total">
                             Tổng cộng
                           </span>
-                      </th>
-                      <td class="total-line__price">
-                        <span class="payment-due__price">{{total | vnd}}</span>
-                      </td>
-                    </tr>
+                    </th>
+                    <td class="total-line__price">
+                      <span class="payment-due__price">{{total | vnd}}</span>
+                    </td>
+                  </tr>
                   </tbody>
-                  
+
                 </table>
               </div>
               <div
